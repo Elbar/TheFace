@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block content %}
     <div class="bg1">
         <div class="content1 grid">
@@ -36,7 +38,7 @@
                     <li><a class="button" href="#">попасть в базу</a></li>
                     <li><a href="#">
                         <p>Прокрутите вниз</p>
-                        <img src="assets/images/scroll.png" alt="scroll">
+                        <img src="{% static 'images/scroll.png' %}" alt="scroll">
                     </a></li>
                 </ul>
             </div>
@@ -58,7 +60,7 @@
 
             <div class="services">
                 <div class="service">
-                    <img src="assets/images/service1.png" alt="service">
+                    <img src="{% static 'images/service1.png' %}" alt="service">
                     <h5><a href="#">Организация и проведение кастингов</a></h5>
 
                     <p>Организацию и проведение кастингов "под ключ" любого уровня сложности для кино, рекламы, фото, ТВ
@@ -68,7 +70,7 @@
                 </div>
 
                 <div class="service">
-                    <img src="assets/images/service2.png" alt="service">
+                    <img src="{% static 'images/service2.png' %}" alt="service">
                     <h5><a href="#">Подбор актерского состава от главных героев до статистов для массовки</a></h5>
 
                     <p>Наша база уже насчитывает более тысячи актеров и актрис различных типажей и возрастов.
@@ -81,7 +83,7 @@
                 </div>
 
                 <div class="service">
-                    <img src="assets/images/service3.png" alt="service">
+                    <img src="{% static 'images/service3.png' %}" alt="service">
                     <h5><a href="#">Предоставление сотрудников актерского департамента</a></h5>
 
                     <p>Мы подберем профессионалов в своем деле (кастинг-директор, ассистент по актёрам,
@@ -90,7 +92,7 @@
                 </div>
 
                 <div class="service">
-                    <img src="assets/images/service4.png" alt="service">
+                    <img src="{% static 'images/service4.png' %}" alt="service">
                     <h5><a href="#">Аутсорсинг</a></h5>
 
                     <p>Обслуживание на постоянной осонове продакшн-компаний, рекламных агентств, студий, каналов.
@@ -129,35 +131,35 @@
             <div class="advantages">
                 <div class="advantage">
                     <div class="img_block">
-                        <img src="assets/images/advantage1.png" alt="advantage">
+                        <img src="{% static 'images/advantage1.png' %}" alt="advantage">
                     </div>
                     <p>Ежедневно обновляемая база</p>
                 </div>
 
                 <div class="advantage">
                     <div class="img_block">
-                        <img src="assets/images/advantage3.png" alt="advantage">
+                        <img src="{% static 'images/advantage3.png' %}" alt="advantage">
                     </div>
                     <p>Профессиональные актеры и новые лица</p>
                 </div>
 
                 <div class="advantage">
                     <div class="img_block">
-                        <img src="assets/images/advantage2.png" alt="advantage">
+                        <img src="{% static 'images/advantage2.png' %}" alt="advantage">
                     </div>
                     <p>Актеры любого возраста и типажа</p>
                 </div>
 
                 <div class="advantage">
                     <div class="img_block">
-                        <img src="assets/images/advantage4.png" alt="advantage">
+                        <img src="{% static 'images/advantage4.png' %}" alt="advantage">
                     </div>
                     <p>Быстрый и удобный поиск</p>
                 </div>
 
                 <div class="advantage">
                     <div class="img_block">
-                        <img src="assets/images/advantage5.png" alt="advantage">
+                        <img src="{% static 'images/advantage5.png' %}" alt="advantage">
                     </div>
                     <p>Гибкие расценки</p>
                 </div>
@@ -171,15 +173,15 @@
     <div class="bg5">
         <div class="slider">
             <div class="sl_slide">
-                <img src="assets/images/sl_image1.jpg" alt="image">
+                <img src="{% static 'images/sl_image1.jpg' %}" alt="image">
             </div>
 
             <div class="sl_slide">
-                <img src="assets/images/sl_image1.jpg" alt="image">
+                <img src="{% static 'images/sl_image1.jpg' %}" alt="image">
             </div>
 
             <div class="sl_slide">
-                <img src="assets/images/sl_image1.jpg" alt="image">
+                <img src="{% static 'images/sl_image1.jpg' %}" alt="image">
             </div>
         </div>
 
