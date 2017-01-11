@@ -42,15 +42,17 @@ class Actor(models.Model):
     name = models.CharField(max_length=255, verbose_name='Имя Актера')
     surname = models.CharField(max_length=255, verbose_name='Фамилия Актера')
     age = models.IntegerField(verbose_name='Возраст')
+
     height = models.CharField(max_length=255, verbose_name='Рост')
     weight = models.CharField(max_length=255, verbose_name='Вес')
+
     identify = models.CharField(max_length=255, verbose_name='Идентификатор')
     phone_number = models.CharField(max_length=255, verbose_name='Номер Телефона')
 
     link = models.CharField(max_length=255, verbose_name='ссылка')
     sex = models.CharField(choices=SEX, verbose_name='Пол', max_length=255)
-
     language = models.CharField(choices=LANGUAGE, verbose_name='Знание языков', max_length=255)
+
     ready_to_go = models.CharField(choices=READY_TO_GO, max_length=255, verbose_name='Готовность к выезду')
     ready_to_mass = models.CharField(choices=READY_TO_MASS, max_length=255, verbose_name='Готовность к массовым ролям')
     image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Фотография актера')

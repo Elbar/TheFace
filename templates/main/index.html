@@ -14,22 +14,23 @@
                 <p>Крупная база актеров, а так же кинематографистов, студий и локаций</p>
 
                 <ul class="participants">
-                    <li><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="middle"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="bottom"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="bottom"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="bottom"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="bottom"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
-                    <li class="bottom"><a href="#"><img src="assets/images/p_1.jpg" alt="image"></a></li>
+                    {% for actor in actors %}
+
+                        <li><a href="{{ actor.get_absolute_url }}"><img src="/media/{{ actor.image }}" alt="image"></a>
+                        </li>
+                    {% endfor %}
+
+                    {% for actor in actors1 %}
+
+                        <li class="middle"><a href="{{ actor.get_absolute_url }}"><img src="/media/{{ actor.image }}"
+                                                                                       alt="image"></a></li>
+
+                    {% endfor %}
+
+                    {% for actor in actors2 %}
+                        <li class="bottom"><a href="{{ actor.get_absolute_url }}"><img src="/media/{{ actor.image }}"
+                                                                                       alt="image"></a></li>
+                    {% endfor %}
                 </ul>
 
 
