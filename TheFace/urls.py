@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'actors.views.index_view', name='index'),
+    url(r'^actors/', 'actors.views.actor_view', name='actor'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

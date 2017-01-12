@@ -11,3 +11,11 @@ def index_view(request):
     template = 'main/index.html'
 
     return render(request, template, context)
+
+
+def actor_view(request):
+    actors = Actor.objects.all()
+    context = {"actors": actors}
+    template = 'actors.html'
+
+    return render(request, template, context)
