@@ -1577,13 +1577,13 @@ h3{
     width: 10.25641025641026%;
 }
 
-.f_form > input[type="button"],
+.f_form > input[type="submit"],
 a{
     font-family: "GothamProBlack", sans-serif;
 }
 
 
-.f_form input[type="button"]{
+.f_form input[type="submit"]{
     font-family: "GothamProBlack", sans-serif;
     font-size: 14px;
     color: #fff;
@@ -1741,7 +1741,7 @@ input[type=checkbox]:checked + label:before {
     top: 12px;
 }
 
-.a_links input[type="button"]{
+.a_links input[type="submit"]{
     position: absolute;
     top: 50%;
     left: 50%;

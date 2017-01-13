@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 
+{% load widget_tweaks %}
 
 {% block content %}
 
@@ -21,60 +22,47 @@
 
     <div class="a_bg2">
         <div class="filter grid">
-            <form method="post" action="#" class="f_form filter_f">
-                <div class="switch-field">
-                    <div class="switch-title">Пол</div>
-                    <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
-                    <label for="switch_left">Мужчины</label>
-                    <input type="radio" id="switch_right" name="switch_2" value="no"/>
-                    <label for="switch_right">Женщины</label>
-                </div>
+            <form method="post" action="{% url 'actor' %}" class="f_form filter_f">{% csrf_token %}
+                {#                <div class="switch-field">#}
+                {#                    <div class="switch-title">Пол</div>#}
+                {#                    <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>#}
+                {#                    <label for="switch_left">Мужчина</label>#}
+                {#                    <input type="radio" id="switch_right" name="switch_2" value="no"/>#}
+                {#                    <label for="switch_right">Женщина</label>#}
+                {#                </div>#}
 
                 <div class="field">
-                    <label for="select1">Категории<br>
-                        <select name="select-name" id="select1">
-                            <option value="1">12:00</option>
-                            <option value="2">13:00</option>
-                            <option value="2">14:00</option>
-                            <option value="2">15:00</option>
-                        </select>
+                    <label for="select1">Пол<br>
+
+                        {% render_field form.sex %}
+
                     </label>
                 </div>
 
                 <div class="field age">
                     <div class="switch-title">Возраст</div>
                     <label for="number1">
-                        <input type="number" name="age" id="number1" placeholder="от">
+                        {% render_field form.minAge %}
                     </label>
 
                     <label for="number2">
-                        <input type="number" name="age" id="number2" placeholder="до">
+                        {% render_field form.maxAge %}
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="select2">Город<br>
-                        <select name="select-name" id="select2">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
-                        </select>
+                        {% render_field form.town %}
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="select3">Знание языков<br>
-                        <select name="select-name" id="select3">
-                            <option value="1">Русский</option>
-                            <option value="2">Немецкий</option>
-                            <option value="2">Английский</option>
-                            <option value="2">Французский</option>
-                        </select>
+                        {% render_field form.language %}
                     </label>
                 </div>
 
-                <input type="button" name="button" value="Найти актера">
+                <input type="submit" name="button" value="Найти актера">
                 <a href="#" class="close">Расширенный поиск</a>
             </form>
 

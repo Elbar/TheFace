@@ -62,7 +62,7 @@ class Actor(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.identify
+        return self.name
 
     def get_absolute_url(self):
         return "/actors/%i/" % self.id

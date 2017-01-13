@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Actor
+from actors.form import FilterForm
 
 
 def index_view(request):
@@ -14,8 +15,20 @@ def index_view(request):
 
 
 def actor_view(request):
-    actors = Actor.objects.all()
-    context = {"actors": actors}
+    form = FilterForm(request.POST)
+    filter_form = FilterForm
     template = 'actors.html'
+    actors = None
+    if request.method == 'POST':
+        print request.method
+        if form.is_valid():
+            sex = form.cleaned_data['sex']
+            print sex
+            actors = Actor.objects.filter(sex=sex)
+        else:
+            print form.errors
+    else:
+        actors = Actor.objects.all()
 
+    context = {"actors": actors, "form": filter_form}
     return render(request, template, context)
