@@ -70,10 +70,6 @@ TEMPLATES = [
     },
 ]
 
-JET_DEFAULT_THEME = 'green'
-
-JET_SIDE_MENU_COMPACT = True
-
 WSGI_APPLICATION = 'TheFace.wsgi.application'
 
 # Database
