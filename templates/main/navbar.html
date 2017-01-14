@@ -5,8 +5,8 @@
 
             <nav>
                 <ul class="menu">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="{% url 'actor' %}">Актеры</a></li>
+                    <li {% if location == 'index' %}class="active"{% endif %}><a href="{% url 'index' %}">Главная</a></li>
+                    <li {% if location == 'actors' %}class="active"{% endif %}><a href="{% url 'actor' %}">Актеры</a></li>
                     <li><a href="#">Кинематографисты</a></li>
                     <li><a href="#">Студии</a></li>
                     <li><a href="#">локации</a></li>
