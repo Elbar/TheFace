@@ -20,10 +20,23 @@ READY_TO_MASS = (
     ('No', 'No'),
 )
 
-LANGUAGE = (
-    ('English', 'English'),
-    ('Russian', 'Russian'),
-    ('Kyrgyz', 'Kyrgyz'),
+LANGUAGE_CHOICES = (
+    ('Russian', 'Русский'),
+    ('Enlish', 'Английский'),
+    ('Deutch', 'Немецкий'),
+    ('France', 'Французский'),
+)
+
+TOWN_CHOICES = (
+    ('Bishkek', 'Бишкек'),
+    ('Osh', 'Ош'),
+    ('Karakol', 'Каракол'),
+    ('Djalal-Abad', 'Джалал Абад'),
+    ('Cholpon-Ata', 'Чолпон-Ата'),
+    ('Talas', 'Талас'),
+    ('Batken', 'Баткен'),
+    ('Karakol', 'Каракол'),
+    ('Balykchy', 'Балыкчы'),
 )
 
 STATUS = (
@@ -51,7 +64,8 @@ class Actor(models.Model):
 
     link = models.CharField(max_length=255, verbose_name='ссылка')
     sex = models.CharField(choices=SEX, verbose_name='Пол', max_length=255)
-    language = models.CharField(choices=LANGUAGE, verbose_name='Знание языков', max_length=255)
+    town = models.CharField(choices=TOWN_CHOICES, max_length=255, null=True)
+    language = models.CharField(choices=LANGUAGE_CHOICES, verbose_name='Знание языков', max_length=255)
 
     ready_to_go = models.CharField(choices=READY_TO_GO, max_length=255, verbose_name='Готовность к выезду')
     ready_to_mass = models.CharField(choices=READY_TO_MASS, max_length=255, verbose_name='Готовность к массовым ролям')

@@ -23,7 +23,11 @@ def actor_view(request):
         print request.method
         if form.is_valid():
             sex = form.cleaned_data['sex']
-            print sex
+            minAge = form.cleaned_data['minAge']
+            maxAge = form.cleaned_data['maxAge']
+            town = form.cleaned_data['town']
+            language = form.cleaned_data['language']
+
             actors = Actor.objects.filter(sex=sex)
         else:
             print form.errors
