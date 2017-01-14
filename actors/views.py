@@ -8,7 +8,7 @@ def index_view(request):
     actors = Actor.objects.all()[0:5]
     actors1 = Actor.objects.all()[5:11]
     actors2 = Actor.objects.all()[11:16]
-    context = {"actors": actors, "actors1": actors1, "actors2": actors2}
+    context = {"actors": actors, "actors1": actors1, "actors2": actors2, 'location': 'index'}
     template = 'main/index.html'
 
     return render(request, template, context)
@@ -28,11 +28,11 @@ def actor_view(request):
             town = form.cleaned_data['town']
             language = form.cleaned_data['language']
 
-            actors = Actor.objects.filter(sex=sex)
+            actors = Actor.objects.filter(sex=sex, town=town, language=language, age__range=(minAge, maxAge))
         else:
             print form.errors
     else:
         actors = Actor.objects.all()
 
-    context = {"actors": actors, "form": filter_form}
+    context = {"actors": actors, "form": filter_form, 'location': 'actors'}
     return render(request, template, context)

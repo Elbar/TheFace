@@ -140,7 +140,7 @@ nav{
     border-bottom: 1px solid #8dc125;
 }
 
-.menu li:first-child a{
+.menu li.active a{
     color: #8dc125;
     border-bottom: 1px solid #8dc125;
 }
