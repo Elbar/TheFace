@@ -36,3 +36,10 @@ def actor_view(request):
 
     context = {"actors": actors, "form": filter_form, 'location': 'actors'}
     return render(request, template, context)
+
+
+def become_an_actor_view(request):
+    context = {}
+    template = 'become_an_actor.html'
+
+    return render(request, template, context)

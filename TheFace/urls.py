@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'actors.views.index_view', name='index'),
     url(r'^actors/', 'actors.views.actor_view', name='actor'),
+    url(r'^beactor/', 'actors.views.become_an_actor_view', name='beactor'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

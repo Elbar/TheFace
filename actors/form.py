@@ -32,3 +32,13 @@ class FilterForm(forms.Form):
     maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
     town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
+
+
+class ActorForm(forms.Form):
+    name = forms.CharField(max_length=255, required=False)
+    surname = forms.CharField(max_length=255, required=False)
+    birthday = forms.DateField()
+
+    sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
+    town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
+    language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)

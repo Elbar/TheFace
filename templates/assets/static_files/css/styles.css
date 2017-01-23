@@ -57,7 +57,6 @@
     /*font-style: normal;*/
     /*font-weight: normal;*/
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -112,7 +111,6 @@ nav{
 }
 
 .menu{
-    font-family: "GothamProLight", sans-serif;
     font-size: 0;
 }
 
@@ -124,6 +122,7 @@ nav{
 
 .menu a{
     display: block;
+    font-family: "GothamProLight", sans-serif;
     font-size: 12px;
     color: #fff;
     text-decoration: none;
@@ -140,7 +139,7 @@ nav{
     border-bottom: 1px solid #8dc125;
 }
 
-.menu li.active a{
+.menu li:first-child a{
     color: #8dc125;
     border-bottom: 1px solid #8dc125;
 }
@@ -1403,11 +1402,11 @@ footer{
 
 
 h3{
-   font-size: 20px;
+    font-size: 20px;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 .favourite{
@@ -1490,7 +1489,7 @@ h3{
 
 .switch-field label {
     display: inline-block;
-    width: 49.5%;
+    width: 49%;
     background-color: #fff;
     line-height: 27px;
     text-align: center;
@@ -1512,7 +1511,7 @@ h3{
 }
 
 .switch-field label:first-of-type {
-    margin-right: 1%;
+    margin-right: 2%;
 }
 
 .field label{
@@ -1526,6 +1525,9 @@ h3{
 
 .field label input,
 .field label select{
+    font-family: "GothamProBlack", sans-serif;
+    font-size: 12px;
+    width: 100%;
     height: 30px;
     margin-top: 8px;
     padding-left: 10px;
@@ -1533,10 +1535,8 @@ h3{
 }
 
 .field label select{
-    background: #fff url("../images/polygon.png") 90% center no-repeat;
-    padding-right: 18%;
-    width: 100%;
-
+    background: #fff url("../images/polygon.png") 92% center no-repeat;
+    padding-right: 10%;
 }
 
 .f_form > div:nth-child(2){
@@ -1577,13 +1577,13 @@ h3{
     width: 10.25641025641026%;
 }
 
-.f_form > input[type="submit"],
+.f_form > input[type="button"],
 a{
     font-family: "GothamProBlack", sans-serif;
 }
 
 
-.f_form input[type="submit"]{
+.f_form input[type="button"]{
     font-family: "GothamProBlack", sans-serif;
     font-size: 14px;
     color: #fff;
@@ -1741,7 +1741,7 @@ input[type=checkbox]:checked + label:before {
     top: 12px;
 }
 
-.a_links input[type="submit"]{
+.a_links input[type="button"]{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1792,6 +1792,271 @@ input[type=checkbox]:checked + label:before {
 
 .player:hover .p_hover{
     opacity: 1;
+}
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+---------------------------------------------------BECOME_AN_ACTOR-----------------------------------------------------
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+/*----------------------B_BG1-------------------------*/
+
+.b_bg1{
+    background: url("../images/header_bg.jpg") center no-repeat;
+    background-size: cover;
+    padding: 15px 0 35px 0;
+}
+
+.b_content1 nav li{
+    padding: 0 10px;
+}
+
+/*----------------------B_BG2-------------------------*/
+
+main{
+    background: url("../images/main_bg.png") center no-repeat;
+    background-size: cover;
+}
+
+.b_bg2{
+    padding: 55px 0 20px 0;
+}
+
+.b_content2 h2{
+    max-width: 72.64957264957265%;
+}
+
+.b_content2 p{
+    font-size: 16px;
+    color: #0c1723;
+    margin-bottom: 30px;
+}
+
+.b_content2 > p:first-of-type{
+    margin-top: 65px;
+}
+
+.b_content2 > p:last-of-type{
+    margin-bottom: 0;
+}
+
+.b_content2 p b{
+    font-family: "GothamProBold", sans-serif;
+    font-size: 16px;
+}
+
+.b_content2 p a{
+    font-family: "GothamProLight", sans-serif;
+    color: #30ad54;
+    text-decoration: none;
+}
+
+/*----------------------B_BG3-------------------------*/
+
+.b_bg3{
+    padding: 30px 0 12px 0;
+    /*border: 1px solid red;*/
+}
+
+.b_content3 h2{
+    max-width: 52%;
+}
+
+.b_content3 .advantages{
+    margin-bottom: 0;
+}
+
+.advantage_title{
+    font-family: "GothamProBold", sans-serif;
+    font-size: 16px;
+    color: #0c1723;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+.b_content3 .advantage p{
+    margin-top: 0;
+}
+
+
+/*----------------------B_BG4-------------------------*/
+
+.b_content4{
+    background-color: #e6e7e9;
+    padding: 40px 0;
+}
+
+.b_content4 h3{
+    width: 35.8974358974359%;
+    color: #0c1723;
+    margin: 0 auto;
+}
+
+.register{
+    position: relative;
+    left: 30px;
+    font-family: "GothamProBlack", sans-serif;
+    font-size: 0;
+    color: #0c1723;
+    margin-top: 30px;
+}
+
+.register > div:nth-child(1){
+    font-size: 0;
+    width: 36.66666666666667%;
+}
+
+.register > div:nth-child(1) label{
+    width: 49%;
+}
+
+.register > div:nth-child(1) label:first-of-type{
+    margin-right: 2%;
+}
+
+.register > div:nth-child(3),
+.register > div:nth-child(4){
+    width: 10.25641025641026%;
+}
+
+.register > div:nth-child(5){
+    width: 11.96581196581197%;
+}
+
+.register > div:nth-child(6){
+    font-size: 0;
+    width: 22.22222222222222%;
+    /*border: 1px solid red;*/
+}
+
+.register > div:nth-child(6) label{
+    width: 46.15384615384615%;
+}
+
+.register > div:nth-child(6) label:nth-child(odd){
+    margin-right: 7.692307692307692%;
+}
+
+.register > div:nth-child(6) label:nth-child(3),
+.register > div:nth-child(6) label:nth-child(4){
+    margin-top: 28px;
+}
+
+.register > div:nth-child(7){
+    width: 31.62393162393162%;
+    font-size: 0;
+    margin-right: 0;
+}
+
+
+.register > div:nth-child(8),
+.register > div:nth-child(9){
+    width: 8.547008547008547%;
+    margin-right: 0;
+}
+
+.register > div:nth-child(9),
+.register > div:nth-child(10){
+    padding-top: 24px;
+}
+
+.register > div:nth-child(8) label,
+.register > div:nth-child(9) label,
+.register > div:nth-child(10) label{
+    width: 100%;
+}
+
+.register > div:nth-child(10){
+    width: 16.23931623931624%;
+    margin-right: 0;
+}
+
+.register > div:nth-child(11){
+    width: 22.22222222222222%;
+    /*font-size: 0;*/
+    /*margin-right: 0;*/
+}
+
+.register > div:nth-child(11) .switch-title{
+    padding-bottom: 0;
+}
+
+.register > div:nth-child(12){
+    position: relative;
+    top: -5px;
+    width: 70.94017094017094%;
+}
+
+.register > div:nth-child(12) textarea{
+    width: 100%;
+    height: 102px;
+    margin-top: 8px;
+    padding: 10px 0 0 15px;
+
+}
+
+.register > div:nth-child(6),
+.register > div:nth-child(7),
+.register > div:nth-child(8),
+.register > div:nth-child(9),
+.register > div:nth-child(10),
+.register > div:nth-child(11){
+    margin-top: 28px;
+}
+
+.register > input[type="submit"]{
+    display: block;
+    margin: 22px auto 0 auto;
+    width: 175px;
+    height: 35px;
+    border: 0;
+    border-radius: 25px;
+    background-color: #30ad52;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+/*----------------------B_BG5-------------------------*/
+
+.b_bg5{
+    padding: 40px 0 180px 0;
+}
+
+.b_content5{
+    text-align: center;
+}
+
+.b_content5 h3{
+    color: #0c1723;
+    margin: 0;
+}
+
+.b_content5 h5{
+    margin: 32px 0 34px 0;
+}
+
+.b_content5 p{
+    font-size: 16px;
+    color: #0c1723;
+    line-height: 25px;
+}
+
+.b_content5 p span{
+    font-family: "GothamProBold", sans-serif;
+    color: #0c1723;
+}
+
+.b_content5 p a{
+    font-family: "GothamProLight", sans-serif;
+    color: #30ad54;
+    text-decoration: underline;
+}
+
+h5.second{
+    margin-bottom: 12px;
 }
 
 
