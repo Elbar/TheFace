@@ -94,3 +94,23 @@ class ActorsImage(models.Model):
 
     def __unicode__(self):
         return str(self.actor.name)
+
+
+class MovieMaker(models.Model):
+    class Meta:
+        verbose_name_plural = ''
+        verbose_name = ''
+
+    firstname = models.CharField(max_length=255, verbose_name='')
+    lastname = models.CharField(max_length=255, verbose_name='')
+    surname = models.CharField(max_length=255, verbose_name='')
+    education = models.CharField(max_length=255, verbose_name='')
+    languages = models.CharField(max_length=255, verbose_name='')
+    ready_to_go = models.CharField(max_length=255, choices=READY_TO_GO)
+    experience = models.IntegerField(default=0)
+
+    def __unicode__(self):
+        return self.firstname + ' ' + self.lastname
+
+    def get_absolute_url(self):
+        return "/moviemakers/%i/" % self.id
