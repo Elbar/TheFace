@@ -1,0 +1,569 @@
+{% extends 'base.html' %}
+
+
+{% load staticfiles %}
+
+{% block content %}
+
+    <div class="popup m_popup" data-popup="popup-1">
+        <div class="popup-inner">
+            <div class="sl_content">
+                <div class="m_container">
+                    <img src="{% static 'images/m_img1.jpg' %}" alt="image">
+                </div>
+
+                <div class="p_block">
+                    <h3>Понравился актер?</h3>
+
+                    <h3>Пригласите его на съемки!</h3>
+
+                    <p>Или получите подборку из 5 вариантов актеров</p>
+                    <a href="#" class="button">Заполнить заявку</a>
+                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444
+                    </div>
+                    <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
+                                                          alt="image">thefacekg@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p_container">
+                <ul class="p_block2">
+                    <li><h3>Авазов Нурбек Айбекович</h3></li>
+                    <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в избранное</a>
+                    </li>
+                    <li>Специализация:</li>
+                    <li>Режиссер</li>
+                    <li>Опыть работы:</li>
+                    <li>5 лет</li>
+                    <li> Образование:</li>
+                    <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                    <li>Знание языков:</li>
+                    <li>Кыргызский, Русский, Английский, Турецкий</li>
+                    <li>Готовность к выезду:</li>
+                    <li>Да</li>
+                </ul>
+
+                <h3>Проекты:</h3>
+                <div class="p_projects">
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+                    <a href="#" class="link">+ 4 проектов</a>
+                </div>
+
+                <a class="popup-close" data-popup-close="popup-1"></a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+            <header class="group">
+                <a href="#" class="logo"><img src="{% static 'images/header_logo.png' %}" alt="logotype"></a>
+
+                <nav class="responsive menu-collapsed">
+                    <div class="bar"></div>
+                    <ul class="menu">
+                        <li {% if location == 'index' %}class="active"{% endif %}><a
+                                href="{% url 'index' %}">Главная</a></li>
+                        <li {% if location == 'actors' %}class="active"{% endif %}><a
+                                href="{% url 'actor' %}">Актеры</a></li>
+                        <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
+                        </li>
+                        <li><a href="#">Студии</a></li>
+                        <li><a href="#">локации</a></li>
+                        <li><a href="#">услуги</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Новости и кастинги</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="h_block">
+                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444</div>
+                </div>
+            </header>
+
+            <h3>Кинематографисты</h3>
+
+            <div class="favourite">
+                <div class="count">15</div>
+                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                <span>Избранное</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="m_bg1">
+        <div class="m_content1 grid">
+            <form method="post" action="#" class="m_search">
+                <div class="field">
+                    <label for="e_select1">Категории<br>
+                        <select name="select-name" id="e_select1">
+                            <option value="1">Специальность</option>
+                            <option value="2">13:00</option>
+                            <option value="2">14:00</option>
+                            <option value="2">15:00</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <div class="switch-title">Опыт (в годах)</div>
+                    <label for="e_number3">
+                        <input type="number" name="age" id="e_number3" placeholder="от">
+                    </label>
+
+                    <label for="e_number4">
+                        <input type="number" name="age" id="e_number4" placeholder="до">
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label for="select3">Знание языков<br>
+                        <select name="select-name" id="select3">
+                            <option value="1">Русский</option>
+                            <option value="2">Немецкий</option>
+                            <option value="2">Английский</option>
+                            <option value="2">Французский</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="switch-field">
+                    <div class="switch-title">Готовность к выездам</div>
+                    <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
+                    <label for="switch_left">да</label>
+                    <input type="radio" id="switch_right" name="switch_2" value="no"/>
+                    <label for="switch_right">нет</label>
+                </div>
+
+                <input type="submit" name="button" value="Найти специалиста" class="submit">
+                <a href="#" class="link">Попасть в базу кинематографистов</a>
+            </form>
+
+            <div class="moviemakers">
+                <div class="m_maker">
+                    <div class="m_block">
+                        <img src="{% static 'images/m1.jpg' %}" alt="image">
+                    </div>
+
+                    <div class="moviemaker">
+                        <h5>Авазов Нурбек Айбекович</h5>
+
+                        <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить
+                            в
+                            избранное
+                        </div>
+
+                        <ul class="m_desc">
+                            <li>Специализация:</li>
+                            <li>Режиссер</li>
+                            <li>Опыть работы:</li>
+                            <li>5 лет</li>
+                            <li>Образование</li>
+                            <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                            <li>Знание языков:</li>
+                            <li>Кыргызский, Русский, Английский,Турецкий</li>
+                            <li>Готовность к выезду:</li>
+                            <li>Да</li>
+                            <li>Проекты:</li>
+                            <li>
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    </div>
+                                </div>
+
+                                <a href="#" class="link">+ 4 проекта</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="m_maker">
+                    <div class="m_block">
+                        <img src="assets/images/m1.jpg" alt="image">
+                    </div>
+
+                    <div class="moviemaker">
+                        <h5>Авазов Нурбек Айбекович</h5>
+
+                        <div class="fav_button link"><img src="assets/images/favourite_icon.png" alt="icon">Добавить в
+                            избранное
+                        </div>
+
+                        <ul class="m_desc">
+                            <li>Специализация:</li>
+                            <li>Режиссер</li>
+                            <li>Опыть работы:</li>
+                            <li>5 лет</li>
+                            <li>Образование</li>
+                            <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                            <li>Знание языков:</li>
+                            <li>Кыргызский, Русский, Английский,Турецкий</li>
+                            <li>Готовность к выезду:</li>
+                            <li>Да</li>
+                            <li>Проекты:</li>
+                            <li>
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <a href="#" class="link">+ 4 проекта</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="m_maker">
+                    <div class="m_block">
+                        <img src="assets/images/m1.jpg" alt="image">
+                    </div>
+
+                    <div class="moviemaker">
+                        <h5>Авазов Нурбек Айбекович</h5>
+
+                        <div class="fav_button link"><img src="assets/images/favourite_icon.png" alt="icon">Добавить в
+                            избранное
+                        </div>
+
+                        <ul class="m_desc">
+                            <li>Специализация:</li>
+                            <li>Режиссер</li>
+                            <li>Опыть работы:</li>
+                            <li>5 лет</li>
+                            <li>Образование</li>
+                            <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                            <li>Знание языков:</li>
+                            <li>Кыргызский, Русский, Английский,Турецкий</li>
+                            <li>Готовность к выезду:</li>
+                            <li>Да</li>
+                            <li>Проекты:</li>
+                            <li>
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <a href="#" class="link">+ 4 проекта</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="m_maker">
+                    <div class="m_block">
+                        <img src="assets/images/m1.jpg" alt="image">
+                    </div>
+
+                    <div class="moviemaker">
+                        <h5>Авазов Нурбек Айбекович</h5>
+
+                        <div class="fav_button link"><img src="assets/images/favourite_icon.png" alt="icon">Добавить в
+                            избранное
+                        </div>
+
+                        <ul class="m_desc">
+                            <li>Специализация:</li>
+                            <li>Режиссер</li>
+                            <li>Опыть работы:</li>
+                            <li>5 лет</li>
+                            <li>Образование</li>
+                            <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                            <li>Знание языков:</li>
+                            <li>Кыргызский, Русский, Английский,Турецкий</li>
+                            <li>Готовность к выезду:</li>
+                            <li>Да</li>
+                            <li>Проекты:</li>
+                            <li>
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <a href="#" class="link">+ 4 проекта</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="m_maker">
+                    <div class="m_block">
+                        <img src="assets/images/m1.jpg" alt="image">
+                    </div>
+
+                    <div class="moviemaker">
+                        <h5>Авазов Нурбек Айбекович</h5>
+
+                        <div class="fav_button link"><img src="assets/images/favourite_icon.png" alt="icon">Добавить в
+                            избранное
+                        </div>
+
+                        <ul class="m_desc">
+                            <li>Специализация:</li>
+                            <li>Режиссер</li>
+                            <li>Опыть работы:</li>
+                            <li>5 лет</li>
+                            <li>Образование</li>
+                            <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
+                            <li>Знание языков:</li>
+                            <li>Кыргызский, Русский, Английский,Турецкий</li>
+                            <li>Готовность к выезду:</li>
+                            <li>Да</li>
+                            <li>Проекты:</li>
+                            <li>
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <div class="project">
+                                    <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                                    <div class="p_img">
+                                        <div class="project_hover"></div>
+                                        <img src="assets/images/project1.jpg" alt="project">
+                                    </div>
+                                </div>
+
+                                <a href="#" class="link">+ 4 проекта</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="pagination">
+                    <li><a href="#">пред</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">55</a></li>
+                    <li><a href="#">след</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

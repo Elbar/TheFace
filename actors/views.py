@@ -43,3 +43,10 @@ def become_an_actor_view(request):
     template = 'become_an_actor.html'
 
     return render(request, template, context)
+
+
+def moviemaker_view(request):
+    context = {}
+    template = 'moviemakers.html'
+
+    return render(request, template, context)
