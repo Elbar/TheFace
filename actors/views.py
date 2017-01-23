@@ -50,3 +50,10 @@ def moviemaker_view(request):
     template = 'moviemakers.html'
 
     return render(request, template, context)
+
+
+def news_view(request):
+    context = {}
+    template = 'news.html'
+
+    return render(request, template, context)
