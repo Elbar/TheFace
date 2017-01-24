@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Actor
-from actors.form import FilterForm
+from actors.form import FilterForm, ActorForm
 
 
 def index_view(request):
@@ -39,7 +39,30 @@ def actor_view(request):
 
 
 def become_an_actor_view(request):
-    context = {}
+    form = ActorForm(request.POST)
+    actor_form = ActorForm
+
+    if request.method == 'POST':
+        print request.method
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            surname = form.cleaned_data['surname']
+            birthday = form.cleaned_data['birthday']
+            body = form.cleaned_data['body']
+            height = form.cleaned_data['height']
+            email = form.cleaned_data['email']
+            number = form.cleaned_data['number']
+
+            types = form.cleaned_data['types']
+            sex = form.cleaned_data['sex']
+            town = form.cleaned_data['town']
+            language = form.cleaned_data['language']
+
+            other = form.cleaned_data['other']
+        else:
+            print form.errors
+
+    context = {"form": actor_form}
     template = 'become_an_actor.html'
 
     return render(request, template, context)

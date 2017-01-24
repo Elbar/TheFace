@@ -25,6 +25,19 @@ LANGUAGE_CHOICES = (
     ('France', 'Французский'),
 )
 
+TYPES = (
+    ('brunet', 'Brunet'),
+    ('waten', 'waten'),
+    ('some', 'some'),
+    ('type', 'type'),
+)
+
+BODY = (
+    ('small', 'маленькое'),
+    ('normal', 'среднее'),
+    ('big', 'большое'),
+)
+
 
 class FilterForm(forms.Form):
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
@@ -38,7 +51,14 @@ class ActorForm(forms.Form):
     name = forms.CharField(max_length=255, required=False)
     surname = forms.CharField(max_length=255, required=False)
     birthday = forms.DateField()
+    body = forms.ChoiceField(required=False, choices=BODY)
+    height = forms.IntegerField(required=False)
+    email = forms.EmailField(required=False)
+    number = forms.CharField(required=False)
 
+    types = forms.ChoiceField(required=False, choices=TYPES)
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
     town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
-    language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
+    language = forms.MultipleChoiceField(choices=LANGUAGE_CHOICES, required=False)
+
+    other = forms.Textarea()
