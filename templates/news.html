@@ -18,8 +18,8 @@
                                 href="{% url 'actor' %}">Актеры</a></li>
                         <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
                         </li>
-                        <li><a href="#">Студии</a></li>
-                          <li {% if location == 'location' %}class="active"{% endif %}><a
+                        <li><a href="{% url 'studio' %}">Студии</a></li>
+                        <li {% if location == 'location' %}class="active"{% endif %}><a
                                 href="{% url 'location' %}">локации</a></li>
                         <li><a href="#">услуги</a></li>
                         <li><a href="#">О нас</a></li>

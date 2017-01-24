@@ -92,3 +92,10 @@ def location_view(request):
     template = 'locations.html'
 
     return render(request, template, context)
+
+
+def studio_view(request):
+    context = {}
+    template = 'studio.html'
+
+    return render(request, template, context)

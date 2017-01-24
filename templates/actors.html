@@ -71,7 +71,9 @@
                         <p>Или получите подборку из 5 вариантов актеров</p>
                         <a href="#" class="button">Заполнить заявку</a>
 
-                        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444</div>
+                        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002
+                            444
+                        </div>
                         <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
                                                               alt="image">thefacekg@gmail.com</a></div>
                     </div>
@@ -80,7 +82,8 @@
                 <div class="p_container">
                     <ul class="p_block2">
                         <li><h3>ID: 58996887</h3></li>
-                        <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в избранное</a>
+                        <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в
+                            избранное</a>
                         </li>
                         <li>Рост:</li>
                         <li>165 см.</li>
@@ -131,8 +134,8 @@
                                 href="{% url 'actor' %}">Актеры</a></li>
                         <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
                         </li>
-                        <li><a href="#">Студии</a></li>
-                       <li {% if location == 'location' %}class="active"{% endif %}><a
+                        <li><a href="{% url 'studio' %}">Студии</a></li>
+                        <li {% if location == 'location' %}class="active"{% endif %}><a
                                 href="{% url 'location' %}">локации</a></li>
                         <li><a href="#">услуги</a></li>
                         <li><a href="#">О нас</a></li>
