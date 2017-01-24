@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+<div class="popup" data-popup="popup-1">
+    <div class="l_popup grid">
+        <div class="popup-inner">
+            <div class="sl_content">
+                <div class="l_slider">
+                    <div class="p_slide">
+                        <img src="{% static 'images/l_slide1.jpg' %}" alt="image">
+                    </div>
+
+                    <div class="p_slide">
+                        <img src="assets/images/l_slide1.jpg" alt="image">
+                    </div>
+
+                    <div class="p_slide">
+                        <img src="assets/images/l_slide1.jpg" alt="image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="p_container">
+                <ul class="p_block2">
+                    <li><h3>Озеро иссык-куль</h3></li>
+                    <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
+                    </li>
+                    <li>Область:</li>
+                    <li>Иссык-куль, Кыргызстан</li>
+                    <li>Глубина:</li>
+                    <li>702 м</li>
+                    <li>Размеры:</li>
+                    <li>182×58 км</li>
+                    <li>Площадь:</li>
+                    <li>6236 км²</li>
+                    <li>Объем:</li>
+                    <li>1738 км³</li>
+                    <li>Длина береговой линии:</li>
+                    <li>688 км</li>
+                    <li>Температура зимой:</li>
+                    <li> −3°</li>
+                    <li>Температура летом:</li>
+                    <li>+17°</li>
+                    <li>Ближайщий административный центр:</li>
+                    <li>Районный областной центр в г. Чолпон-Ата</li>
+                    <li>Условия сьемок:</li>
+                    <li>Лето, солнечная</li>
+                </ul>
+
+                <a class="popup-close" data-popup-close="popup-1"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block content %}
+
+
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+            <header class="group">
+                <a href="#" class="logo"><img src="assets/images/header_logo.png" alt="logotype"></a>
+
+                <nav class="responsive menu-collapsed">
+                    <div class="bar"></div>
+                    <ul class="menu">
+                        <li {% if location == 'index' %}class="active"{% endif %}><a
+                                href="{% url 'index' %}">Главная</a></li>
+                        <li {% if location == 'actors' %}class="active"{% endif %}><a
+                                href="{% url 'actor' %}">Актеры</a></li>
+                        <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
+                        </li>
+                        <li><a href="#">Студии</a></li>
+                        <li {% if location == 'location' %}class="active"{% endif %}><a
+                                href="{% url 'location' %}">локации</a></li>
+                        <li><a href="#">услуги</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="h_block">
+                    <div class="p_number"><img src="assets/images/phone_icon.png" alt="icon">+ 996 558 002 444</div>
+                </div>
+            </header>
+
+            <h3>локации</h3>
+
+        </div>
+    </div>
+
+    <div class="l_bg1">
+        <div class="l_content1 grid">
+            <form method="post" action="#" class="l_form">
+                <div class="s_field">
+                    <label for="e_select4">Природа<br>
+                        <select class="s_select" name="select-name" id="e_select4" multiple>
+                            <option value="1" selected disabled>Выбрать</option>
+                            <option value="2">Лес</option>
+                            <option value="2">Горы</option>
+                            <option value="2">Озера</option>
+                            <option value="2">Реки</option>
+                            <option value="2">Пустыни</option>
+                            <option value="2">Джайлоо</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label for="e_select3">Интерьер<br>
+                        <select name="select-name" id="e_select3">
+                            <option value="1" selected disabled>Выбрать</option>
+                            <option value="2">Ош</option>
+                            <option value="2">Каракол</option>
+                            <option value="2">Чолпон-Ата</option>
+                        </select>
+                    </label>
+                </div>
+
+                <input type="submit" name="button" value="Найти специалиста" class="submit">
+                <a href="#" class="link">Добавить локацию</a>
+            </form>
+
+            <div class="locations">
+                <div class="location column1">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location1.jpg" alt="location">
+                </div>
+
+                <div class="location column1">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location2.jpg" alt="location">
+                </div>
+
+                <div class="location column1">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location3.jpg" alt="location">
+                </div>
+
+                <div class="location column2">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location4.jpg" alt="location">
+                </div>
+
+                <div class="location column2">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location5.jpg" alt="location">
+                </div>
+
+                <div class="location column1">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location1.jpg" alt="location">
+                </div>
+
+                <div class="column3">
+                    <div class="s_location">
+                        <div class="l_hover">
+                            <div class="d_block">
+                                <div class="l_desc">
+                                    <h5>Озеро “Чатыр-Куль”</h5>
+
+                                    <p>Кыргызстан, Джалалабадская область</p>
+                                    <img src="assets/images/fav_icon.png" alt="icon">
+                                </div>
+                            </div>
+                        </div>
+                        <img src="assets/images/location6.jpg" alt="location">
+                    </div>
+
+                    <div class="s_location">
+                        <div class="l_hover">
+                            <div class="d_block">
+                                <div class="l_desc">
+                                    <h5>Озеро “Чатыр-Куль”</h5>
+
+                                    <p>Кыргызстан, Джалалабадская область</p>
+                                    <img src="assets/images/fav_icon.png" alt="icon">
+                                </div>
+                            </div>
+                        </div>
+                        <img src="assets/images/location7.jpg" alt="location">
+                    </div>
+                </div>
+
+                <div class="location column1">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location2.jpg" alt="location">
+                </div>
+
+                <div class="location column2">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location4.jpg" alt="location">
+                </div>
+
+                <div class="location column2">
+                    <div class="l_hover">
+                        <div class="d_block">
+                            <div class="l_desc">
+                                <h5>Озеро “Чатыр-Куль”</h5>
+
+                                <p>Кыргызстан, Джалалабадская область</p>
+                                <img src="assets/images/fav_icon.png" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <img src="assets/images/location5.jpg" alt="location">
+                </div>
+
+
+                <ul class="pagination">
+                    <li><a href="#">пред</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">...</a></li>
+                    <li><a href="#">55</a></li>
+                    <li><a href="#">след</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% block scripts %}
+        <script>
+            $('.s_select').SumoSelect();
+
+            $('.l_slider').slick({
+                cssEase: 'ease-in',
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true
+            });
+        </script>
+    {% endblock %}
+{% endblock %}

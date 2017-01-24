@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^beactor/', 'actors.views.become_an_actor_view', name='beactor'),
     url(r'^moviemakers/', 'actors.views.moviemaker_view', name='moviemaker'),
     url(r'^news/', 'actors.views.news_view', name='news'),
+    url(r'^locations/', 'actors.views.location_view', name='location'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

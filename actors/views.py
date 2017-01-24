@@ -85,3 +85,10 @@ def news_view(request):
     template = 'news.html'
 
     return render(request, template, context)
+
+
+def location_view(request):
+    context = {}
+    template = 'locations.html'
+
+    return render(request, template, context)

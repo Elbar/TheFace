@@ -126,7 +126,8 @@
                         <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
                         </li>
                         <li><a href="#">Студии</a></li>
-                        <li><a href="#">локации</a></li>
+                        <li {% if location == 'location' %}class="active"{% endif %}><a
+                                href="{% url 'location' %}">локации</a></li>
                         <li><a href="#">услуги</a></li>
                         <li><a href="#">О нас</a></li>
                         <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
