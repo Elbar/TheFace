@@ -50,7 +50,7 @@ class FilterForm(forms.Form):
 class ActorForm(forms.Form):
     name = forms.CharField(max_length=255, required=False)
     surname = forms.CharField(max_length=255, required=False)
-    birthday = forms.DateField()
+    birthday = forms.DateTimeField(required=False)
     body = forms.ChoiceField(required=False, choices=BODY)
     height = forms.IntegerField(required=False)
     email = forms.EmailField(required=False)
@@ -59,6 +59,6 @@ class ActorForm(forms.Form):
     types = forms.ChoiceField(required=False, choices=TYPES)
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
     town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
-    language = forms.MultipleChoiceField(choices=LANGUAGE_CHOICES, required=False)
+    language = forms.MultipleChoiceField(choices=LANGUAGE_CHOICES, required=False, widget=forms.CheckboxSelectMultiple)
 
-    other = forms.Textarea()
+    other = forms.CharField(widget=forms.Textarea, required=False)

@@ -7,7 +7,7 @@
 {% block content %}
     <div class="b_bg1">
         <div class="b_content1 grid">
-           {% include 'main/navbar.html' %}
+            {% include 'main/navbar.html' %}
 
             <h3>Стать актером</h3>
         </div>
@@ -88,15 +88,15 @@
             <div class="b_content4 grid">
                 <h3>Сделай мечту ближе! Зарегистрируйся в нашей базе!</h3>
 
-                <form method="post" action="#" class="register">
+                <form method="post" action="{% url 'beactor' %}" class="register">
 
                     <div class="field">
                         <label for="name">Имя<br>
-                            <input type="text" name="name" id="name">
+                            {% render_field form.name %}
                         </label>
 
                         <label for="surname">Фамилия<br>
-                            <input type="text" name="surname" id="surname">
+                            {% render_field form.surname %}
                         </label>
                     </div>
 
@@ -110,18 +110,13 @@
 
                     <div class="field">
                         <label for="birthday">Дата рождения<br>
-                            <input type="date" name="birthday" id="birthday">
+                            {% render_field form.birthday %}
                         </label>
                     </div>
 
                     <div class="field">
                         <label for="e_select2">Город<br>
-                            <select name="select-name" id="e_select2">
-                                <option value="1">Бишкек</option>
-                                <option value="2">Ош</option>
-                                <option value="2">Каракол</option>
-                                <option value="2">Чолпон-Ата</option>
-                            </select>
+                            {% render_field form.town %}
                         </label>
                     </div>
 
@@ -138,20 +133,11 @@
 
                     <div class="field">
                         <label for="e_select3">Типаж<br>
-                            <select name="select-name" id="e_select3">
-                                <option value="1" selected disabled>Выбрать</option>
-                                <option value="2">Ош</option>
-                                <option value="2">Каракол</option>
-                                <option value="2">Чолпон-Ата</option>
-                            </select>
+                            {% render_field form.types %}
                         </label>
 
                         <label for="e_select4">Цвет волос<br>
-                            <select name="select-name" id="e_select4">
-                                <option value="1">Брюнет</option>
-                                <option value="2">Блондин</option>
-                                <option value="2">Шатен</option>
-                            </select>
+                            {% render_field form.types %}
                         </label>
 
                         <label for="height">Рост (см)<br>
@@ -160,51 +146,13 @@
 
 
                         <label for="e_select5">Телосложение<br>
-                            <select name="select-name" id="e_select5">
-                                <option value="1">Худое</option>
-                                <option value="2">Большое</option>
-                                <option value="2">Среднее</option>
-                            </select>
+                            {% render_field form.body %}
                         </label>
                     </div>
 
                     <div class="field checkbox">
                         <div class="switch-title">Знание языков</div>
-                        <input id="check1" type="checkbox" name="check" value="check1">
-                        <label for="check1">Кыргызский </label>
-
-                        <input id="check2" type="checkbox" name="check" value="check2">
-                        <label for="check2">Французский </label>
-
-                        <input id="check3" type="checkbox" name="check" value="check2">
-                        <label for="check3">Корейский </label>
-
-                        <input id="check4" type="checkbox" name="check" value="check2">
-                        <label for="check4">Русский </label>
-
-                        <input id="check5" type="checkbox" name="check" value="check2">
-                        <label for="check5">Немецкий </label>
-
-                        <input id="check6" type="checkbox" name="check" value="check2">
-                        <label for="check6">Японский </label>
-
-                        <input id="check7" type="checkbox" name="check" value="check2">
-                        <label for="check7">Японский </label>
-
-                        <input id="check8" type="checkbox" name="check" value="check2">
-                        <label for="check8">Японский </label>
-
-                        <input id="check9" type="checkbox" name="check" value="check2">
-                        <label for="check9">Японский </label>
-
-                        <input id="check10" type="checkbox" name="check" value="check2">
-                        <label for="check10">Японский </label>
-
-                        <input id="check11" type="checkbox" name="check" value="check2">
-                        <label for="check11">Японский </label>
-
-                        <input id="check12" type="checkbox" name="check" value="check2">
-                        <label for="check12">Японский </label>
+                        {% render_field form.language type="checkbox" %}
 
                     </div>
 
@@ -254,11 +202,11 @@
                     <div class="field">
                         <div class="switch-title">Контактная информация</div>
                         <label for="phone">
-                            <input type="tel" name="phone" id="phone" placeholder="Телефон">
+                          {% render_field form.number placeholder="number"%}
                         </label>
 
                         <label for="email">
-                            <input type="email" name="email" id="email" placeholder="E-mail">
+                            {% render_field form.email placeholder="email" %}
                         </label>
                     </div>
 

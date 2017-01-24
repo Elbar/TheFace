@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Actor
 from actors.form import FilterForm, ActorForm
@@ -38,6 +39,7 @@ def actor_view(request):
     return render(request, template, context)
 
 
+@csrf_exempt
 def become_an_actor_view(request):
     form = ActorForm(request.POST)
     actor_form = ActorForm
@@ -59,6 +61,9 @@ def become_an_actor_view(request):
             language = form.cleaned_data['language']
 
             other = form.cleaned_data['other']
+
+            print name, surname, birthday, body, height, email, number, types, sex, town, language, other
+
         else:
             print form.errors
 
