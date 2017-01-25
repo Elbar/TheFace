@@ -106,6 +106,7 @@ class MovieMaker(models.Model):
     firstname = models.CharField(max_length=255, verbose_name='Имя')
     lastname = models.CharField(max_length=255, verbose_name='Фамилия')
     surname = models.CharField(max_length=255, verbose_name='Отчество')
+    job_type = models.CharField(max_length=255, verbose_name='Специализация')
     education = models.CharField(max_length=255, verbose_name='Образование')
     image = models.FileField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Фотография')
     languages = models.CharField(max_length=255, verbose_name='Знание Языков')
