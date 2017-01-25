@@ -1932,7 +1932,7 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
-.checkbox  label:before {
+.checkbox label:before {
     content: "";
     display: inline-block;
     width: 18px;
@@ -1949,6 +1949,7 @@ input[type=checkbox] {
 
 input[type=checkbox]:checked + label:before {
     content: "\2713";
+
     font-size: 15px;
     color: #30ad52;
     border: 1px solid #30ad52;

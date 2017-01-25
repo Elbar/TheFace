@@ -69,7 +69,8 @@ class Actor(models.Model):
 
     ready_to_go = models.CharField(choices=READY_TO_GO, max_length=255, verbose_name='Готовность к выезду')
     ready_to_mass = models.CharField(choices=READY_TO_MASS, max_length=255, verbose_name='Готовность к массовым ролям')
-    image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Фотография актера')
+    image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Фотография актера на главную страницу')
+    index_image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Главная фотография актера')
     status = models.CharField(choices=STATUS, max_length=255, verbose_name='Статус Актера')
 
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)

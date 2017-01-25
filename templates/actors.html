@@ -403,10 +403,10 @@
                                         <p>Рост: {{ actor.height }} см Возраст: {{ actor.age }} лет</p>
                                     </div>
                                 </div>
-                                {% for item in actor.actorsimage_set.all %}
-                                    <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="favourite">
 
-                                {% endfor %}
+                                    <img src="/media/{{ MEDIA_URL }}{{ actor.index_image }}" alt="favourite">
+
+
                             </div>
                         </a>
                     {% endif %}

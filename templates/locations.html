@@ -61,12 +61,12 @@
     <div class="b_bg1">
         <div class="b_content1 grid">
             <header class="group">
-                <a href="#" class="logo"><img src="assets/images/header_logo.png" alt="logotype"></a>
+                <a href="#" class="logo"><img src="{% static 'images/header_logo.png' %}" alt="logotype"></a>
 
                 <nav class="responsive menu-collapsed">
                     <div class="bar"></div>
                     <ul class="menu">
-                          <li {% if location == 'index' %}class="active"{% endif %}><a
+                        <li {% if location == 'index' %}class="active"{% endif %}><a
                                 href="{% url 'index' %}">Главная</a></li>
                         <li {% if location == 'actors' %}class="active"{% endif %}><a
                                 href="{% url 'actor' %}">Актеры</a></li>
@@ -83,7 +83,8 @@
                 </nav>
 
                 <div class="h_block">
-                    <div class="p_number"><img src="assets/images/phone_icon.png" alt="icon">+ 996 558 002 444</div>
+                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444
+                    </div>
                 </div>
             </header>
 
@@ -132,153 +133,119 @@
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location1.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
 
-                <div class="location column1">
+                 <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location2.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
 
-                <div class="location column1">
+                 <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location3.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
 
-                <div class="location column2">
+                 <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location4.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
 
-                <div class="location column2">
+                 <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location5.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
-
-                <div class="location column1">
+   <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location1.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
-
-                <div class="column3">
-                    <div class="s_location">
-                        <div class="l_hover">
-                            <div class="d_block">
-                                <div class="l_desc">
-                                    <h5>Озеро “Чатыр-Куль”</h5>
-
-                                    <p>Кыргызстан, Джалалабадская область</p>
-                                    <img src="assets/images/fav_icon.png" alt="icon">
-                                </div>
-                            </div>
-                        </div>
-                        <img src="assets/images/location6.jpg" alt="location">
-                    </div>
-
-                    <div class="s_location">
-                        <div class="l_hover">
-                            <div class="d_block">
-                                <div class="l_desc">
-                                    <h5>Озеро “Чатыр-Куль”</h5>
-
-                                    <p>Кыргызстан, Джалалабадская область</p>
-                                    <img src="assets/images/fav_icon.png" alt="icon">
-                                </div>
-                            </div>
-                        </div>
-                        <img src="assets/images/location7.jpg" alt="location">
-                    </div>
-                </div>
-
-                <div class="location column1">
+   <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location2.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
-
-                <div class="location column2">
+   <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location4.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
-
-                <div class="location column2">
+   <div class="location column1">
                     <div class="l_hover">
                         <div class="d_block">
                             <div class="l_desc">
                                 <h5>Озеро “Чатыр-Куль”</h5>
 
                                 <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="assets/images/fav_icon.png" alt="icon">
+                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <img src="assets/images/location5.jpg" alt="location">
+                    <img src="{% static 'images/location1.jpg' %}" alt="location">
                 </div>
 
 

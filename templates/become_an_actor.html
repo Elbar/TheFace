@@ -141,7 +141,7 @@
                         </label>
 
                         <label for="height">Рост (см)<br>
-                            <input type="number" name="height" id="height">
+                            {% render_field form.height %}
                         </label>
 
 
@@ -158,8 +158,9 @@
 
                     <div class="field checkbox">
                         <div class="switch-title">Навыки</div>
+                                                <label for="check13">Танец</label>
+
                         <input id="check13" type="checkbox" name="check" value="check1">
-                        <label for="check13">Танец</label>
 
                         <input id="check14" type="checkbox" name="check" value="check2">
                         <label for="check14">Балет</label>
