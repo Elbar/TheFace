@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Actor
+from .models import Actor, MovieMaker
 from actors.form import FilterForm, ActorForm
 
 
@@ -74,7 +74,9 @@ def become_an_actor_view(request):
 
 
 def moviemaker_view(request):
-    context = {}
+
+    moviemaker = MovieMaker.objects.all()
+    context = {"moviemaker": moviemaker}
     template = 'moviemakers.html'
 
     return render(request, template, context)
