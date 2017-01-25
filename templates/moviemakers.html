@@ -200,8 +200,9 @@
             </form>
 
             <div class="moviemakers">
-                <div class="m_maker">
-                    {% for maker in moviemaker %}
+                {% for maker in moviemaker %}
+                    <div class="m_maker">
+
                         <div class="m_block">
                             <img src="/media/{{ MEDIA_URL }}{{ maker.image }}" alt="image">
                         </div>
@@ -216,7 +217,7 @@
 
                             <ul class="m_desc">
                                 <li>Специализация:</li>
-                                <li></li>
+                                <li>{{ maker.job_type }}</li>
                                 <li>Опыть работы:</li>
                                 <li>{{ maker.experience }} лет</li>
                                 <li>Образование</li>
@@ -271,8 +272,8 @@
                                 </li>
                             </ul>
                         </div>
-                        </div>
-                    {% endfor %}
+                    </div>
+                {% endfor %}
 
 
                 <ul class="pagination">
