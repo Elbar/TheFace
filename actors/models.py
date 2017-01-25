@@ -46,6 +46,7 @@ STATUS = (
 
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
+PATH_STUDIO = 'studio/images'
 
 
 class Actor(models.Model):
@@ -131,6 +132,7 @@ class Studio(models.Model):
     site = models.CharField(max_length=255, verbose_name='Сайт')
     number = models.CharField(max_length=255, verbose_name='Номер')
     email = models.EmailField(verbose_name='Почта')
+    image = models.FileField(upload_to=transform(PATH_STUDIO), verbose_name='Фотография')
 
     def __unicode__(self):
         return self.name
