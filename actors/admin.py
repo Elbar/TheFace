@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Actor, ActorsImage, MovieMaker
+from .models import Actor, ActorsImage, MovieMaker, Studio
 
 
 class ActorAdmin(admin.ModelAdmin):
@@ -19,10 +19,16 @@ class ActorsImageAdmin(admin.ModelAdmin):
 
 
 class MovieMakerAdmin(admin.ModelAdmin):
-
     class Meta:
         model = MovieMaker
 
+
+class StudioAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Studio
+
+
+admin.site.register(Studio, StudioAdmin)
 
 admin.site.register(MovieMaker, MovieMakerAdmin)
 

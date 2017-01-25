@@ -118,3 +118,22 @@ class MovieMaker(models.Model):
 
     def get_absolute_url(self):
         return "/moviemakers/%i/" % self.id
+
+
+class Studio(models.Model):
+    class Meta:
+        verbose_name_plural = 'Добавление Студии'
+        verbose_name = 'Добавление Студии'
+
+    name = models.CharField(max_length=255, verbose_name='Название')
+    about = models.TextField(verbose_name='Об Агенстве')
+    address = models.CharField(max_length=255, verbose_name='Адрес')
+    site = models.CharField(max_length=255, verbose_name='Сайт')
+    number = models.CharField(max_length=255, verbose_name='Номер')
+    email = models.EmailField(verbose_name='Почта')
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return "/studio/%i" % self.id
