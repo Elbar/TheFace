@@ -45,6 +45,7 @@ STATUS = (
 )
 
 PATH_ACTORS = 'actors/images'
+PATH_MOVIEMAKER = 'moviemaker/images'
 
 
 class Actor(models.Model):
@@ -99,14 +100,15 @@ class ActorsImage(models.Model):
 
 class MovieMaker(models.Model):
     class Meta:
-        verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name_plural = 'Добавление кинематографистов'
+        verbose_name = 'Добавление кинематографистов'
 
-    firstname = models.CharField(max_length=255, verbose_name='')
-    lastname = models.CharField(max_length=255, verbose_name='')
-    surname = models.CharField(max_length=255, verbose_name='')
-    education = models.CharField(max_length=255, verbose_name='')
-    languages = models.CharField(max_length=255, verbose_name='')
+    firstname = models.CharField(max_length=255, verbose_name='Имя')
+    lastname = models.CharField(max_length=255, verbose_name='Фамилия')
+    surname = models.CharField(max_length=255, verbose_name='Отчество')
+    education = models.CharField(max_length=255, verbose_name='Образование')
+    image = models.FileField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Фотография')
+    languages = models.CharField(max_length=255, verbose_name='Знание Языков')
     ready_to_go = models.CharField(max_length=255, choices=READY_TO_GO)
     experience = models.IntegerField(default=0)
 
