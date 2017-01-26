@@ -44,9 +44,16 @@ STATUS = (
     ('BASIC', 'BASIC')
 )
 
+TYPE_OF_NEWS = (
+    ('Big', 'Big'),
+    ('Normal', 'Normal'),
+    ('Small', 'Small'),
+)
+
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
+PATH_NEWS = 'news/images'
 
 
 class Actor(models.Model):
@@ -139,3 +146,38 @@ class Studio(models.Model):
 
     def get_absolute_url(self):
         return "/studio/%i" % self.id
+
+
+class News(models.Model):
+    class Meta:
+        verbose_name_plural = 'Добавление новостей'
+        verbose_name = 'Добавление новостей'
+
+    title = models.CharField(max_length=255, verbose_name='Заголовок поста')
+    description = models.CharField(max_length=1000, verbose_name='Описание поста')
+    text = models.TextField(verbose_name='Текст поста')
+
+    news_type = models.CharField(choices=TYPE_OF_NEWS)
+
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return "/news/%i/" % self.id
+
+
+class NewsImage(models.Model):
+    class Meta:
+        verbose_name_plural = 'Картинки новостей'
+        verbose_name = 'Картинки новостей'
+
+    news = models.ForeignKey(News, verbose_name='выберите новость')
+    image = models.ImageField(upload_to=transform(PATH_NEWS), verbose_name='картинка')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.news.title

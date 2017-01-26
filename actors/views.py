@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Actor, MovieMaker, Studio
+from .models import Actor, MovieMaker, Studio, News
 from actors.form import FilterForm, ActorForm
 
 
@@ -82,7 +82,10 @@ def moviemaker_view(request):
 
 
 def news_view(request):
-    context = {}
+    big_news = News.objects.get(news_type='Big')
+    small_news = News.objects.get(news_type='Small')
+    normal_news = News.objects.get(news_type='Normal')
+    context = {"big_news": big_news, "small_news": small_news, "normal_news": normal_news}
     template = 'news.html'
 
     return render(request, template, context)
