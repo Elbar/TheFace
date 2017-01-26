@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Actor, ActorsImage, MovieMaker, Studio
+from .models import Actor, ActorsImage, MovieMaker, Studio, News
 
 
 class ActorAdmin(admin.ModelAdmin):
@@ -27,6 +27,13 @@ class StudioAdmin(admin.ModelAdmin):
     class Meta:
         model = Studio
 
+
+class NewsAdmin(admin.ModelAdmin):
+    class Meta:
+        model = News
+
+
+admin.site.register(News, NewsAdmin)
 
 admin.site.register(Studio, StudioAdmin)
 
