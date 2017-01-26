@@ -157,7 +157,7 @@ class News(models.Model):
     description = models.CharField(max_length=1000, verbose_name='Описание поста')
     text = models.TextField(verbose_name='Текст поста')
 
-    news_type = models.CharField(choices=TYPE_OF_NEWS)
+    news_type = models.CharField(max_length=255, choices=TYPE_OF_NEWS)
 
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
