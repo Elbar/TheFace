@@ -54,6 +54,7 @@ PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
 PATH_NEWS = 'news/images'
+PATH_LOCATION = 'locations/images'
 
 
 class Actor(models.Model):
@@ -181,3 +182,35 @@ class NewsImage(models.Model):
 
     def __unicode__(self):
         return self.news.title
+
+
+class Location(models.Model):
+    class Meta:
+        verbose_name_plural = ''
+        verbose_name = ''
+
+    name = models.CharField(max_length=255, verbose_name='Название')
+    region = models.CharField(max_length=255, verbose_name='Регион')
+    image = models.ImageField(upload_to=transform(PATH_LOCATION), verbose_name='Картинка')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return "/locations/%id" % self.id
+
+
+class LocationImage(models.Model):
+    class Meta:
+        verbose_name_plural = 'Картинки локаций'
+        verbose_name = 'Картинки локаций'
+
+    news = models.ForeignKey(Location, verbose_name='выберите Название Локации')
+    image = models.ImageField(upload_to=transform(PATH_LOCATION), verbose_name='картинка')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return self.news.name
