@@ -23,6 +23,24 @@ LANGUAGE_CHOICES = (
     ('Enlish', 'Английский'),
     ('Deutch', 'Немецкий'),
     ('France', 'Французский'),
+    ('France', 'Французский'),
+    ('France', 'Французский'),
+    ('France', 'Французский'),
+    ('France', 'Французский'),
+    ('France', 'Французский'),
+)
+
+TYPES = (
+    ('brunet', 'Brunet'),
+    ('waten', 'waten'),
+    ('some', 'some'),
+    ('type', 'type'),
+)
+
+BODY = (
+    ('small', 'маленькое'),
+    ('normal', 'среднее'),
+    ('big', 'большое'),
 )
 
 
@@ -32,3 +50,20 @@ class FilterForm(forms.Form):
     maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
     town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
+
+
+class ActorForm(forms.Form):
+    name = forms.CharField(max_length=255, required=False)
+    surname = forms.CharField(max_length=255, required=False)
+    birthday = forms.DateTimeField(required=False)
+    body = forms.ChoiceField(required=False, choices=BODY)
+    height = forms.IntegerField(required=False)
+    email = forms.EmailField(required=False)
+    number = forms.CharField(required=False)
+
+    types = forms.ChoiceField(required=False, choices=TYPES)
+    sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
+    town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
+    language = forms.MultipleChoiceField(choices=LANGUAGE_CHOICES, required=False, widget=forms.CheckboxSelectMultiple)
+
+    other = forms.CharField(widget=forms.Textarea, required=False)

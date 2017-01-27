@@ -1,0 +1,253 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+            {% include 'main/navbar.html' %}
+
+            <h3>Стать актером</h3>
+        </div>
+    </div>
+    <main>
+        <div class="b_bg2">
+            <div class="b_content2 grid">
+                <h2>Кастинговое агенство “The Face” объявляет набор в базу актеров! </h2>
+
+                <div class="line"></div>
+
+                <p><b>The Face</b> - это база, которая собирает на одной площадке, как профессиональных актеров,
+                    моделей и медиаперсон
+                    так и начинающих, только только, делающих свои первые шаги. Мы сотрудничаем с ведущими production
+                    студиями,
+                    клипмейкерами, видеографами и фотографами.</p>
+
+                <p>Мы предлагаем интересную работу и дополнительный заработок. Нам нужны яркие, неординарные личности,
+                    которые
+                    мечтают, желают и ставят цель принять участие в съемках фильмов, клипов, рекламных и социальных
+                    роликов.
+                    Если это про тебя, тогда <a href="#">присоединяйся в нашу базу!</a></p>
+
+                <p>Пол, возраст,внешность , этническая принадлежность значения не имеют.</p>
+            </div>
+        </div>
+
+        <div class="b_bg3">
+            <div class="b_content3 grid">
+                <h2>5 причин почему стоит попасть в нашу базу</h2>
+                <div class="line"></div>
+
+                <div class="advantages">
+                    <div class="advantage">
+                        <div class="img_block">
+                            <img src="{% static 'images/adv_1.png' %}" alt="advantage">
+                        </div>
+                        <div class="advantage_title">Дополнительный доход</div>
+                        <p>от 100 сомов до 100$ за смену</p>
+                    </div>
+
+                    <div class="advantage">
+                        <div class="img_block">
+                            <img src="{% static 'images/adv_2.png' %}" alt="advantage">
+                        </div>
+                        <div class="advantage_title">Возможность застветиться</div>
+                        <p>перед режиссерами продюсерами кастинг директорами и сделать актерскую карьеру</p>
+                    </div>
+
+                    <div class="advantage">
+                        <div class="img_block">
+                            <img src="{% static 'images/adv_3.png' %}" alt="advantage">
+                        </div>
+                        <div class="advantage_title">Интересные проекты</div>
+                        <p>Возможность принимать участие в новых творческих проектах</p>
+                    </div>
+
+                    <div class="advantage">
+                        <div class="img_block">
+                            <img src="{% static 'images/adv_4.png' %}" alt="advantage">
+                        </div>
+                        <div class="advantage_title">Работа сама находит вас</div>
+                        <p>Заказчики в лице режиссеров продюсеров будут находить вас благодаря нашей базе</p>
+                    </div>
+
+                    <div class="advantage">
+                        <div class="img_block">
+                            <img src="{% static 'images/adv_5.png' %}" alt="advantage">
+                        </div>
+                        <div class="advantage_title">Вы первым узнаете о предстоящих кастингах</div>
+                        <p>С актерами из нашей базы мы связываемся в первую очередь</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b_bg4">
+            <div class="b_content4 grid">
+                <h3>Сделай мечту ближе! Зарегистрируйся в нашей базе!</h3>
+
+                <form method="post" action="{% url 'beactor' %}" class="register">
+
+                    <div class="field">
+                        <label for="name">Имя<br>
+                            {% render_field form.name %}
+                        </label>
+
+                        <label for="surname">Фамилия<br>
+                            {% render_field form.surname %}
+                        </label>
+                    </div>
+
+                    <div class="switch-field">
+                        <div class="switch-title">Пол</div>
+                        <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
+                        <label for="switch_left">Мужской</label>
+                        <input type="radio" id="switch_right" name="switch_2" value="no"/>
+                        <label for="switch_right">Женский</label>
+                    </div>
+
+                    <div class="field">
+                        <label for="birthday">Дата рождения<br>
+                            {% render_field form.birthday %}
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label for="e_select2">Город<br>
+                            {% render_field form.town %}
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label for="e_select1">Категории<br>
+                            <select name="select-name" id="e_select1">
+                                <option value="1">Профессионалы</option>
+                                <option value="2">13:00</option>
+                                <option value="2">14:00</option>
+                                <option value="2">15:00</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label for="e_select3">Типаж<br>
+                            {% render_field form.types %}
+                        </label>
+
+                        <label for="e_select4">Цвет волос<br>
+                            {% render_field form.types %}
+                        </label>
+
+                        <label for="height">Рост (см)<br>
+                            {% render_field form.height %}
+                        </label>
+
+
+                        <label for="e_select5">Телосложение<br>
+                            {% render_field form.body %}
+                        </label>
+                    </div>
+
+                    <div class="field checkbox">
+                        <div class="switch-title">Знание языков</div>
+                        {% render_field form.language type="checkbox" %}
+
+                    </div>
+
+                    <div class="field checkbox">
+                        <div class="switch-title">Навыки</div>
+                                                <label for="check13">Танец</label>
+
+                        <input id="check13" type="checkbox" name="check" value="check1">
+
+                        <input id="check14" type="checkbox" name="check" value="check2">
+                        <label for="check14">Балет</label>
+
+                        <input id="check15" type="checkbox" name="check" value="check2">
+                        <label for="check15">Вокал</label>
+
+                        <input id="check16" type="checkbox" name="check" value="check2">
+                        <label for="check16">Борьба</label>
+                    </div>
+
+                    <div class="field checkbox">
+                        <input id="check17" type="checkbox" name="check" value="check1">
+                        <label for="check17">Плавание</label>
+
+                        <input id="check18" type="checkbox" name="check" value="check2">
+                        <label for="check18">Бокс</label>
+
+                        <input id="check19" type="checkbox" name="check" value="check2">
+                        <label for="check19">Дзюдо</label>
+
+                        <input id="check20" type="checkbox" name="check" value="check2">
+                        <label for="check20">Футбол</label>
+                    </div>
+
+                    <div class="field checkbox">
+                        <input id="check21" type="checkbox" name="check" value="check1">
+                        <label for="check21">Спортивная гимнастика</label>
+
+                        <input id="check22" type="checkbox" name="check" value="check2">
+                        <label for="check22">Владение музыкальными инструментами</label>
+
+                        <input id="check23" type="checkbox" name="check" value="check2">
+                        <label for="check23">Опыт съемок</label>
+
+                        <!--<input id="check24" type="checkbox" name="check" value="check2">-->
+                        <!--<label for="check24">Русский  </label>-->
+                    </div>
+
+                    <div class="field">
+                        <div class="switch-title">Контактная информация</div>
+                        <label for="phone">
+                            {% render_field form.number placeholder="number" %}
+                        </label>
+
+                        <label for="email">
+                            {% render_field form.email placeholder="email" %}
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label for="comments">Другие навыки/умения<br>
+                            <textarea name="comments" id="comments" cols="20" rows="10"></textarea>
+                        </label>
+                    </div>
+
+                    <input type="submit" name="button" value="Отправить">
+
+                </form>
+            </div>
+        </div>
+
+        <div class="b_bg5">
+            <div class="b_content5 grid">
+                <h3>Ответы на часто задаваемые вопросы</h3>
+                <h5>Это кастинг?</h5>
+
+                <p>Это база актеров кастингового агентства "The Face". <br> Мы занимаемся продвижением своих актеров в
+                    медиапроекты-фильмы, сериалы, клипы, социальные и рекламные ролики</p>
+
+                <h5 class="second">Как попасть в базу?</h5>
+
+                <p><span>Шаг</span> 1: <a href="#">Заполнить анкету</a> на нашем сайте</p>
+                <p><span>Шаг</span> 2: Пройти фотосессию в нашем офисе</p>
+                <p><span>Шаг</span> 3: Оплатить за регистрацию 100 сомов</p>
+
+                <h5>Как с нами связаться?</h5>
+
+                <p><span>Телефон для справок:</span> 0558 002 444</p>
+                <p><span>Email:</span> <a href="#">thefacekg@gmail.com</a></p>
+
+                <h5>Подписывайся на нас в соцсетях и следи за обновлениями:</h5>
+
+                <p><span>Инстаграм:</span> <a href="#">@thefacekg</a></p>
+                <p><span>Facebook:</span> <a href="#">Facebook.com/thefacekg</a></p>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

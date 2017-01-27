@@ -1,35 +1,39 @@
 {% load staticfiles %}
 
 <header class="group">
-            <a href="{% url 'index' %}" class="logo"><img src="{% static 'images/logo.png' %}" alt="logotype"></a>
+    <a href="{% url 'index' %}" class="logo"><img src="{% static 'images/logo.png' %}" alt="logotype"></a>
 
-            <nav>
-                <ul class="menu">
-                    <li {% if location == 'index' %}class="active"{% endif %}><a href="{% url 'index' %}">Главная</a></li>
-                    <li {% if location == 'actors' %}class="active"{% endif %}><a href="{% url 'actor' %}">Актеры</a></li>
-                    <li><a href="#">Кинематографисты</a></li>
-                    <li><a href="#">Студии</a></li>
-                    <li><a href="#">локации</a></li>
-                    <li><a href="#">услуги</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Новости и кастинги</a></li>
-                    <li><a href="#">Контакты</a></li>
+    <nav>
+        <ul class="menu">
+            <li {% if location == 'index' %}class="active"{% endif %}><a
+                    href="{% url 'index' %}">Главная</a></li>
+            <li {% if location == 'actors' %}class="active"{% endif %}><a
+                    href="{% url 'actor' %}">Актеры</a></li>
+            <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
+            </li>
+            <li><a href="{% url 'studio' %}">Студии</a></li>
+            <li {% if location == 'location' %}class="active"{% endif %}><a
+                    href="{% url 'location' %}">локации</a></li>
+            <li><a href="#">услуги</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <div class="h_block">
+        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444</div>
+        <div class="language">
+            <p>Select language:</p>
+            <div class="select">
+                <a href="javascript:void(0);" class="slct">Kyrgyz</a>
+                <ul class="drop">
+                    <li>English</li>
+                    <li>Russian</li>
+                    <li>Kyrgyz</li>
                 </ul>
-            </nav>
-
-            <div class="h_block">
-                <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444</div>
-                <div class="language">
-                    <p>Select language:</p>
-                    <div class="select">
-                        <a href="javascript:void(0);" class="slct">Kyrgyz</a>
-                        <ul class="drop">
-                            <li>English</li>
-                            <li>Russian</li>
-                            <li>Kyrgyz</li>
-                        </ul>
-                        <input type="hidden" class="select">
-                    </div>
-                </div>
+                <input type="hidden" class="select">
             </div>
-        </header>
+        </div>
+    </div>
+</header>
