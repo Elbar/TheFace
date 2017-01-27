@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^news/', 'actors.views.news_view', name='news'),
     url(r'^locations/', 'actors.views.location_view', name='location'),
     url(r'^studio/', 'actors.views.studio_view', name='studio'),
+    url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get')
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

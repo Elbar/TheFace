@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Actor, MovieMaker, Studio, News
+from .models import *
 from actors.form import FilterForm, ActorForm
 
 
@@ -37,6 +38,15 @@ def actor_view(request):
 
     context = {"actors": actors, "form": filter_form, 'location': 'actors'}
     return render(request, template, context)
+
+
+@csrf_exempt
+def ajax_actor_view(request, id):
+    actor = Actor.objects.get(id=id)
+    actor_images = ActorsImage.objects.filter(actor=actor)
+
+    response = render_to_response('partial/_actors_popup.html', dict(actor=actor, actor_images=actor_images))
+    return response
 
 
 @csrf_exempt
