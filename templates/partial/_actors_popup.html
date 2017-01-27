@@ -36,30 +36,29 @@
 
         <div class="p_container">
             <ul class="p_block2">
-                <li><h3>ID: 58996887</h3></li>
+                <li><h3>ID: {{ actor.identify }}</h3></li>
                 <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в
                     избранное</a>
                 </li>
                 <li>Рост:</li>
                 <li>{{ actor.height }} cm</li>
                 <li>Категория:</li>
-                <li> Начинающий</li>
+                <li> {{ actor.category }}</li>
                 <li> Типаж:</li>
-                <li> Азиатский</li>
+                <li> {{ actor.type_of_actor }}</li>
                 <li>Цвет волос:</li>
-                <li>Брюнетка</li>
+                <li>{{ actor.color }}</li>
                 <li>Телосложение</li>
-                <li>Худое</li>
+                <li>{{ actor.body }}</li>
                 <li> Знание языков:</li>
                 <li> {{ actor.language }}</li>
                 <li>Навыки:</li>
-                <li>Танец</li>
-                <li>Владение музыкальными инструментами:</li>
-                <li>Скрипка</li>
+                <li>{{ actor.talent }}</li>
+
                 <li>Опыт съемок</li>
-                <li> Да</li>
+                <li> {{ actor.staj }}</li>
                 <li>Другие навыки/умения:</li>
-                <li>Вождение авто</li>
+                <li>{{ actor.other_talent }}</li>
             </ul>
 
             <h3>Видео:</h3>
