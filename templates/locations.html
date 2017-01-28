@@ -60,33 +60,7 @@
 
     <div class="b_bg1">
         <div class="b_content1 grid">
-            <header class="group">
-                <a href="#" class="logo"><img src="{% static 'images/header_logo.png' %}" alt="logotype"></a>
-
-                <nav class="responsive menu-collapsed">
-                    <div class="bar"></div>
-                    <ul class="menu">
-                        <li {% if location == 'index' %}class="active"{% endif %}><a
-                                href="{% url 'index' %}">Главная</a></li>
-                        <li {% if location == 'actors' %}class="active"{% endif %}><a
-                                href="{% url 'actor' %}">Актеры</a></li>
-                        <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
-                        </li>
-                        <li><a href="{% url 'studio' %}">Студии</a></li>
-                        <li {% if location == 'location' %}class="active"{% endif %}><a
-                                href="{% url 'location' %}">локации</a></li>
-                        <li><a href="#">услуги</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </nav>
-
-                <div class="h_block">
-                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444
-                    </div>
-                </div>
-            </header>
+             {% include 'main/header.html' %}
 
             <h3>локации</h3>
 
@@ -126,127 +100,21 @@
             </form>
 
             <div class="locations">
-                <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
+                {% for location in locations %}
+                    <div class="location column1">
+                        <div class="l_hover">
+                            <div class="d_block">
+                                <div class="l_desc">
+                                    <h5>{{ location.name }}</h5>
 
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                    <p>{{ location.region }}</p>
+                                    <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                </div>
                             </div>
                         </div>
+                        <img src="/media/{{ MEDIA_URL }}{{ location.image }}" alt="location">
                     </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-
-                 <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-
-                 <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-
-                 <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-
-                 <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-   <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-   <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-   <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
-   <div class="location column1">
-                    <div class="l_hover">
-                        <div class="d_block">
-                            <div class="l_desc">
-                                <h5>Озеро “Чатыр-Куль”</h5>
-
-                                <p>Кыргызстан, Джалалабадская область</p>
-                                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <img src="{% static 'images/location1.jpg' %}" alt="location">
-                </div>
+                {% endfor %}
 
 
                 <ul class="pagination">

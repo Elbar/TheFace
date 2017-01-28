@@ -200,8 +200,8 @@ class NewsImage(models.Model):
 
 class Location(models.Model):
     class Meta:
-        verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name_plural = 'Добавление Локаций'
+        verbose_name = 'Добавление Локаций'
 
     name = models.CharField(max_length=255, verbose_name='Название')
     region = models.CharField(max_length=255, verbose_name='Регион')

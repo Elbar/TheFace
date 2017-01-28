@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<header class="group">
+    <a href="#" class="logo"><img src="{% static 'images/header_logo.png' %}" alt="logotype"></a>
+
+    <nav class="responsive menu-collapsed">
+        <div class="bar"></div>
+        <ul class="menu">
+            <li {% if location == 'index' %}class="active"{% endif %}><a
+                    href="{% url 'index' %}">Главная</a></li>
+            <li {% if location == 'actors' %}class="active"{% endif %}><a
+                    href="{% url 'actor' %}">Актеры</a></li>
+            <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
+            </li>
+            <li><a href="#">Студии</a></li>
+            <li {% if location == 'location' %}class="active"{% endif %}><a
+                    href="{% url 'location' %}">локации</a></li>
+            <li><a href="#">услуги</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
+            <li><a href="#">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <div class="h_block">
+        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444
+        </div>
+    </div>
+</header>

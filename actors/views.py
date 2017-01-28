@@ -1,4 +1,3 @@
-from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_exempt
 
@@ -102,7 +101,8 @@ def news_view(request):
 
 
 def location_view(request):
-    context = {}
+    locations = Location.objects.all()
+    context = {"locations": locations}
     template = 'locations.html'
 
     return render(request, template, context)
