@@ -50,6 +50,12 @@ TYPE_OF_NEWS = (
     ('Small', 'Small'),
 )
 
+BODY = (
+    ('small', 'маленькое'),
+    ('normal', 'среднее'),
+    ('big', 'большое'),
+)
+
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
@@ -71,17 +77,25 @@ class Actor(models.Model):
 
     identify = models.CharField(max_length=255, verbose_name='Идентификатор')
     phone_number = models.CharField(max_length=255, verbose_name='Номер Телефона')
+    body = models.CharField(choices=BODY, max_length=255, verbose_name='Телосложение')
+    type_of_actor = models.CharField(max_length=255)
+    staj = models.CharField(max_length=255, choices=READY_TO_GO, verbose_name='Опыт съемок')
+    category = models.CharField(max_length=255, verbose_name='Категория')
+    color = models.CharField(max_length=255, verbose_name='Цвет Волос')
+    talent = models.CharField(max_length=255, verbose_name='Навыки')
 
-    link = models.CharField(max_length=255, verbose_name='ссылка')
+    link = models.CharField(max_length=255, verbose_name='ссылка на youtube')
     sex = models.CharField(choices=SEX, verbose_name='Пол', max_length=255)
     town = models.CharField(choices=TOWN_CHOICES, max_length=255, null=True)
-    language = models.CharField(choices=LANGUAGE_CHOICES, verbose_name='Знание языков', max_length=255)
+    language = models.CharField(verbose_name='Знание языков', max_length=255)
 
     ready_to_go = models.CharField(choices=READY_TO_GO, max_length=255, verbose_name='Готовность к выезду')
     ready_to_mass = models.CharField(choices=READY_TO_MASS, max_length=255, verbose_name='Готовность к массовым ролям')
     image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Фотография актера на главную страницу')
     index_image = models.FileField(upload_to=transform(PATH_ACTORS), verbose_name='Главная фотография актера')
     status = models.CharField(choices=STATUS, max_length=255, verbose_name='Статус Актера')
+
+    other_talent = models.CharField(max_length=255, verbose_name='Другие Навыки')
 
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -186,8 +200,8 @@ class NewsImage(models.Model):
 
 class Location(models.Model):
     class Meta:
-        verbose_name_plural = ''
-        verbose_name = ''
+        verbose_name_plural = 'Добавление Локаций'
+        verbose_name = 'Добавление Локаций'
 
     name = models.CharField(max_length=255, verbose_name='Название')
     region = models.CharField(max_length=255, verbose_name='Регион')

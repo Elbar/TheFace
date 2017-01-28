@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block content %}
+
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+
+            {% include 'main/header.html' %}
+
+            <h3>Об агенстве</h3>
+        </div>
+    </div>
+
+    <div class="agency_bg">
+        <div class="agency_container grid">
+            <h3>Кастинговое агенство “The face”</h3>
+
+            <p>Мы кастинговое агенство, основанное 2016 году.<br>
+                Если все дизайн-студии — это музыкальные группы, то мы среди них были бы бородатой, брутальной
+                рок-группой.
+            </p>
+            <p>А если серьезно, то мы CGI-студия с фундаментальным подходом реализации визуалов любой сложности, что на
+                выходе дает очень мощный результат. А сильный артдирекшн, с концептуальной точки зрения, позволяет нам
+                создавать не менее крутую айндентику.</p>
+            <p>За эти 6 с лишним лет у нас сформировалась крепкая команда ребят, преданных своему делу, и эта команда
+                потихоньку растет. Мы успели сделать много проектов и поработать с клиентами из разных стран.</p>
+
+
+            <h3>Наша команда</h3>
+            <div class="team">
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Адина Осмонова</span>
+                    <p>Маркетинг директор</p>
+                </div>
+
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Бектур Искендер</span>
+                    <p>Журналист</p>
+                </div>
+
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Атай Омурбеков</span>
+                    <p>Фотограф</p>
+                </div>
+
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Саматбек Осмонов</span>
+                    <p>СММ специалист</p>
+                </div>
+
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Алина Жетигенова</span>
+                    <p>Фотограф</p>
+                </div>
+
+                <div class="member">
+                    <div class="member_img">
+                        <img src="{% static 'images/member1.jpg' %}" alt="image">
+                    </div>
+                    <span>Элдос Алмазбеков</span>
+                    <p>Директор</p>
+                </div>
+            </div>
+
+            <h3 class="space">Мы предлагаем</h3>
+
+            <p>А если серьезно, то мы CGI-студия с фундаментальным подходом реализации визуалов любой сложности, что на
+                выходе дает очень мощный результат. А сильный артдирекшн, с концептуальной точки зрения, позволяет нам
+                создавать не менее крутую айндентику. За эти 6 с лишним лет у нас сформировалась крепкая команда ребят,
+                преданных своему делу, и эта команда потихоньку растет. Мы успели сделать много проектов и поработать
+                с клиентами из разных стран.</p>
+
+            <h3>Как с нами связаться</h3>
+
+            <ul class="list">
+                <li><h6>Телефон для справок:</h6>
+                    <p>0558 002 444; 0708 002 444</p></li>
+                <li><h6>Email:</h6>
+                    <p><a href="#">thefacekg@gmail.com</a></p></li>
+                <li><h6>Адрес:</h6>
+                    <p>Калык Акиева/Токтогула 3 этаж 45</p></li>
+                <li><h6>Подписывайся на нас в соцсетях и следи за обновлениями:</h6></li>
+                <li><h6>Инстаграм:</h6>
+                    <p><a href="#">@thefacekg</a></p></li>
+                <li><h6>Facebook:</h6>
+                    <p><a href="#">Facebook.com/thefacekg</a></p></li>
+                <li><h6>Мы на карте:</h6></li>
+            </ul>
+
+            <div class="place_iframe">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2923.9596404688955!2d74.5747702!3d42.873696!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec83dc62bd4f9%3A0x896dae01da8934f2!2zVNCQ0KYgItCS0LXRgdC90LAi!5e0!3m2!1sru!2skg!4v1485335536543"
+                        frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

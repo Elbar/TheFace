@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<div class="popup-inner">
+    <div class="popup_scroll">
+        <div class="sl_content">
+            <div class="p_slider">
+                {% for image in actor_images %}
+                    <div class="p_slide">
+                        <img src="{{ image.image.url }}" alt="image" id="image-1">
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="pn_slider">
+                {% for image in actor_images %}
+                    <div class="p_slide">
+                        <img src="{{ image.image.url }}" alt="image" id="image-1">
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="p_block">
+                <h3>Понравился актер?</h3>
+
+                <h3>Пригласите его на съемки!</h3>
+
+                <p>Или получите подборку из 5 вариантов актеров</p>
+                <a href="#" class="button">Заполнить заявку</a>
+
+                <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002
+                    444
+                </div>
+                <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
+                                                      alt="image">thefacekg@gmail.com</a></div>
+            </div>
+        </div>
+
+        <div class="p_container">
+            <ul class="p_block2">
+                <li><h3>ID: {{ actor.identify }}</h3></li>
+                <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в
+                    избранное</a>
+                </li>
+                <li>Рост:</li>
+                <li>{{ actor.height }} cm</li>
+                <li>Категория:</li>
+                <li> {{ actor.category }}</li>
+                <li> Типаж:</li>
+                <li> {{ actor.type_of_actor }}</li>
+                <li>Цвет волос:</li>
+                <li>{{ actor.color }}</li>
+                <li>Телосложение</li>
+                <li>{{ actor.body }}</li>
+                <li> Знание языков:</li>
+                <li> {{ actor.language }}</li>
+                <li>Навыки:</li>
+                <li>{{ actor.talent }}</li>
+
+                <li>Опыт съемок</li>
+                <li> {{ actor.staj }}</li>
+                <li>Другие навыки/умения:</li>
+                <li>{{ actor.other_talent }}</li>
+            </ul>
+
+            <h3>Видео:</h3>
+
+            <div class="p_iframe">
+                <iframe src="https://www.youtube.com/embed/{{ actor.link }}" frameborder="0"
+                        allowfullscreen></iframe>
+            </div>
+
+            <a class="popup-close" data-popup-close="popup-1"></a>
+        </div>
+    </div>
+</div>

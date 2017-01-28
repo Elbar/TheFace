@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Actor, MovieMaker, Studio, News
+from .models import *
 from actors.form import FilterForm, ActorForm
 
 
@@ -37,6 +37,15 @@ def actor_view(request):
 
     context = {"actors": actors, "form": filter_form, 'location': 'actors'}
     return render(request, template, context)
+
+
+@csrf_exempt
+def ajax_actor_view(request, id):
+    actor = Actor.objects.get(id=id)
+    actor_images = ActorsImage.objects.filter(actor=actor)
+
+    response = render_to_response('partial/_actors_popup.html', dict(actor=actor, actor_images=actor_images))
+    return response
 
 
 @csrf_exempt
@@ -92,7 +101,8 @@ def news_view(request):
 
 
 def location_view(request):
-    context = {}
+    locations = Location.objects.all()
+    context = {"locations": locations}
     template = 'locations.html'
 
     return render(request, template, context)
@@ -102,5 +112,12 @@ def studio_view(request):
     studio = Studio.objects.all()
     context = {"studio": studio}
     template = 'studio.html'
+
+    return render(request, template, context)
+
+
+def about_view(request):
+    context = {}
+    template = 'about_us.html'
 
     return render(request, template, context)

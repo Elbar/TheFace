@@ -7,148 +7,13 @@
 {% block content %}
 
 
-    <div class="popup" data-popup="popup-1">
-        <div class="popup-inner">
-            <div class="popup_scroll">
-                <div class="sl_content">
-                    <div class="p_slider">
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
+    <div class="popup" data-popup="popup-1" id="popup-actor">
 
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="p_slide">
-                            <img src="{% static 'images/p_img1.jpg' %}" alt="image">
-                        </div>
-                    </div>
-
-                    <div class="pn_slider">
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-
-                        <div class="pn_slide">
-                            <img src="{% static 'images/pn_img1.jpg' %}" alt="image">
-                        </div>
-                    </div>
-
-                    <div class="p_block">
-                        <h3>Понравился актер?</h3>
-
-                        <h3>Пригласите его на съемки!</h3>
-
-                        <p>Или получите подборку из 5 вариантов актеров</p>
-                        <a href="#" class="button">Заполнить заявку</a>
-
-                        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002
-                            444
-                        </div>
-                        <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
-                                                              alt="image">thefacekg@gmail.com</a></div>
-                    </div>
-                </div>
-
-                <div class="p_container">
-                    <ul class="p_block2">
-                        <li><h3>ID: 58996887</h3></li>
-                        <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в
-                            избранное</a>
-                        </li>
-                        <li>Рост:</li>
-                        <li>165 см.</li>
-                        <li>Категория:</li>
-                        <li> Начинающий</li>
-                        <li> Типаж:</li>
-                        <li> Азиатский</li>
-                        <li>Цвет волос:</li>
-                        <li>Брюнетка</li>
-                        <li>Телосложение</li>
-                        <li>Худое</li>
-                        <li> Знание языков:</li>
-                        <li> Кыргызский, Русский, Русский, Английский,Турецкий</li>
-                        <li>Навыки:</li>
-                        <li>Танец</li>
-                        <li>Владение музыкальными инструментами:</li>
-                        <li>Скрипка</li>
-                        <li>Опыт съемок</li>
-                        <li> Да</li>
-                        <li>Другие навыки/умения:</li>
-                        <li>Вождение авто</li>
-                    </ul>
-
-                    <h3>Видео:</h3>
-
-                    <div class="p_iframe">
-                        <iframe src="https://www.youtube.com/embed/otBzu5ziASw?list=RDotBzu5ziASw" frameborder="0"
-                                allowfullscreen></iframe>
-                    </div>
-
-                    <a class="popup-close" data-popup-close="popup-1"></a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="b_bg1">
         <div class="b_content1 grid">
-            <header class="group">
-                <a href="#" class="logo"><img src="{% static 'images/header_logo.png' %}" alt="logotype"></a>
-
-                <nav class="responsive menu-collapsed">
-                    <div class="bar"></div>
-                    <ul class="menu">
-                        <li {% if location == 'index' %}class="active"{% endif %}><a
-                                href="{% url 'index' %}">Главная</a></li>
-                        <li {% if location == 'actors' %}class="active"{% endif %}><a
-                                href="{% url 'actor' %}">Актеры</a></li>
-                        <li {% if location == 'moviemaker' %}class="active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
-                        </li>
-                        <li><a href="{% url 'studio' %}">Студии</a></li>
-                        <li {% if location == 'location' %}class="active"{% endif %}><a
-                                href="{% url 'location' %}">локации</a></li>
-                        <li><a href="#">услуги</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </nav>
-
-                <div class="h_block">
-                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444
-                    </div>
-                </div>
-            </header>
+             {% include 'main/header.html' %}
 
             <h3>База актеров</h3>
 
@@ -395,7 +260,7 @@
             <div class="players">
                 {% for actor in actors %}
                     {% if actor.actorsimage_set.all %}
-                        <a href="{{ actor.get_absolute_url }}">
+                        <a href="{% url 'ajax_actor_get' id=actor.id %}" class="actors-trigger">
                             <div class="player" data-popup-open="popup-1">
                                 <div class="p_hover">
                                     <div class="player_desc">
@@ -404,7 +269,7 @@
                                     </div>
                                 </div>
 
-                                    <img src="/media/{{ MEDIA_URL }}{{ actor.index_image }}" alt="favourite">
+                                <img src="/media/{{ MEDIA_URL }}{{ actor.index_image }}" alt="favourite">
 
 
                             </div>
@@ -436,23 +301,6 @@
         </script>
 
         <script>
-            $('.p_slider').slick({
-                cssEase: 'ease-in',
-                autoplay: true,
-                autoplaySpeed: 2000,
-                //variableWidth: true,
-                arrows: true,
-                asNavFor: '.pn_slider'
-            });
-
-            $('.pn_slider').slick({
-                slidesToShow: 5,
-                variableWidth: true,
-                focusOnSelect: true,
-                asNavFor: '.p_slider',
-                draggable: false
-            });
-
             $(function () {
                 //----- OPEN
                 $('[data-popup-open]').on('click', function (e) {
@@ -468,9 +316,50 @@
                     e.preventDefault();
                     var targeted_popup_class = jQuery(this).attr('data-popup-close');
                     $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
-
-
                 });
+            });
+
+            $('.actors-trigger').each(function (i, obj) {
+                $(obj).on('click', function (event) {
+                    event.preventDefault();
+                    var that = this;
+                    $.ajax({
+                        method: 'POST',
+                        dataType: 'HTML',
+                        url: $(that).attr('href'),
+                        success: function (response) {
+                            $('#popup-actor').html(response);
+                            $('.p_slider').slick({
+                                cssEase: 'ease-in',
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                //variableWidth: true,
+                                arrows: true,
+                                asNavFor: '.pn_slider'
+                            });
+
+                            $('.pn_slider').slick({
+                                slidesToShow: 5,
+                                variableWidth: false,
+                                focusOnSelect: true,
+                                asNavFor: '.p_slider',
+                                draggable: false
+                            });
+
+                            $('[data-popup-close]').on('click', function (e) {
+
+                                e.preventDefault();
+                                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+
+                            });
+                        },
+                        error: function () {
+                            console.error('Error to send requet!');
+                        }
+                    });
+                })
             });
         </script>
     {% endblock %}
