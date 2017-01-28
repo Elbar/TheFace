@@ -114,3 +114,10 @@ def studio_view(request):
     template = 'studio.html'
 
     return render(request, template, context)
+
+
+def about_view(request):
+    context = {}
+    template = 'about_us.html'
+
+    return render(request, template, context)
