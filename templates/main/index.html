@@ -37,16 +37,19 @@
                 <ul class="links">
                     <li><a class="button" href="{% url 'actor' %}">найти актера</a></li>
                     <li><a class="button" href="{% url 'beactor' %}">попасть в базу</a></li>
-                    <li><a href="#">
+                    <li><a href="#down">
                         <p>Прокрутите вниз</p>
-                        <img src="{% static 'images/scroll.png' %}" alt="scroll">
+                        <img class="wow fadeOutDown" data-wow-delay=".5s" data-wow-iteration="infinite"
+                             src="{% static 'images/down.png' %}" alt="scroll">
+                        <img class="wow fadeOutDown" data-wow-delay=".1s" data-wow-iteration="infinite"
+                             src="{% static 'images/down.png' %}" alt="scroll">
                     </a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="bg2">
+    <div class="bg2"  id="down">
         <div class="content2 grid">
 
             <h2>услуги от профессионалов в своем деле</h2>
@@ -210,5 +213,25 @@
             </div>
         </div>
     </div>
+
+    {% block scripts %}
+
+        <script>
+            new WOW().init();
+        </script>
+
+
+        <script>
+            $('ul.links > li:last-child > a[href^="#"]').on('click', function (event) {
+                var target = $(this.getAttribute('href'));
+                if (target.length) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                }
+            });
+        </script>
+    {% endblock %}
 
 {% endblock %}

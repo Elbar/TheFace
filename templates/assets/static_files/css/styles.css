@@ -157,11 +157,11 @@ body {
 }
 
 .p_slider .slick-prev{
-    background: url("../../assets/images/arrow_prev.png") center no-repeat;
+    background: url("../images/arrow_prev.png") center no-repeat;
 }
 
 .p_slider .slick-next{
-    background: url("../../assets/images/arrow_next.png") center  no-repeat;
+    background: url("../images/arrow_next.png") center  no-repeat;
     /*top: 48.5%;*/
 }
 
@@ -357,7 +357,7 @@ body {
 
 /* Close Button */
 .popup-close {
-    background: #30ad52 url("../../assets/images/close_btn.png") center no-repeat;
+    background: #30ad52 url("../images/close_btn.png") center no-repeat;
     position: absolute;
     top: -33px;
     right: 20px;
@@ -391,7 +391,7 @@ body {
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .bg1{
-    background: url("../../assets/images/bg1.jpg") center no-repeat;
+    background: url("../images/bg1.jpg") center no-repeat;
     /*background-size: cover;*/
     padding: 20px 0 30px 0;
 }
@@ -434,7 +434,7 @@ nav{
     border-bottom: 1px solid #30ad54;
 }
 
-.menu a.link_active{
+.menu li.link_active{
     color: #30ad54;
     border-bottom: 1px solid #30ad54;
 }
@@ -686,7 +686,7 @@ p{
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .bg2{
-    background: url("../../assets/images/bg_2.jpg") center fixed no-repeat;
+    background: url("../images/bg_2.jpg") center fixed no-repeat;
     padding: 55px 0 60px 0;
 }
 
@@ -774,7 +774,7 @@ h5 a:hover{
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .bg3{
-    background: url("../../assets/images/bg3.jpg") center no-repeat;
+    background: url("../images/bg3.jpg") center no-repeat;
     padding: 52px 0 72px 0;
 }
 
@@ -806,7 +806,7 @@ iframe{
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .bg4{
-    background: url("../../assets/images/bg4.jpg") center no-repeat;
+    background: url("../images/bg4.jpg") center no-repeat;
     padding: 55px 0 60px 0;
 }
 
@@ -1106,7 +1106,7 @@ footer{
 
 .share li{
     display: inline-block;
-    background: url("../../assets/images/social_icon.png") no-repeat;
+    background: url("../images/social_icon.png") no-repeat;
     margin-right: 10px;
 }
 
@@ -1679,7 +1679,7 @@ footer{
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 .a_bg1{
-    background: url("../../assets/images/a_bg1.jpg") center no-repeat;
+    background: url("../images/a_bg1.jpg") center no-repeat;
     background-size: cover;
     padding: 10px 0 30px 0;
 }
@@ -1825,7 +1825,7 @@ h3{
 }
 
 .field label select{
-    background: #fff url("../../assets/images/polygon.png") 92% center no-repeat;
+    background: #fff url("../images/polygon.png") 92% center no-repeat;
     padding-right: 10%;
 }
 
@@ -2196,7 +2196,7 @@ input[type=checkbox]:checked + label:before {
 /*----------------------B_BG1-------------------------*/
 
 .b_bg1{
-    background: url("../../assets/images/header_bg.jpg") center no-repeat;
+    background: url("../images/header_bg.jpg") center no-repeat;
     background-size: cover;
     padding: 15px 0 35px 0;
 }
@@ -2212,7 +2212,7 @@ input[type=checkbox]:checked + label:before {
 /*----------------------B_BG2-------------------------*/
 
 main{
-    background: url("../../assets/images/main_bg.png") center no-repeat;
+    background: url("../images/main_bg.png") center no-repeat;
     background-size: cover;
 }
 
@@ -2685,7 +2685,7 @@ h5.second{
 }
 
 .project_hover{
-    background: rgba(0, 0, 0, 0.5) url("../../assets/images/search_icon.png") center no-repeat;
+    background: rgba(0, 0, 0, 0.5) url("../images/search_icon.png") center no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -2788,7 +2788,7 @@ ul.pagination li a:hover:not(.active) {
     position: absolute;
     top: -3px;
     right: -3px;
-    background: #30ad52 url("../../assets/images/close_btn.png") center no-repeat;
+    background: #30ad52 url("../images/close_btn.png") center no-repeat;
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -3162,7 +3162,7 @@ ul.pagination li a:hover:not(.active) {
 }
 
 .SumoSelect > .CaptionCont > label > i {
-    background: url("../../assets/images/polygon.png") center no-repeat;
+    background: url("../images/polygon.png") center no-repeat;
     opacity: 0.8;
 }
 
@@ -3318,7 +3318,7 @@ ul.pagination li a:hover:not(.active) {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5) url("../../assets/images/hover_search.png") center no-repeat;
+    background: rgba(0, 0, 0, 0.5) url("../images/hover_search.png") center no-repeat;
     border-radius: 50%;
     opacity: 0;
     -webkit-transition: all .3s ease-out;
@@ -3486,11 +3486,11 @@ ul.pagination li a:hover:not(.active) {
 }
 
 .l_slider .slick-prev{
-    background: url("../../assets/images/big_p_arrow.png") center no-repeat;
+    background: url("../images/big_p_arrow.png") center no-repeat;
 }
 
 .l_slider .slick-next{
-    background: url("../../assets/images/big_n_arrow.png") center  no-repeat;
+    background: url("../images/big_n_arrow.png") center  no-repeat;
     /*top: 48.5%;*/
 }
 
@@ -3595,7 +3595,7 @@ ul.pagination li a:hover:not(.active) {
 }
 
 .l_news{
-    background: #fff url("../../assets/images/l_news2.jpg") right top no-repeat;
+    background: #fff url("../images/l_news2.jpg") right top no-repeat;
     width: 100%;
     padding: 85px 140px 0 45px;
     border: 2px solid #51b547;
@@ -3820,7 +3820,7 @@ ul.pagination li a:hover:not(.active) {
 }
 
 .bullet li{
-    background: url("../../assets/images/bullet.png") left center no-repeat;
+    background: url("../images/bullet.png") left center no-repeat;
     margin-bottom: 5px;
     padding-left: 15px;
 }
@@ -3857,7 +3857,7 @@ h6{
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5) url("../../assets/images/shoot_hover.png") center no-repeat;
+    background: rgba(0, 0, 0, 0.5) url("../images/shoot_hover.png") center no-repeat;
     opacity: 0;
 }
 
