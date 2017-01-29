@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<div class="popup-inner">
+        <div class="popup_scroll">
+            <div class="sl_content">
+                <div class="m_container">
+                    <img src="/media/{{ MEDIA_URL }}{{ moviemaker.image }}" alt="image">
+                </div>
+
+                <div class="p_block">
+                    <h3>Понравился актер?</h3>
+
+                    <h3>Пригласите его на съемки!</h3>
+
+                    <p>Или получите подборку из 5 вариантов актеров</p>
+                    <a href="#" class="button">Заполнить заявку</a>
+
+                    <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002 444</div>
+                    <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
+                                                          alt="image">thefacekg@gmail.com</a></div>
+                </div>
+            </div>
+
+            <div class="p_container">
+                <ul class="p_block2">
+                    <li><h3>{{ moviemaker.firstname }} {{ moviemaker.lastname }} {{ moviemaker.surname }}</h3></li>
+                                        <li><a href="#"><img src="{% static 'images/color_fav_icon.png' %}" alt="image">Добавить в избранное</a>
+                                        </li>
+                    <li>Специализация:</li>
+                    <li>{{ moviemaker.job_type }}</li>
+                    <li>Опыть работы:</li>
+                    <li>{{ moviemaker.experience }} лет</li>
+                    <li> Образование:</li>
+                    <li>{{ moviemaker.education }}</li>
+                    <li>Знание языков:</li>
+                    <li>{{ moviemaker.languages }}</li>
+                    <li>Готовность к выезду:</li>
+                    <li>{{ moviemaker.ready_to_go }}</li>
+                </ul>
+
+                <h3>Проекты:</h3>
+
+                <div class="p_projects">
+                    <div class="project">
+                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
+                        <div class="p_img">
+                            <div class="project_hover"></div>
+                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <a class="popup-close" data-popup-close="popup-1"></a>
+            </div>
+        </div>
+
+    </div>
