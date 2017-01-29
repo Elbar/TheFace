@@ -28,6 +28,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'aibek.widgets@gmail.com'
+EMAIL_HOST_PASSWORD = 'izpodkaptalbest'
+EMAIL_PORT = 587
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^actors/', 'actors.views.actor_view', name='actor'),
     url(r'^beactor/', 'actors.views.become_an_actor_view', name='beactor'),
     url(r'^moviemakers/', 'actors.views.moviemaker_view', name='moviemaker'),
+    url(r'^sendmail/', 'actors.views.send_mail', name='sendmail'),
     url(r'^news/', 'actors.views.news_view', name='news'),
     url(r'^locations/', 'actors.views.location_view', name='location'),
     url(r'^studio/', 'actors.views.studio_view', name='studio'),
