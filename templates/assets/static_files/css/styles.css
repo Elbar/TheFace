@@ -434,10 +434,7 @@ nav{
     border-bottom: 1px solid #30ad54;
 }
 
-.menu li.link_active{
-    color: #30ad54;
-    border-bottom: 1px solid #30ad54;
-}
+
 
 .h_block{
     float: right;
@@ -1960,7 +1957,9 @@ select{
 }
 
 input[type=checkbox] {
+
     display: none;
+
 }
 
 .checkbox label{

@@ -6,17 +6,18 @@
     <nav class="responsive menu-collapsed">
         <div class="bar"></div>
         <ul class="menu">
-            <li {% if location == 'index' %}class="link_active"{% endif %}><a href="{% url 'index' %}" >Главная</a></li>
-            <li><a {% if location == 'actor' %}class="link_active"{% endif %}
-                   href="{% url 'actor' %}">Актеры</a></li>
+            <li {% if location == 'index' %}style=" color: #30ad54; border-bottom: 5px solid #30ad54;"{% endif %}><a
+                    href="{% url 'index' %}">Главная</a></li>
+            <li {% if location == 'actor' %}style=" color: #30ad54; border-bottom: 5px solid #30ad54;" {% endif %}><a
+                    href="{% url 'actor' %}">Актеры</a></li>
             <li {% if location == 'moviemaker' %}class="link_active"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
             </li>
-            <li><a href="{% url 'studio' %}">Студии</a></li>
+            <li {% if location == 'studio' %}style=" color: #30ad54; border-bottom: 5px solid #30ad54;"{% endif %}><a href="{% url 'studio' %}">Студии</a></li>
             <li {% if location == 'location' %}class="link_active"{% endif %}><a
                     href="{% url 'location' %}">локации</a></li>
             <li><a href="{% url 'about' %}">О нас</a></li>
             <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
-{#            <li><a href="#">Контакты</a></li>#}
+            {#            <li><a href="#">Контакты</a></li>#}
         </ul>
     </nav>
 

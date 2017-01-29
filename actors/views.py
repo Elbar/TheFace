@@ -1,6 +1,12 @@
+# coding=utf-8
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
+from django.template import Context
+from django.template import Template
 from django.views.decorators.csrf import csrf_exempt
 
+from TheFace.settings import BASE_DIR
 from .models import *
 from actors.form import FilterForm, ActorForm
 
@@ -47,6 +53,7 @@ def ajax_actor_view(request, id):
     response = render_to_response('partial/_actors_popup.html', dict(actor=actor, actor_images=actor_images))
     return response
 
+
 @csrf_exempt
 def ajax_moviemakers_view(request, id):
     moviemaker = MovieMaker.objects.get(id=id)
@@ -54,11 +61,9 @@ def ajax_moviemakers_view(request, id):
 
     return response
 
-
 @csrf_exempt
-def become_an_actor_view(request):
+def send_mail(request):
     form = ActorForm(request.POST)
-    actor_form = ActorForm
 
     if request.method == 'POST':
         print request.method
@@ -78,10 +83,25 @@ def become_an_actor_view(request):
 
             other = form.cleaned_data['other']
 
-            print name, surname, birthday, body, height, email, number, types, sex, town, language, other
+            import os
+            f = open(os.path.join(BASE_DIR, "templates/mail.html"))
 
-        else:
-            print form.errors
+            content = f.read()
+            f.close()
+            context = Context(
+                dict(name=name, surname=surname, birthday=birthday, body=body, height=height, email=email,
+                     number=number, types=types, sex=sex, town=town, language=language, other=other))
+            template = Template(content)
+            mail = EmailMessage('Заявка на Кастинг', template.render(context), to=['thefacekg@gmail.com'])
+            mail.content_subtype = 'html'
+            mail.send()
+
+            return JsonResponse(dict(result='Message send'))
+
+
+@csrf_exempt
+def become_an_actor_view(request):
+    actor_form = ActorForm
 
     context = {"form": actor_form}
     template = 'become_an_actor.html'

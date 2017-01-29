@@ -7,7 +7,7 @@
 {% block content %}
     <div class="b_bg1">
         <div class="b_content1 grid">
-             {% include 'main/header.html' %}
+            {% include 'main/header.html' %}
 
             <h3>Стать актером</h3>
         </div>
@@ -88,7 +88,7 @@
             <div class="b_content4 grid">
                 <h3>Сделай мечту ближе! Зарегистрируйся в нашей базе!</h3>
 
-                <form method="post" action="{% url 'beactor' %}" class="register">
+                <form method="post" action="{% url 'sendmail' %}" class="register">
 
                     <div class="field">
                         <label for="name">Имя<br>
@@ -100,12 +100,10 @@
                         </label>
                     </div>
 
-                    <div class="switch-field">
-                        <div class="switch-title">Пол</div>
-                        <input type="radio" id="switch_left" name="switch_2" value="yes" checked/>
-                        <label for="switch_left">Мужской</label>
-                        <input type="radio" id="switch_right" name="switch_2" value="no"/>
-                        <label for="switch_right">Женский</label>
+                    <div class="field">
+                        <label for="e_select1">Пол<br>
+                            {% render_field form.sex %}
+                        </label>
                     </div>
 
                     <div class="field">
@@ -151,14 +149,30 @@
                     </div>
 
                     <div class="field checkbox">
-                        <div class="switch-title">Знание языков</div>
-                        {% render_field form.language type="checkbox" %}
+                        <div class="switch-title">Знание Языков</div>
+                        <input id="check13" type="checkbox" name="check" value="check1">
 
+                        <label for="check13">Английский</label>
+
+                        <input id="check14" type="checkbox" name="check" value="check2">
+                        <label for="check14">Русский</label>
+
+                        <input id="check15" type="checkbox" name="check" value="check2">
+                        <label for="check15">Немецкий</label>
+
+                        <input id="check16" type="checkbox" name="check" value="check2">
+                        <label for="check16">Французский</label>
+
+                        <input id="check17" type="checkbox" name="check" value="check2">
+                        <label for="check17">Испанский</label>
+
+                        <input id="check18" type="checkbox" name="check" value="check2">
+                        <label for="check18">Китайский</label>
                     </div>
 
                     <div class="field checkbox">
                         <div class="switch-title">Навыки</div>
-                                                <label for="check13">Танец</label>
+                        <label for="check13">Танец</label>
 
                         <input id="check13" type="checkbox" name="check" value="check1">
 
@@ -203,7 +217,7 @@
                     <div class="field">
                         <div class="switch-title">Контактная информация</div>
                         <label for="phone">
-                            {% render_field form.number placeholder="number" %}
+                            {% render_field form.number placeholder="номер телефона" %}
                         </label>
 
                         <label for="email">
@@ -213,7 +227,7 @@
 
                     <div class="field">
                         <label for="comments">Другие навыки/умения<br>
-                            <textarea name="comments" id="comments" cols="20" rows="10"></textarea>
+                            {% render_field form.other %}
                         </label>
                     </div>
 

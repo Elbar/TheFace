@@ -2,13 +2,13 @@
  * Created by avtan on 06.01.2017.
  */
 
-$('.menu > li:first-child').addClass('link_active');
-
-$('.menu > li').on('click', function (event) {
-    // event.preventDefault();
-    $('.menu > li').removeClass('link_active');
-    $(this).addClass('link_active');
-});
+// $('.menu > li:first-child').addClass('link_active');
+//
+// $('.menu > li').on('click', function (event) {
+//     // event.preventDefault();
+//     $('.menu > li').removeClass('link_active');
+//     $(this).addClass('link_active');
+// });
 
 $('.slider').slick({
     cssEase: 'ease-in',
