@@ -29,7 +29,8 @@ urlpatterns = [
     url(r'^locations/', 'actors.views.location_view', name='location'),
     url(r'^studio/', 'actors.views.studio_view', name='studio'),
     url(r'^about/', 'actors.views.about_view', name='about'),
-    url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get')
+    url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get'),
+    url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view', name='ajax_moviemaker_get'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

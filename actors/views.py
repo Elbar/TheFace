@@ -47,6 +47,13 @@ def ajax_actor_view(request, id):
     response = render_to_response('partial/_actors_popup.html', dict(actor=actor, actor_images=actor_images))
     return response
 
+@csrf_exempt
+def ajax_moviemakers_view(request, id):
+    moviemaker = MovieMaker.objects.get(id=id)
+    response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker))
+
+    return response
+
 
 @csrf_exempt
 def become_an_actor_view(request):

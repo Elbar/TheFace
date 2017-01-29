@@ -5,113 +5,10 @@
 
 {% block content %}
 
-    <div class="popup m_popup" data-popup="popup-1">
-        <div class="popup-inner">
-            <div class="popup_scroll">
-                <div class="sl_content">
-                    <div class="m_container">
-                        <img src="assets/images/m_img1.jpg" alt="image">
-                    </div>
+<div class="popup m_popup" data-popup="popup-1" id="popup-moviemaker">
 
-                    <div class="p_block">
-                        <h3>Понравился актер?</h3>
+</div>
 
-                        <h3>Пригласите его на съемки!</h3>
-
-                        <p>Или получите подборку из 5 вариантов актеров</p>
-                        <a href="#" class="button">Заполнить заявку</a>
-
-                        <div class="p_number"><img src="assets/images/phone_icon.png" alt="icon">+ 996 558 002 444</div>
-                        <div class="p_gmail"><a href="#"><img src="assets/images/line.png"
-                                                              alt="image">thefacekg@gmail.com</a></div>
-                    </div>
-                </div>
-
-                <div class="p_container">
-                    <ul class="p_block2">
-                        <li><h3>Авазов Нурбек Айбекович</h3></li>
-                        <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
-                        </li>
-                        <li>Специализация:</li>
-                        <li>Режиссер</li>
-                        <li>Опыть работы:</li>
-                        <li>5 лет</li>
-                        <li> Образование:</li>
-                        <li>Кыргызско-Турецкий Университет “Манас”, Отделение Радио, Телевидения и Кино</li>
-                        <li>Знание языков:</li>
-                        <li>Кыргызский, Русский, Английский, Турецкий</li>
-                        <li>Готовность к выезду:</li>
-                        <li>Да</li>
-                    </ul>
-
-                    <h3>Проекты:</h3>
-
-                    <div class="p_projects">
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                            <div class="p_img">
-                                <div class="project_hover"></div>
-                                <img src="assets/images/project1.jpg" alt="project">
-                            </div>
-                        </div>
-
-                        <a href="#" class="link">+ 4 проектов</a>
-                    </div>
-
-                    <a class="popup-close" data-popup-close="popup-1"></a>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -375,16 +272,19 @@
                     <div class="m_maker">
 
                         <div class="m_block" data-popup-open="popup-1">
-                            <img src="/media/{{ MEDIA_URL }}{{ maker.image }}" alt="image">
+                            <a href="{% url 'ajax_moviemaker_get' id=maker.id %}" class="moviemakers-trigger"> <img
+                                    src="/media/{{ MEDIA_URL }}{{ maker.image }}" alt="image"></a>
                         </div>
 
                         <div class="moviemaker">
-                            <h5 data-popup-open="popup-1">{{ maker.firstname }} {{ maker.lastname }} {{ maker.surname }}</h5>
+                            <a href="{% url 'ajax_moviemaker_get' id=maker.id %}" class="moviemakers-trigger"><h5
+                                    data-popup-open="popup-1">{{ maker.firstname }} {{ maker.lastname }} {{ maker.surname }}</h5>
+                            </a>
 
-                            <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить
-                                в
-                                избранное
-                            </div>
+                            {#                            <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить#}
+                            {#                                в#}
+                            {#                                избранное#}
+                            {#                            </div>#}
 
                             <ul class="m_desc">
                                 <li>Специализация:</li>
@@ -545,6 +445,34 @@
 
 
                 });
+            });
+
+            $('.moviemakers-trigger').each(function (i, obj) {
+                $(obj).on('click', function (event) {
+                    event.preventDefault();
+                    var that = this;
+                    $.ajax({
+                        method: 'POST',
+                        dataType: 'HTML',
+                        url: $(that).attr('href'),
+                        success: function (response) {
+                            $('#popup-moviemaker').html(response);
+
+
+                            $('[data-popup-close]').on('click', function (e) {
+
+                                e.preventDefault();
+                                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+
+                            });
+                        },
+                        error: function () {
+                            console.error('Error to send requet!');
+                        }
+                    });
+                })
             });
         </script>
     {% endblock %}
