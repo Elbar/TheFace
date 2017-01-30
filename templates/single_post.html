@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+            {% include 'main/header.html' %}
+
+            <h3>Новости и кастинги</h3>
+        </div>
+    </div>
+
+    <div class="article">
+        <div class="article_container grid">
+            <div class="article_block">
+                <h3>{{ news.title }}</h3>
+                {#                <div class="type">#}
+                {#                    <div class="tag">Кастинги</div>#}
+                {#                    <div class="tag">Новости</div>#}
+                {#                    <div class="tag">Советы</div>#}
+                {#                    <div class="tag">TheFace</div>#}
+                {#                </div>#}
+
+                <span>{{ news.timestamp }}</span>
+                <h5> {{ news.description }}</h5>
+                <img src="/media/{{ MEDIA_URL }}{{ news.image }}" alt="image" style="margin-right: 10px;">
+                <p>
+
+                    <br>
+                    {{ news.text }}
+                </p>
+
+                <ul class="post_share">
+                    <li>Поделиться статьей:</li>
+
+                    <li><a href="https://www.facebook.com/share/"><img src="{% static 'images/social1.png' %}"
+                                                                       alt="image"> </a></li>
+
+
+                    <li><a href="https://twitter.com/intent/tweet">
+                        <img src="{% static 'images/social2.png' %}"
+                             alt="image"></a></li>
+                    <li><img src="{% static 'images/social3.png' %}" alt="image"></li>
+                    <li><img src="{% static 'images/social4.png' %}" alt="image"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

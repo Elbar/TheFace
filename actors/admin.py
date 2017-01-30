@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Actor, ActorsImage, MovieMaker, Studio, News, Location
+from .models import Actor, ActorsImage, MovieMaker, Studio, Location, News, StudioImage, StudioLink
 
 
 class ActorAdmin(admin.ModelAdmin):
@@ -37,6 +37,20 @@ class LocationAdmin(admin.ModelAdmin):
     class Meta:
         model = Location
 
+
+class StudioImageAdmin(admin.ModelAdmin):
+    class Meta:
+        model = StudioImage
+
+
+class StudioLinkAdmin(admin.ModelAdmin):
+    class Meta:
+        model = StudioLink
+
+
+admin.site.register(StudioLink, StudioLinkAdmin)
+
+admin.site.register(StudioImage, StudioImageAdmin)
 
 admin.site.register(Location, LocationAdmin)
 

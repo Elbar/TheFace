@@ -1,5 +1,6 @@
 # coding=utf-8
 from django.core.mail import EmailMessage
+from django.http import Http404
 from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
@@ -21,7 +22,18 @@ def index_view(request):
     return render(request, template, context)
 
 
+@csrf_exempt
 def actor_view(request):
+    filter_form = FilterForm
+    template = 'actors.html'
+    actors = Actor.objects.all()
+
+    context = {"actors": actors, "form": filter_form, 'location': 'actor'}
+    return render(request, template, context)
+
+
+@csrf_exempt
+def filter_actor(request):
     form = FilterForm(request.POST)
     filter_form = FilterForm
     template = 'actors.html'
@@ -35,13 +47,13 @@ def actor_view(request):
             town = form.cleaned_data['town']
             language = form.cleaned_data['language']
 
-            actors = Actor.objects.filter(sex=sex, town=town, language=language, age__range=(minAge, maxAge))
+            actors = Actor.objects.filter(sex=sex, town=town)
         else:
             print form.errors
     else:
         actors = Actor.objects.all()
 
-    context = {"actors": actors, "form": filter_form, 'location': 'actors'}
+    context = {"actors": actors, "form": filter_form, 'location': 'actor'}
     return render(request, template, context)
 
 
@@ -60,6 +72,7 @@ def ajax_moviemakers_view(request, id):
     response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker))
 
     return response
+
 
 @csrf_exempt
 def send_mail(request):
@@ -111,25 +124,36 @@ def become_an_actor_view(request):
 
 def moviemaker_view(request):
     moviemaker = MovieMaker.objects.all()
-    context = {"moviemaker": moviemaker}
+    context = {"moviemaker": moviemaker, 'location': 'moviemaker'}
     template = 'moviemakers.html'
 
     return render(request, template, context)
 
 
 def news_view(request):
-    big_news = News.objects.get(news_type='Big')
-    small_news = News.objects.get(news_type='Small')
-    normal_news = News.objects.get(news_type='Normal')
-    context = {"big_news": big_news, "small_news": small_news, "normal_news": normal_news}
+    news = News.objects.all()
+    context = {"news": news, 'location': 'news'}
     template = 'news.html'
 
     return render(request, template, context)
 
 
+def singleNews(request, id):
+    try:
+        news = News.objects.get(id=id)
+
+        context = {"news": news, 'location': 'news'}
+        template = 'single_post.html'
+
+        return render(request, template, context)
+
+    except News.DoesNotExist:
+        raise Http404
+
+
 def location_view(request):
     locations = Location.objects.all()
-    context = {"locations": locations}
+    context = {"locations": locations, "location": "location"}
     template = 'locations.html'
 
     return render(request, template, context)
@@ -137,14 +161,25 @@ def location_view(request):
 
 def studio_view(request):
     studio = Studio.objects.all()
-    context = {"studio": studio}
+
+    context = {"studio": studio, 'location': 'studio'}
     template = 'studio.html'
 
     return render(request, template, context)
 
 
+def single_studio(request, id):
+    studio = Studio.objects.get(id=id)
+    studio_image = StudioImage.objects.filter(studio=studio)
+    studio_link = StudioLink.objects.filter(studio=studio)
+    context = {"studio": studio, 'location': 'studio', "images": studio_image, "links": studio_link}
+    template = 'studio_single.html'
+
+    return render(request, template, context)
+
+
 def about_view(request):
-    context = {}
+    context = {'location': 'about'}
     template = 'about_us.html'
 
     return render(request, template, context)

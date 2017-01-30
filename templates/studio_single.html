@@ -1,10 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% load staticfiles %}
+
+
+{% block content %}
+    <div class="b_bg1">
+        <div class="b_content1 grid">
+            {% include 'main/header.html' %}
+
+            <h3>Студии</h3>
+
+            {#            <div class="favourite">#}
+            {#                <div class="count">15</div>#}
+            {#                <img src="assets/images/fav_icon.png" alt="icon">#}
+            {#                <span>Избранное</span>#}
+            {#            </div>#}
+        </div>
+    </div>
+
+    <div class="c_bg1">
+        <div class="c_content1 grid">
+            <div class="casting">
+                <div class="c_container">
+                    <div class="m_block">
+                        <a href="{% url 'single_studio' id=studio.id %}"> <img
+                                src="/media/{{ MEDIA_URL }}{{ studio.image }}" alt="image"> </a>
+                    </div>
+
+                    <div class="p_block">
+                        <h3>Хотите заказать услугу?</h3>
+
+                        <h3>Свяжитесь с нами!</h3>
+
+                        <a href="#" class="button">Заполнить заявку</a>
+                        <div class="p_number"><img src="{% static 'images/phone_icon.png' %}" alt="icon">+ 996 558 002
+                            444
+                        </div>
+                        <div class="p_gmail"><a href="#"><img src="{% static 'images/line.png' %}"
+                                                              alt="image">thefacekg@gmail.com</a></div>
+                    </div>
+                </div>
+
+                <div class="moviemaker">
+                    <a href="{% url 'single_studio' id=studio.id %}"><h5>{{ studio.name }}</h5></a>
+
+                    <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить
+                        в
+                        избранное
+                    </div>
+
+                    <ul class="m_desc">
+                        <li>О студии:</li>
+                        <li>{{ studio.about }}
+                        </li>
+                        <li>Услуги агенства:</li>
+                        <li>
+                            <ul class="bullet">
+                                <li>Фотосессия</li>
+                                <li>Съемка рекламных социальных роликов</li>
+                                <li>Производство фильмов</li>
+                                <li>Запись песен</li>
+                                <li>Производство аудио рекламы</li>
+                                <li>Озвучка</li>
+                            </ul>
+                        </li>
+                        <li>Аппаратура:</li>
+                        <li>{{ studio.apparat }}
+                        </li>
+                        <li>Площадь помещения:</li>
+                        <li>{{ studio.square }} м²</li>
+                        <li>Адрес:</li>
+                        <li>{{ studio.address }}</li>
+                        <li>Сайт:</li>
+                        <li><a href="{{ studio.site }}">{{ studio.site }}</a></li>
+                        <li>Телефоны:</li>
+                        <li>{{ studio.number }}</li>
+                        <li>E-mail:</li>
+                        <li><a href="#">{{ studio.email }}</a></li>
+                    </ul>
+
+                    <h6>Фотосессии</h6>
+
+                    <div class="photoshoot">
+
+                        {% if studio.studioimage_set.all %}
+                            {% for item in images %}
+                                <div class="shoot">
+                                    <a href="/media/{{ MEDIA_URL }}{{ item.image }}" class="item">
+                                        <div class="shoot_hover"></div>
+                                        <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="image">
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+                    <h6>Видеоролики</h6>
+
+                    <div class="videos">
+                        {% for link in links %}
+                            <div class="video">
+                                <iframe src="https://www.youtube.com/embed/{{ link.link }}" frameborder="0"
+                                        allowfullscreen></iframe>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {% block scripts %}
+
+        <script>
+            $(".item").magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                }
+            });
+        </script>
+
+    {% endblock %}
+
+{% endblock %}

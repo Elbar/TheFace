@@ -44,12 +44,6 @@ STATUS = (
     ('BASIC', 'BASIC')
 )
 
-TYPE_OF_NEWS = (
-    ('Big', 'Big'),
-    ('Normal', 'Normal'),
-    ('Small', 'Small'),
-)
-
 BODY = (
     ('small', 'маленькое'),
     ('normal', 'среднее'),
@@ -136,6 +130,9 @@ class MovieMaker(models.Model):
     ready_to_go = models.CharField(max_length=255, choices=READY_TO_GO)
     experience = models.IntegerField(default=0)
 
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
     def __unicode__(self):
         return self.firstname + ' ' + self.lastname
 
@@ -151,16 +148,43 @@ class Studio(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название')
     about = models.TextField(verbose_name='Об Агенстве')
     address = models.CharField(max_length=255, verbose_name='Адрес')
+    apparat = models.CharField(max_length=255, verbose_name='Аппаратура')
+    square = models.CharField(max_length=255, verbose_name='Площадь Студии')
     site = models.CharField(max_length=255, verbose_name='Сайт')
     number = models.CharField(max_length=255, verbose_name='Номер')
     email = models.EmailField(verbose_name='Почта')
     image = models.FileField(upload_to=transform(PATH_STUDIO), verbose_name='Фотография')
+
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
         return "/studio/%i" % self.id
+
+
+class StudioImage(models.Model):
+    class Meta:
+        verbose_name_plural = 'Фотосессии Студий'
+        verbose_name = 'Фотосессии Студий'
+
+    studio = models.ForeignKey(Studio, verbose_name='Выберите Студию')
+    image = models.FileField(upload_to=transform(PATH_STUDIO), verbose_name='Фотографии')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+
+class StudioLink(models.Model):
+    class Meta:
+        verbose_name_plural = 'Video Студий'
+        verbose_name = 'Video Студий'
+
+    studio = models.ForeignKey(Studio, verbose_name='Выберите Студию')
+    link = models.CharField(max_length=255, verbose_name='Вставьте линк')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
 
 class News(models.Model):
@@ -171,8 +195,7 @@ class News(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок поста')
     description = models.CharField(max_length=1000, verbose_name='Описание поста')
     text = models.TextField(verbose_name='Текст поста')
-
-    news_type = models.CharField(max_length=255, choices=TYPE_OF_NEWS)
+    image = models.ImageField(upload_to=transform(PATH_NEWS), verbose_name='картинка')
 
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -182,20 +205,6 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return "/news/%i/" % self.id
-
-
-class NewsImage(models.Model):
-    class Meta:
-        verbose_name_plural = 'Картинки новостей'
-        verbose_name = 'Картинки новостей'
-
-    news = models.ForeignKey(News, verbose_name='выберите новость')
-    image = models.ImageField(upload_to=transform(PATH_NEWS), verbose_name='картинка')
-    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __unicode__(self):
-        return self.news.title
 
 
 class Location(models.Model):

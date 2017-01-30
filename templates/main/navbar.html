@@ -7,16 +7,19 @@
         <ul class="menu">
             <li {% if location == 'index' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;" {% endif %}><a
                     href="{% url 'index' %}">Главная</a></li>
-            <li {% if location == 'actor' %}style=" color: #30ad54; border-bottom: 5px solid #30ad54;" {% endif %}><a
+            <li {% if location == 'actor' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;" {% endif %}><a
                     href="{% url 'actor' %}">Актеры</a></li>
-            <li {% if location == 'moviemaker' %}style=" color: #30ad54;
-    border-bottom: 5px solid #30ad54;"{% endif %}><a href="{% url 'moviemaker' %}">Кинематографисты</a>
+            <li {% if location == 'moviemaker' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}>
+                <a href="{% url 'moviemaker' %}">Кинематографисты</a>
             </li>
-            <li {% if location == 'studio' %}style=" color: #30ad54; border-bottom: 5px solid #30ad54;"{% endif %}><a href="{% url 'studio' %}">Студии</a></li>
-            <li {% if location == 'location' %}class="link_active"{% endif %}><a
+            <li {% if location == 'studio' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}><a
+                    href="{% url 'studio' %}">Студии</a></li>
+            <li {% if location == 'location' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}><a
                     href="{% url 'location' %}">локации</a></li>
-            <li><a href="{% url 'about' %}">О нас</a></li>
-            <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
+            <li {% if location == 'about' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}><a
+                    href="{% url 'about' %}">О нас</a></li>
+            <li {% if location == 'news' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}><a
+                    href="{% url 'news' %}">Новости и кастинги</a></li>
             {#            <li><a href="#">Контакты</a></li>#}
         </ul>
     </nav>
