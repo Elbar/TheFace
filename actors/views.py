@@ -161,8 +161,19 @@ def location_view(request):
 
 def studio_view(request):
     studio = Studio.objects.all()
+
     context = {"studio": studio, 'location': 'studio'}
     template = 'studio.html'
+
+    return render(request, template, context)
+
+
+def single_studio(request, id):
+    studio = Studio.objects.get(id=id)
+    studio_image = StudioImage.objects.filter(studio=studio)
+    studio_link = StudioLink.objects.filter(studio=studio)
+    context = {"studio": studio, 'location': 'studio', "images": studio_image, "links": studio_link}
+    template = 'studio_single.html'
 
     return render(request, template, context)
 

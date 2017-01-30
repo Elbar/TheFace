@@ -130,6 +130,9 @@ class MovieMaker(models.Model):
     ready_to_go = models.CharField(max_length=255, choices=READY_TO_GO)
     experience = models.IntegerField(default=0)
 
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
     def __unicode__(self):
         return self.firstname + ' ' + self.lastname
 
@@ -145,16 +148,43 @@ class Studio(models.Model):
     name = models.CharField(max_length=255, verbose_name='Название')
     about = models.TextField(verbose_name='Об Агенстве')
     address = models.CharField(max_length=255, verbose_name='Адрес')
+    apparat = models.CharField(max_length=255, verbose_name='Аппаратура')
+    square = models.CharField(max_length=255, verbose_name='Площадь Студии')
     site = models.CharField(max_length=255, verbose_name='Сайт')
     number = models.CharField(max_length=255, verbose_name='Номер')
     email = models.EmailField(verbose_name='Почта')
     image = models.FileField(upload_to=transform(PATH_STUDIO), verbose_name='Фотография')
+
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
         return self.name
 
     def get_absolute_url(self):
         return "/studio/%i" % self.id
+
+
+class StudioImage(models.Model):
+    class Meta:
+        verbose_name_plural = 'Фотосессии Студий'
+        verbose_name = 'Фотосессии Студий'
+
+    studio = models.ForeignKey(Studio, verbose_name='Выберите Студию')
+    image = models.FileField(upload_to=transform(PATH_STUDIO), verbose_name='Фотографии')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+
+class StudioLink(models.Model):
+    class Meta:
+        verbose_name_plural = 'Video Студий'
+        verbose_name = 'Video Студий'
+
+    studio = models.ForeignKey(Studio, verbose_name='Выберите Студию')
+    link = models.CharField(max_length=255, verbose_name='Вставьте линк')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
 
 class News(models.Model):

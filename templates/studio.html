@@ -5,7 +5,7 @@
 {% block content %}
     <div class="b_bg1">
         <div class="b_content1 grid">
-             {% include 'main/header.html' %}
+            {% include 'main/header.html' %}
 
             <h3>Студии</h3>
 
@@ -57,13 +57,14 @@
                 {% for item in studio %}
                     <div class="m_maker">
                         <div class="m_block">
-                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="image">
+                            <a href="{% url 'single_studio' id=item.id %}"> <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="image"></a>
                         </div>
 
                         <div class="moviemaker">
-                            <h5>Кастингове агенство {{ item.name }}</h5>
+                            <h5>Кастингове
+                            агенство {{ item.name }}</h5>
 
-                            <div class="fav_button link"><img src="assets/images/favourite_icon.png" alt="icon">Добавить
+                            <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить
                                 в
                                 избранное
                             </div>
