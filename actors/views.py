@@ -22,7 +22,18 @@ def index_view(request):
     return render(request, template, context)
 
 
+@csrf_exempt
 def actor_view(request):
+    filter_form = FilterForm
+    template = 'actors.html'
+    actors = Actor.objects.all()
+
+    context = {"actors": actors, "form": filter_form, 'location': 'actors'}
+    return render(request, template, context)
+
+
+@csrf_exempt
+def filter_actor(request):
     form = FilterForm(request.POST)
     filter_form = FilterForm
     template = 'actors.html'
@@ -36,7 +47,7 @@ def actor_view(request):
             town = form.cleaned_data['town']
             language = form.cleaned_data['language']
 
-            actors = Actor.objects.filter(sex=sex, town=town, language=language, age__range=(minAge, maxAge))
+            actors = Actor.objects.filter(sex=sex, town=town)
         else:
             print form.errors
     else:
@@ -128,7 +139,6 @@ def news_view(request):
 
 
 def singleNews(request, id):
-
     try:
         news = News.objects.get(id=id)
 
