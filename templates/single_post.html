@@ -27,14 +27,20 @@
                 <img src="/media/{{ MEDIA_URL }}{{ news.image }}" alt="image" style="margin-right: 10px;">
                 <p>
 
-                      <br>
+                    <br>
                     {{ news.text }}
                 </p>
 
                 <ul class="post_share">
                     <li>Поделиться статьей:</li>
-                    <li><img src="{% static 'images/social1.png' %}" alt="image"></li>
-                    <li><img src="{% static 'images/social2.png' %}" alt="image"></li>
+
+                    <li><a href="https://www.facebook.com/share/"><img src="{% static 'images/social1.png' %}"
+                                                                       alt="image"> </a></li>
+
+
+                    <li><a href="https://twitter.com/intent/tweet">
+                        <img src="{% static 'images/social2.png' %}"
+                             alt="image"></a></li>
                     <li><img src="{% static 'images/social3.png' %}" alt="image"></li>
                     <li><img src="{% static 'images/social4.png' %}" alt="image"></li>
                 </ul>
