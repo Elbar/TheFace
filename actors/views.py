@@ -28,7 +28,7 @@ def actor_view(request):
     template = 'actors.html'
     actors = Actor.objects.all()
 
-    context = {"actors": actors, "form": filter_form, 'location': 'actors'}
+    context = {"actors": actors, "form": filter_form, 'location': 'actor'}
     return render(request, template, context)
 
 
@@ -53,7 +53,7 @@ def filter_actor(request):
     else:
         actors = Actor.objects.all()
 
-    context = {"actors": actors, "form": filter_form, 'location': 'actors'}
+    context = {"actors": actors, "form": filter_form, 'location': 'actor'}
     return render(request, template, context)
 
 
@@ -124,7 +124,7 @@ def become_an_actor_view(request):
 
 def moviemaker_view(request):
     moviemaker = MovieMaker.objects.all()
-    context = {"moviemaker": moviemaker}
+    context = {"moviemaker": moviemaker, 'location': 'moviemaker'}
     template = 'moviemakers.html'
 
     return render(request, template, context)
@@ -132,7 +132,7 @@ def moviemaker_view(request):
 
 def news_view(request):
     news = News.objects.all()
-    context = {"news": news}
+    context = {"news": news, 'location': 'news'}
     template = 'news.html'
 
     return render(request, template, context)
@@ -142,7 +142,7 @@ def singleNews(request, id):
     try:
         news = News.objects.get(id=id)
 
-        context = {"news": news}
+        context = {"news": news, 'location': 'news'}
         template = 'single_post.html'
 
         return render(request, template, context)
@@ -153,7 +153,7 @@ def singleNews(request, id):
 
 def location_view(request):
     locations = Location.objects.all()
-    context = {"locations": locations}
+    context = {"locations": locations, "location": "location"}
     template = 'locations.html'
 
     return render(request, template, context)
@@ -161,14 +161,14 @@ def location_view(request):
 
 def studio_view(request):
     studio = Studio.objects.all()
-    context = {"studio": studio}
+    context = {"studio": studio, 'location': 'studio'}
     template = 'studio.html'
 
     return render(request, template, context)
 
 
 def about_view(request):
-    context = {}
+    context = {'location': 'about'}
     template = 'about_us.html'
 
     return render(request, template, context)
