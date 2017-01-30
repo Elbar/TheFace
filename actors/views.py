@@ -1,5 +1,6 @@
 # coding=utf-8
 from django.core.mail import EmailMessage
+from django.http import Http404
 from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
@@ -124,6 +125,20 @@ def news_view(request):
     template = 'news.html'
 
     return render(request, template, context)
+
+
+def singleNews(request, id):
+
+    try:
+        news = News.objects.get(id=id)
+
+        context = {"news": news}
+        template = 'single_post.html'
+
+        return render(request, template, context)
+
+    except News.DoesNotExist:
+        raise Http404
 
 
 def location_view(request):

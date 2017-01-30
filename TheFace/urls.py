@@ -13,26 +13,28 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 
 from TheFace import settings
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', 'actors.views.index_view', name='index'),
-    url(r'^actors/', 'actors.views.actor_view', name='actor'),
-    url(r'^beactor/', 'actors.views.become_an_actor_view', name='beactor'),
-    url(r'^moviemakers/', 'actors.views.moviemaker_view', name='moviemaker'),
-    url(r'^sendmail/', 'actors.views.send_mail', name='sendmail'),
-    url(r'^news/', 'actors.views.news_view', name='news'),
-    url(r'^locations/', 'actors.views.location_view', name='location'),
-    url(r'^studio/', 'actors.views.studio_view', name='studio'),
-    url(r'^about/', 'actors.views.about_view', name='about'),
-    url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get'),
-    url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view', name='ajax_moviemaker_get'),
-]
+urlpatterns = patterns('',
+                       url(r'^admin/', admin.site.urls),
+                       url(r'^$', 'actors.views.index_view', name='index'),
+                       url(r'^actors/', 'actors.views.actor_view', name='actor'),
+                       url(r'^beactor/', 'actors.views.become_an_actor_view', name='beactor'),
+                       url(r'^moviemakers/', 'actors.views.moviemaker_view', name='moviemaker'),
+                       url(r'^sendmail/', 'actors.views.send_mail', name='sendmail'),
+                       url(r'^news/', 'actors.views.news_view', name='news'),
+                       url(r'^locations/', 'actors.views.location_view', name='location'),
+                       url(r'^studio/', 'actors.views.studio_view', name='studio'),
+                       url(r'^about/', 'actors.views.about_view', name='about'),
+                       url(r'^new/(?P<id>\d+)/$', 'actors.views.singleNews', name='single_news'),
+                       url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get'),
+                       url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view',
+                           name='ajax_moviemaker_get'),
+                       )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
