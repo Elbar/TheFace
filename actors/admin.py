@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Actor, ActorsImage, MovieMaker, Studio, News, Location
+from .models import Actor, ActorsImage, MovieMaker, Studio, Location, News
 
 
 class ActorAdmin(admin.ModelAdmin):

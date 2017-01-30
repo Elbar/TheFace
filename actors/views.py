@@ -61,6 +61,7 @@ def ajax_moviemakers_view(request, id):
 
     return response
 
+
 @csrf_exempt
 def send_mail(request):
     form = ActorForm(request.POST)
@@ -118,10 +119,8 @@ def moviemaker_view(request):
 
 
 def news_view(request):
-    big_news = News.objects.get(news_type='Big')
-    small_news = News.objects.get(news_type='Small')
-    normal_news = News.objects.get(news_type='Normal')
-    context = {"big_news": big_news, "small_news": small_news, "normal_news": normal_news}
+    news = News.objects.all()
+    context = {"news": news}
     template = 'news.html'
 
     return render(request, template, context)
