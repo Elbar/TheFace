@@ -1,6 +1,9 @@
 # coding=utf-8
+
 from django.core.mail import EmailMessage
 from django.http import Http404
+from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
@@ -9,17 +12,43 @@ from django.views.decorators.csrf import csrf_exempt
 
 from TheFace.settings import BASE_DIR
 from .models import *
-from actors.form import FilterForm, ActorForm, MovieMakerForm
+from actors.form import *
 
 
 def index_view(request):
     actors = Actor.objects.all()[0:5]
     actors1 = Actor.objects.all()[5:11]
     actors2 = Actor.objects.all()[11:16]
-    context = {"actors": actors, "actors1": actors1, "actors2": actors2, 'location': 'index'}
+    form = ApplicationForm
+    context = {"actors": actors, "actors1": actors1, "actors2": actors2, 'location': 'index', "form": form}
     template = 'main/index.html'
 
     return render(request, template, context)
+
+
+@csrf_exempt
+def send_application(request):
+    form = ApplicationForm(request.POST)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            info = form.cleaned_data['info']
+
+            import os
+            f = open(os.path.join(BASE_DIR, "templates/application.html"))
+
+            content = f.read()
+            f.close()
+            context = Context(
+                dict(name=name, email=email, info=info))
+            template = Template(content)
+            mail = EmailMessage('Заявка на Подборку', template.render(context), to=['thefacekg@gmail.com'])
+            mail.content_subtype = 'html'
+            mail.send()
+
+            return render_to_response('partial/success.html')
 
 
 @csrf_exempt
@@ -109,7 +138,7 @@ def send_mail(request):
             mail.content_subtype = 'html'
             mail.send()
 
-            return JsonResponse(dict(result='Message send'))
+            return render_to_response('partial/success.html')
 
 
 @csrf_exempt
@@ -125,7 +154,7 @@ def become_an_actor_view(request):
 def moviemaker_view(request):
     form = MovieMakerForm
     moviemaker = MovieMaker.objects.all()
-    context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": MovieMakerForm}
+    context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": form}
     template = 'moviemakers.html'
 
     return render(request, template, context)

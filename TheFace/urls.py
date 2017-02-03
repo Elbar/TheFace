@@ -36,6 +36,7 @@ urlpatterns = patterns('',
                        url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get'),
                        url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view',
                            name='ajax_moviemaker_get'),
+                       url(r'^application/', 'actors.views.send_application', name='application'),
                        )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

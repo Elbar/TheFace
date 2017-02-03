@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% load staticfiles %}
 
 {% block content %}
@@ -9,7 +11,7 @@
             {% include 'main/navbar.html' %}
 
             <div class="main_page">
-                <h1>Ведущее кастинговое агентство Кыргызстана</h1>
+                <h1>Кастинговое агентство Кыргызстана</h1>
 
                 <p>Крупная база актеров, а так же кинематографистов, студий и локаций</p>
 
@@ -49,7 +51,7 @@
         </div>
     </div>
 
-    <div class="bg2"  id="down">
+    <div class="bg2" id="down">
         <div class="content2 grid">
 
             <h2>услуги от профессионалов в своем деле</h2>
@@ -111,13 +113,13 @@
         <div class="content3 grid">
             <h2>Кастинговое агентство "The Face"</h2>
 
-{#            <div class="line"></div>#}
-{##}
-{#            <div class="iframe">#}
-{#                <iframe src="https://www.youtube.com/embed/c1sBLK_hjhs" frameborder="0" allowfullscreen></iframe>#}
-{#            </div>#}
-{##}
-{#            <p>Посмотрите видео, о том, как мы работаем</p>#}
+            {#            <div class="line"></div>#}
+            {##}
+            {#            <div class="iframe">#}
+            {#                <iframe src="https://www.youtube.com/embed/c1sBLK_hjhs" frameborder="0" allowfullscreen></iframe>#}
+            {#            </div>#}
+            {##}
+            {#            <p>Посмотрите видео, о том, как мы работаем</p>#}
         </div>
     </div>
 
@@ -192,19 +194,19 @@
 
                 <p>Заполните форму с указанием информации о типаже </p>
 
-                <p>и получите 5 вариантов актеров<img src="assets/images/pointer.png" alt="image"></p>
+                <p>и получите 5 вариантов актеров<img src="{% static 'images/pointer.png' %}" alt="image"></p>
 
-                <form method="post" action="#">
+                <form method="post" action="{% url 'application' %}">
                     <label>
-                        <input type="text" name="name" placeholder="Ваше имя?">
+                        {% render_field form.name placeholder="Имя" %}
                     </label>
 
                     <label>
-                        <input type="tel" name="number">
+                        {% render_field form.email placeholder="Email" %}
                     </label>
 
                     <label>
-                        <textarea name="comments" cols="20" rows="10" placeholder="Информация о типаже"></textarea>
+                        {% render_field form.info placeholder="Информация о типаже" %}
                     </label>
 
                     <input type="submit" value="Получить варианты">
@@ -232,6 +234,13 @@
                 }
             });
         </script>
+
+        <script>
+            {% if location1 == 'application' %}
+                alert({{ message }});
+            {% endif %}
+        </script>
+
     {% endblock %}
 
 {% endblock %}

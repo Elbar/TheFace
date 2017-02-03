@@ -73,3 +73,9 @@ class MovieMakerForm(forms.Form):
     minAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'от'}), required=False)
     maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
+
+
+class ApplicationForm(forms.Form):
+    name = forms.CharField(max_length=255, required=False)
+    email = forms.EmailField(required=False)
+    info = forms.CharField(max_length=255, required=False, widget=forms.Textarea)
