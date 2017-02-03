@@ -31,16 +31,20 @@ LANGUAGE_CHOICES = (
 )
 
 TYPES = (
-    ('brunet', 'Brunet'),
-    ('waten', 'waten'),
-    ('some', 'some'),
-    ('type', 'type'),
+    ('aziat', 'Азиат'),
+    ('evropeec', 'Европеец'),
+)
+
+COLOR = (
+    ('brunet', 'Брюнет'),
+    ('blondın', 'Блондин'),
+    ('ryjıy', 'Рыжий'),
 )
 
 BODY = (
-    ('small', 'маленькое'),
-    ('normal', 'среднее'),
-    ('big', 'большое'),
+    ('small', 'худой'),
+    ('normal', 'средний'),
+    ('big', 'толстый'),
 )
 
 
@@ -62,6 +66,7 @@ class ActorForm(forms.Form):
     number = forms.CharField(required=False)
 
     types = forms.ChoiceField(required=False, choices=TYPES)
+    hair_color = forms.ChoiceField(required=False, choices=COLOR)
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
     town = forms.ChoiceField(choices=TOWN_CHOICES, required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
