@@ -9,7 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from TheFace.settings import BASE_DIR
 from .models import *
-from actors.form import FilterForm, ActorForm
+from actors.form import FilterForm, ActorForm, MovieMakerForm
 
 
 def index_view(request):
@@ -123,8 +123,9 @@ def become_an_actor_view(request):
 
 
 def moviemaker_view(request):
+    form = MovieMakerForm
     moviemaker = MovieMaker.objects.all()
-    context = {"moviemaker": moviemaker, 'location': 'moviemaker'}
+    context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": MovieMakerForm}
     template = 'moviemakers.html'
 
     return render(request, template, context)

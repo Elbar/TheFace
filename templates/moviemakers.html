@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-
+{% load widget_tweaks %}
 {% load staticfiles %}
 
 {% block content %}
 
-<div class="popup m_popup" data-popup="popup-1" id="popup-moviemaker">
+    <div class="popup m_popup" data-popup="popup-1" id="popup-moviemaker">
 
-</div>
+    </div>
 
 
     <!-- The Modal -->
@@ -211,11 +211,11 @@
 
             <h3>Кинематографисты</h3>
 
-            <div class="favourite">
-                <div class="count">15</div>
-                <img src="{% static 'images/fav_icon.png' %}" alt="icon">
-                <span>Избранное</span>
-            </div>
+            {#            <div class="favourite">#}
+            {#                <div class="count">15</div>#}
+            {#                <img src="{% static 'images/fav_icon.png' %}" alt="icon">#}
+            {#                <span>Избранное</span>#}
+            {#            </div>#}
         </div>
     </div>
 
@@ -236,22 +236,17 @@
                 <div class="field">
                     <div class="switch-title">Опыт (в годах)</div>
                     <label for="e_number3">
-                        <input type="number" name="age" id="e_number3" placeholder="от">
+                        {% render_field form.minAge %}
                     </label>
 
                     <label for="e_number4">
-                        <input type="number" name="age" id="e_number4" placeholder="до">
+                        {% render_field form.maxAge %}
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="select3">Знание языков<br>
-                        <select name="select-name" id="select3">
-                            <option value="1">Русский</option>
-                            <option value="2">Немецкий</option>
-                            <option value="2">Английский</option>
-                            <option value="2">Французский</option>
-                        </select>
+                        {% render_field form.language %}
                     </label>
                 </div>
 

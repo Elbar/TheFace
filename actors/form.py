@@ -67,3 +67,9 @@ class ActorForm(forms.Form):
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
 
     other = forms.CharField(widget=forms.Textarea, required=False)
+
+
+class MovieMakerForm(forms.Form):
+    minAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'от'}), required=False)
+    maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
+    language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
