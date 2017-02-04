@@ -45,15 +45,22 @@
 
 
             {% endfor %}
-            {#            <ul class="pagination">#}
-            {#                <li><a href="#">пред</a></li>#}
-            {#                <li><a href="#">1</a></li>#}
-            {#                <li><a href="#">2</a></li>#}
-            {#                <li><a href="#">3</a></li>#}
-            {#                <li><a href="#">...</a></li>#}
-            {#                <li><a href="#">55</a></li>#}
-            {#                <li><a href="#">след</a></li>#}
-            {#            </ul>#}
+            <ul class="pagination" style="text-align: center;">
+                {% if news.has_previous %}
+
+                    <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+
+                {% endif %}
+
+                <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
+                </li>
+
+                {% if news.has_next %}
+
+                    <li><a href="?page={{ news.next_page_number }}">след</a></li>
+
+                {% endif %}
+            </ul>
         </div>
     </div>
 
@@ -66,7 +73,7 @@
 
             // Изменить класс вкладки и отобразить содержимое
             $('.tabs-nav > li > a').on('click', function (event) {
-{#                event.preventDefault();#}
+                {#                event.preventDefault();#}
                 $('.tabs-nav > li a').removeClass('tab-active');
                 $(this).addClass('tab-active');
                 $('.tabs-stage > div').hide(500);

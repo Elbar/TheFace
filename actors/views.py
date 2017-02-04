@@ -54,7 +54,7 @@ def actor_view(request):
     filter_form = FilterForm
     template = 'actors.html'
     actors_list = Actor.objects.all()
-    paginator = Paginator(actors_list, 1)
+    paginator = Paginator(actors_list, 10)
 
     page = request.GET.get('page')
 
@@ -163,7 +163,23 @@ def become_an_actor_view(request):
 
 def moviemaker_view(request):
     form = MovieMakerForm
-    moviemaker = MovieMaker.objects.all()
+    moviemaker_list = MovieMaker.objects.all()
+
+    paginator = Paginator(moviemaker_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        moviemaker = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        moviemaker = paginator.page(1)
+
+    except EmptyPage:
+
+        moviemaker = paginator.page(paginator.num_pages)
+
     context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": form}
     template = 'moviemakers.html'
 
@@ -197,7 +213,20 @@ def moviemaker_result_view(request):
 
 
 def news_view(request):
-    news = News.objects.all()
+    news_list = News.objects.all()
+
+    paginator = Paginator(news_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        news = paginator.page(page)
+    except PageNotAnInteger:
+        news = paginator.page(1)
+
+    except EmptyPage:
+        news = paginator.page(paginator.num_pages)
+
     context = {"news": news, 'location': 'news'}
     template = 'news.html'
 
@@ -218,7 +247,23 @@ def singleNews(request, id):
 
 
 def location_view(request):
-    locations = Location.objects.all()
+    locations_list = Location.objects.all()
+
+    paginator = Paginator(locations_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        locations = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        locations = paginator.page(1)
+
+    except EmptyPage:
+
+        locations = paginator.page(paginator.num_pages)
+
     context = {"locations": locations, "location": "location"}
     template = 'locations.html'
 

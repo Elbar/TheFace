@@ -335,15 +335,21 @@
                     </div>
                 {% endfor %}
 
+                <ul class="pagination" style="text-align: center;">
+                    {% if moviemaker.has_previous %}
 
-                <ul class="pagination">
-                    <li><a href="#">пред</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">55</a></li>
-                    <li><a href="#">след</a></li>
+                        <li><a href="?page={{ moviemaker.previous_page_number }}">пред</a></li>
+
+                    {% endif %}
+
+                    <li><a href="#" class="active">{{ moviemaker.number }} из {{ moviemaker.paginator.num_pages }}</a>
+                    </li>
+
+                    {% if moviemaker.has_next %}
+
+                        <li><a href="?page={{ moviemaker.next_page_number }}">след</a></li>
+
+                    {% endif %}
                 </ul>
             </div>
         </div>
