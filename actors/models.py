@@ -50,6 +50,12 @@ BODY = (
     ('big', 'большое'),
 )
 
+CATEGORY_MOVIEMAKER = (
+    ('professional', 'Профессионал'),
+    ('normal', 'Любитель'),
+    ('newer', 'Новичок'),
+)
+
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
@@ -125,6 +131,7 @@ class MovieMaker(models.Model):
     surname = models.CharField(max_length=255, verbose_name='Отчество')
     job_type = models.CharField(max_length=255, verbose_name='Специализация')
     education = models.CharField(max_length=255, verbose_name='Образование')
+    category = models.CharField(max_length=255, choices=CATEGORY_MOVIEMAKER)
     image = models.FileField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Фотография')
     languages = models.CharField(max_length=255, verbose_name='Знание Языков')
     ready_to_go = models.CharField(max_length=255, choices=READY_TO_GO)

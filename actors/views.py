@@ -159,6 +159,31 @@ def moviemaker_view(request):
 
     return render(request, template, context)
 
+@csrf_exempt
+def moviemaker_result_view(request):
+    form = MovieMakerForm(request.POST)
+
+    filter_form = MovieMakerForm
+    template = 'moviemakers.html'
+    moviemakers = None
+    if request.method == 'POST':
+        print request.method
+        if form.is_valid():
+            ready = form.cleaned_data['ready']
+            minAge = form.cleaned_data['minAge']
+            maxAge = form.cleaned_data['maxAge']
+            category = form.cleaned_data['category']
+            language = form.cleaned_data['language']
+
+            moviemakers = MovieMaker.objects.filter(ready_to_go=ready, category=category, languages=language)
+        else:
+            print form.errors
+    else:
+        moviemakers = MovieMaker.objects.all()
+
+    context = {"moviemaker": moviemakers, "form": filter_form, 'location': 'moviemaker'}
+    return render(request, template, context)
+
 
 def news_view(request):
     news = News.objects.all()

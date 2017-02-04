@@ -23,11 +23,6 @@ LANGUAGE_CHOICES = (
     ('Enlish', 'Английский'),
     ('Deutch', 'Немецкий'),
     ('France', 'Французский'),
-    ('France', 'Французский'),
-    ('France', 'Французский'),
-    ('France', 'Французский'),
-    ('France', 'Французский'),
-    ('France', 'Французский'),
 )
 
 TYPES = (
@@ -45,6 +40,17 @@ BODY = (
     ('small', 'худой'),
     ('normal', 'средний'),
     ('big', 'толстый'),
+)
+
+READY_TO_GO = (
+    ('Yes', 'Да'),
+    ('No', 'Нет'),
+)
+
+CATEGORY_MOVIEMAKER = (
+    ('professional', 'Профессионал'),
+    ('normal', 'Любитель'),
+    ('newer', 'Новичок'),
 )
 
 
@@ -78,6 +84,8 @@ class MovieMakerForm(forms.Form):
     minAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'от'}), required=False)
     maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
+    ready = forms.ChoiceField(choices=READY_TO_GO, required=False)
+    category = forms.ChoiceField(choices=CATEGORY_MOVIEMAKER, required=False)
 
 
 class ApplicationForm(forms.Form):

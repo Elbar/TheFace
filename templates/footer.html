@@ -2,7 +2,7 @@
 <footer>
     <div class="content6 grid group">
         <div class="about f_block">
-            <a href="#"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
 
             <p>Организация и проведение кастингов, сбор статистов для массовых сцен, предоставленте сотрудников
                 актерского департамента: директор по кастингу, ассистент по актерам.</p>
@@ -12,22 +12,22 @@
 
         <div class="about_us f_block">
             <ul class="f_links">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Об агенстве</a></li>
-                <li><a href="#">Новости и кастинги</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Наши услуги</a></li>
+                <li><a href="{% url 'about' %}">О нас</a></li>
+                <li><a href="{% url 'about' %}">Об агенстве</a></li>
+                <li><a href="{% url 'news' %}">Новости и кастинги</a></li>
+                <li><a href="{% url 'about' %}">Контакты</a></li>
+                <li><a href="{% url 'index' %}">Наши услуги</a></li>
                 <li><a href="#">Примеры работ</a></li>
             </ul>
         </div>
 
         <div class="cinema f_block">
             <ul class="f_links">
-                <li><a href="#">Наша база</a></li>
+                <li><a href="{% url 'actor' %}">Наша база</a></li>
                 <li><a href="{% url 'actor' %}">Актеры</a></li>
-                <li><a href="#">Кинематографисты</a></li>
-                <li><a href="#">Студии</a></li>
-                <li><a href="#">Локации</a></li>
+                <li><a href="{% url 'moviemaker' %}">Кинематографисты</a></li>
+                <li><a href="{% url 'studio' %}">Студии</a></li>
+                <li><a href="{% url 'location' %}">Локации</a></li>
             </ul>
         </div>
 
