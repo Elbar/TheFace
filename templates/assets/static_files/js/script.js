@@ -84,7 +84,7 @@ $(document).ready(function () {
 
 // �������� ����� ������� � ���������� ����������
 $('.pagination > li > a').on('click', function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     $('.pagination > li a').removeClass('active');
     $(this).addClass('active');
 });

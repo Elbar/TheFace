@@ -13,15 +13,15 @@
 
     <div class="b_bg1">
         <div class="b_content1 grid">
-             {% include 'main/header.html' %}
+            {% include 'main/header.html' %}
 
             <h3>База актеров</h3>
-{##}
-{#            <div class="favourite">#}
-{#                <div class="count">15</div>#}
-{#                <img src="{% static 'images/favourite_icon.png' %}" alt="icon">#}
-{#                <span>Избранное</span>#}
-{#            </div>#}
+            {##}
+            {#            <div class="favourite">#}
+            {#                <div class="count">15</div>#}
+            {#                <img src="{% static 'images/favourite_icon.png' %}" alt="icon">#}
+            {#                <span>Избранное</span>#}
+            {#            </div>#}
         </div>
     </div>
 
@@ -281,13 +281,19 @@
 
 
         <ul class="pagination">
-            <li><a href="#">пред</a></li>
-            <li><a href="#" class="active">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">...</a></li>
-            <li><a href="#">55</a></li>
-            <li><a href="#">след</a></li>
+            {% if actors.has_previous %}
+
+                <li><a href="?page={{ actors.previous_page_number }}">пред</a></li>
+
+            {% endif %}
+
+            <li><a href="#" class="active">{{ actors.number }} из {{ actors.paginator.num_pages }}</a></li>
+
+            {% if actors.has_next %}
+
+                <li><a href="?page={{ actors.next_page_number }}">след</a></li>
+
+            {% endif %}
         </ul>
     </div>
 

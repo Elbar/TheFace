@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from django.core.mail import EmailMessage
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
 from django.shortcuts import render, render_to_response
 from django.template import Context
@@ -52,7 +53,19 @@ def send_application(request):
 def actor_view(request):
     filter_form = FilterForm
     template = 'actors.html'
-    actors = Actor.objects.all()
+    actors_list = Actor.objects.all()
+    paginator = Paginator(actors_list, 1)
+
+    page = request.GET.get('page')
+
+    try:
+        actors = paginator.page(page)
+
+    except PageNotAnInteger:
+        actors = paginator.page(1)
+
+    except EmptyPage:
+        actors = paginator.page(paginator.num_pages)
 
     context = {"actors": actors, "form": filter_form, 'location': 'actor'}
     return render(request, template, context)
