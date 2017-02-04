@@ -15,11 +15,11 @@
 
     <div class="n_bg1">
         <div class="n_content1 grid">
-            <ul class="tabs-nav"  style="text-align: center;">
+            <ul class="tabs-nav">
                 <li><a href="#tab-1">Все новости</a></li>
-{#                <li><a href="#tab-2">Кастинги</a></li>#}
-{#                <li><a href="#tab-3">Новости</a></li>#}
-{#                <li><a href="#tab-4">Советы</a></li>#}
+                <li><a href="#tab-2">Кастинги</a></li>
+                <li><a href="#tab-3">Новости</a></li>
+                <li><a href="#tab-4">Советы</a></li>
             </ul>
 
             {% for new in news %}
@@ -27,10 +27,10 @@
                     <a class="n_block" href="{% url 'single_news' id=new.id %}">
                         <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
 
-{#                        <div class="type">#}
-{#                            <div class="tag">Советы</div>#}
-{#                            <div class="tag">Новости</div>#}
-{#                        </div>#}
+                        <div class="type">
+                            <div class="tag">Советы</div>
+                            <div class="tag">Новости</div>
+                        </div>
                     </a>
                     <div class="n_desc">
                         <h5><a href="{% url 'single_news' id=new.id %}">{{ new.title }}</a></h5>
@@ -59,20 +59,20 @@
 
     {% block scripts %}
 
-{#        <script>#}
-{#            $('.tabs-stage > div').hide();#}
-{#            $('.tabs-stage > div:nth-child(1)').show();#}
-{#            $('.tabs-nav > li:first-child a').addClass('tab-active');#}
-{##}
-{#            // Изменить класс вкладки и отобразить содержимое#}
-{#            $('.tabs-nav > li > a').on('click', function (event) {#}
+        <script>
+            $('.tabs-stage > div').hide();
+            $('.tabs-stage > div:nth-child(1)').show();
+            $('.tabs-nav > li:first-child a').addClass('tab-active');
+
+            // Изменить класс вкладки и отобразить содержимое
+            $('.tabs-nav > li > a').on('click', function (event) {
 {#                event.preventDefault();#}
-{#                $('.tabs-nav > li a').removeClass('tab-active');#}
-{#                $(this).addClass('tab-active');#}
-{#                $('.tabs-stage > div').hide(500);#}
-{#                $($(this).attr('href')).show(500);#}
-{#            });#}
-{#        </script>#}
+                $('.tabs-nav > li a').removeClass('tab-active');
+                $(this).addClass('tab-active');
+                $('.tabs-stage > div').hide(500);
+                $($(this).attr('href')).show(500);
+            });
+        </script>
     {% endblock %}
 
 {% endblock %}
