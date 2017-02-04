@@ -271,7 +271,22 @@ def location_view(request):
 
 
 def studio_view(request):
-    studio = Studio.objects.all()
+    studio_list = Studio.objects.all()
+
+    paginator = Paginator(studio_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        studio = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        studio = paginator.page(1)
+
+    except EmptyPage:
+
+        studio = paginator.page(paginator.num_pages)
 
     context = {"studio": studio, 'location': 'studio'}
     template = 'studio.html'

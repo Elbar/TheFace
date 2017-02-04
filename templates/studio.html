@@ -9,11 +9,11 @@
 
             <h3>Студии</h3>
 
-{#            <div class="favourite">#}
-{#                <div class="count">15</div>#}
-{#                <img src="{% static 'images/fav_icon.png' %}" alt="icon">#}
-{#                <span>Избранное</span>#}
-{#            </div>#}
+            {#            <div class="favourite">#}
+            {#                <div class="count">15</div>#}
+            {#                <img src="{% static 'images/fav_icon.png' %}" alt="icon">#}
+            {#                <span>Избранное</span>#}
+            {#            </div>#}
         </div>
     </div>
 
@@ -57,12 +57,13 @@
                 {% for item in studio %}
                     <div class="m_maker">
                         <div class="m_block">
-                            <a href="{% url 'single_studio' id=item.id %}"> <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="image"></a>
+                            <a href="{% url 'single_studio' id=item.id %}"> <img
+                                    src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="image"></a>
                         </div>
 
                         <div class="moviemaker">
                             <h5>Кастингове
-                            агенство {{ item.name }}</h5>
+                                агенство {{ item.name }}</h5>
 
                             <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить
                                 в
@@ -122,14 +123,20 @@
                     </div>
                 {% endfor %}
 
-                <ul class="pagination">
-                    <li><a href="#">пред</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">55</a></li>
-                    <li><a href="#">след</a></li>
+                <ul class="pagination" style="text-align: center;">
+                    {% if studio.has_previous %}
+
+                        <li><a href="?page={{ studio.previous_page_number }}">пред</a></li>
+
+                    {% endif %}
+
+                    <li><a href="#" class="active">{{ studio.number }} из {{ studio.paginator.num_pages }}</a></li>
+
+                    {% if studio.has_next %}
+
+                        <li><a href="?page={{ studio.next_page_number }}">след</a></li>
+
+                    {% endif %}
                 </ul>
             </div>
         </div>
