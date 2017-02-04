@@ -2,9 +2,6 @@
 
 from django.core.mail import EmailMessage
 from django.http import Http404
-from django.http import HttpResponsePermanentRedirect
-from django.http import HttpResponseRedirect
-from django.http import JsonResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
 from django.template import Template
@@ -158,6 +155,7 @@ def moviemaker_view(request):
     template = 'moviemakers.html'
 
     return render(request, template, context)
+
 
 @csrf_exempt
 def moviemaker_result_view(request):
