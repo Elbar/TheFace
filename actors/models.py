@@ -1,13 +1,13 @@
 # coding=utf-8
 
+from __future__ import unicode_literals
 
-import sys
 from django.db import models
 
 # Create your models here.
 from actors.helper import transform
 
-sys.stdout.buffer.write(chr(9986).encode('utf8'))
+
 
 SEX = (('Male', 'Male'),
        ('Female', 'Female'),
