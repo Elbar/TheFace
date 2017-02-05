@@ -54,6 +54,24 @@ CATEGORY_MOVIEMAKER = (
     ('newer', 'Новичок'),
 )
 
+PROFESSIONAL = (
+    ('director', 'Режиссер'),
+    ('second_director', 'Второй Режиссер'),
+    ('scenarist', 'Сценарист'),
+    ('operator', 'Оператор'),
+    ('hudojnik', 'Художник постановщик'),
+    ('musician', 'Композитор'),
+    ('record_director', 'Звукорежиссер'),
+    ('job_with_actors', 'Ассистент по работе с актерами'),
+    ('costume_designer', 'Художник по костюмам'),
+    ('montajer', 'Монтажер'),
+    ('hair_styler', 'Стилист по прическам'),
+    ('rekvizitor', 'Реквизитор'),
+    ('light', 'Освещение'),
+    ('grimer_dublera', 'Гример Дублера'),
+    ('kaskadery', 'Каскадеры'),
+)
+
 
 class FilterForm(forms.Form):
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)
@@ -86,10 +104,10 @@ class MovieMakerForm(forms.Form):
     maxAge = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'до'}), required=False)
     language = forms.ChoiceField(choices=LANGUAGE_CHOICES, required=False)
     ready = forms.ChoiceField(choices=READY_TO_GO, required=False)
-    category = forms.ChoiceField(choices=CATEGORY_MOVIEMAKER, required=False)
+    category = forms.ChoiceField(choices=PROFESSIONAL, required=False)
 
 
 class ApplicationForm(forms.Form):
     name = forms.CharField(max_length=255, required=False)
-    number = forms.CharField(max_length=255,required=False)
+    number = forms.CharField(max_length=255, required=False)
     info = forms.CharField(max_length=255, required=False, widget=forms.Textarea)
