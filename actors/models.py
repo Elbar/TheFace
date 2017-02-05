@@ -7,8 +7,6 @@ from django.db import models
 # Create your models here.
 from actors.helper import transform
 
-
-
 SEX = (('Male', 'Male'),
        ('Female', 'Female'),
        )
@@ -104,7 +102,7 @@ class Actor(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.name
+        return u"%s" % self.name
 
     def get_absolute_url(self):
         return "/actors/%i/" % self.id
