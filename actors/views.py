@@ -32,7 +32,7 @@ def send_application(request):
     if request.method == 'POST':
         if form.is_valid():
             name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
+            number = form.cleaned_data['number']
             info = form.cleaned_data['info']
 
             import os
@@ -41,7 +41,7 @@ def send_application(request):
             content = f.read()
             f.close()
             context = Context(
-                dict(name=name, email=email, info=info))
+                dict(name=name, number=number, info=info))
             template = Template(content)
             mail = EmailMessage('Заявка на Подборку', template.render(context), to=['thefacekg@gmail.com'])
             mail.content_subtype = 'html'
@@ -263,7 +263,7 @@ def send_mail(request):
             template = Template(content)
             mail = EmailMessage('Заявка на Кастинг', template.render(context), to=['thefacekg@gmail.com'])
             mail.content_subtype = 'html'
-            # mail.send()
+            mail.send()
 
             return render_to_response('partial/success.html', {})
 

@@ -91,5 +91,5 @@ class MovieMakerForm(forms.Form):
 
 class ApplicationForm(forms.Form):
     name = forms.CharField(max_length=255, required=False)
-    email = forms.EmailField(required=False)
+    number = forms.CharField(max_length=255,required=False)
     info = forms.CharField(max_length=255, required=False, widget=forms.Textarea)
