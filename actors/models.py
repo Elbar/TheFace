@@ -5,6 +5,8 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+from django.utils.encoding import smart_unicode
+
 from actors.helper import transform
 
 SEX = (('Male', 'Male'),
@@ -102,7 +104,7 @@ class Actor(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return u"%s" % self.name
+        return smart_unicode(self.name)
 
     def get_absolute_url(self):
         return "/actors/%i/" % self.id
@@ -119,7 +121,7 @@ class ActorsImage(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return str(self.actor.name)
+        return smart_unicode(self.actor.name)
 
 
 class MovieMaker(models.Model):
@@ -142,7 +144,7 @@ class MovieMaker(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.firstname + ' ' + self.lastname
+        return smart_unicode(self.firstname + ' ' + self.lastname)
 
     def get_absolute_url(self):
         return "/moviemakers/%i/" % self.id
@@ -167,7 +169,7 @@ class Studio(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.name
+        return smart_unicode(self.name)
 
     def get_absolute_url(self):
         return "/studio/%i" % self.id
@@ -209,7 +211,7 @@ class News(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.title
+        return smart_unicode(self.title)
 
     def get_absolute_url(self):
         return "/news/%i/" % self.id
@@ -227,7 +229,7 @@ class Location(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.name
+        return smart_unicode(self.name)
 
     def get_absolute_url(self):
         return "/locations/%id" % self.id
@@ -244,4 +246,4 @@ class LocationImage(models.Model):
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return self.news.name
+        return smart_unicode(self.news.name)
