@@ -458,5 +458,22 @@ def get_studio(request):
     contacts_phone = request.POST.get('contacts_phone')
     contacts_email = request.POST.get('contacts_email')
 
+    import os
+    f = open(os.path.join(BASE_DIR, "templates/studio_application.html"))
 
-    pass
+    content = f.read()
+    f.close()
+    context = Context(
+        dict(name=name, town=town, from_area=from_area, to_area=to_area, contacts_name=contacts_name, surname=surname,
+             fotoset=fotoset, ad_video=ad_video, original_music=original_music, music_clip=music_clip,
+             record_song=record_song, interyer=interyer, film=film, social_clip=social_clip, aranjirovka=aranjirovka,
+             audio_ad=audio_ad, ozvuchka=ozvuchka, info=info, info_apparatura=info_apparatura,
+             project_name=project_name, video_link=video_link, address=address, number=number, site_link=site_link,
+             email=email, contacts_phone=contacts_phone, contacts_email=contacts_email
+             ))
+    template = Template(content)
+    mail = EmailMessage('Заявка на Studio', template.render(context), to=['thefacekg@gmail.com'])
+    mail.content_subtype = 'html'
+    # mail.send()
+
+    return render_to_response('partial/success.html', {})
