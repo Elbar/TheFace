@@ -30,6 +30,7 @@ urlpatterns = patterns('',
                        url(r'^sendmail/', 'actors.views.send_mail', name='sendmail'),
                        url(r'^news/', 'actors.views.news_view', name='news'),
                        url(r'^get_studio/', 'actors.views.get_studio', name='get_studio'),
+                       url(r'^get_location/', 'actors.views.get_location', name='get_location'),
                        url(r'^locations/', 'actors.views.location_view', name='location'),
                        url(r'^studio/', 'actors.views.studio_view', name='studio'),
                        url(r'^studios/(?P<id>\d+)/$', 'actors.views.single_studio', name='single_studio'),
@@ -39,6 +40,7 @@ urlpatterns = patterns('',
                        url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view',
                            name='ajax_moviemaker_get'),
                        url(r'^application/', 'actors.views.send_application', name='application'),
+                       url(r'^result_studio/', 'actors.views.result_studio', name='result_studio'),
                        )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

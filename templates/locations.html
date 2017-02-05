@@ -3,59 +3,61 @@
 {% load staticfiles %}
 
 
-<div class="popup" data-popup="popup-1">
-    <div class="l_popup grid">
-        <div class="popup-inner">
-            <div class="sl_content">
-                <div class="l_slider">
-                    <div class="p_slide">
-                        <img src="{% static 'images/l_slide1.jpg' %}" alt="image">
-                    </div>
 
-                    <div class="p_slide">
-                        <img src="assets/images/l_slide1.jpg" alt="image">
-                    </div>
 
-                    <div class="p_slide">
-                        <img src="assets/images/l_slide1.jpg" alt="image">
+{% block content %}
+
+    <div class="popup" data-popup="popup-1">
+        <div class="l_popup grid">
+            <div class="popup-inner">
+                <div class="sl_content">
+                    <div class="l_slider">
+                        <div class="p_slide">
+                            <img src="{% static 'images/l_slide1.jpg' %}" alt="image">
+                        </div>
+
+                        <div class="p_slide">
+                            <img src="assets/images/l_slide1.jpg" alt="image">
+                        </div>
+
+                        <div class="p_slide">
+                            <img src="assets/images/l_slide1.jpg" alt="image">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="p_container">
-                <ul class="p_block2">
-                    <li><h3>Озеро иссык-куль</h3></li>
-                    <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
-                    </li>
-                    <li>Область:</li>
-                    <li>Иссык-куль, Кыргызстан</li>
-                    <li>Глубина:</li>
-                    <li>702 м</li>
-                    <li>Размеры:</li>
-                    <li>182×58 км</li>
-                    <li>Площадь:</li>
-                    <li>6236 км²</li>
-                    <li>Объем:</li>
-                    <li>1738 км³</li>
-                    <li>Длина береговой линии:</li>
-                    <li>688 км</li>
-                    <li>Температура зимой:</li>
-                    <li> −3°</li>
-                    <li>Температура летом:</li>
-                    <li>+17°</li>
-                    <li>Ближайщий административный центр:</li>
-                    <li>Районный областной центр в г. Чолпон-Ата</li>
-                    <li>Условия сьемок:</li>
-                    <li>Лето, солнечная</li>
-                </ul>
+                <div class="p_container">
+                    <ul class="p_block2">
+                        <li><h3>Озеро иссык-куль</h3></li>
+                        <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
+                        </li>
+                        <li>Область:</li>
+                        <li>Иссык-куль, Кыргызстан</li>
+                        <li>Глубина:</li>
+                        <li>702 м</li>
+                        <li>Размеры:</li>
+                        <li>182×58 км</li>
+                        <li>Площадь:</li>
+                        <li>6236 км²</li>
+                        <li>Объем:</li>
+                        <li>1738 км³</li>
+                        <li>Длина береговой линии:</li>
+                        <li>688 км</li>
+                        <li>Температура зимой:</li>
+                        <li> −3°</li>
+                        <li>Температура летом:</li>
+                        <li>+17°</li>
+                        <li>Ближайщий административный центр:</li>
+                        <li>Районный областной центр в г. Чолпон-Ата</li>
+                        <li>Условия сьемок:</li>
+                        <li>Лето, солнечная</li>
+                    </ul>
 
-                <a class="popup-close" data-popup-close="popup-1"></a>
+                    <a class="popup-close" data-popup-close="popup-1"></a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-{% block content %}
 
     <div id="SmyModal" class="modal">
 
@@ -63,7 +65,7 @@
         <div class="modal-content l_modal">
             <h3>Зарегистрируй свою локацию и клиент сам найдет тебя!</h3>
 
-            <form method="post" action="#" class="modal_form lm_form">
+            <form method="post" action="{% url 'get_location' %}" class="modal_form lm_form">
 
                 <div class="field">
                     <label for="location">Название локации<br>
@@ -140,20 +142,20 @@
                 <!--</button>-->
                 <!--</div>-->
 
-{#                <div class="file_container">#}
-{##}
-{#                    <div class="field add-img">#}
-{#                        <button class="button_file" type="button">#}
-{#                            + Добавить файл#}
-{#                            <input type="file" id="input-file" multiple>#}
-{#                        </button>#}
-{#                        <p class="nadded">Формат: jpg, jpeg, png</p>#}
-{#                        <p class="added"></p>#}
-{##}
-{##}
-{#                    </div>#}
-{##}
-{#                </div>#}
+                {#                <div class="file_container">#}
+                {##}
+                {#                    <div class="field add-img">#}
+                {#                        <button class="button_file" type="button">#}
+                {#                            + Добавить файл#}
+                {#                            <input type="file" id="input-file" multiple>#}
+                {#                        </button>#}
+                {#                        <p class="nadded">Формат: jpg, jpeg, png</p>#}
+                {#                        <p class="added"></p>#}
+                {##}
+                {##}
+                {#                    </div>#}
+                {##}
+                {#                </div>#}
 
 
                 <div class="field">
@@ -181,7 +183,7 @@
                 </div>
 
                 <div class="button_block">
-{#                    <button type="reset" name="reset">Очистить фильтры</button>#}
+                    {#                    <button type="reset" name="reset">Очистить фильтры</button>#}
                     <input type="submit" name="button" value="Отправить" class="submit">
                 </div>
 

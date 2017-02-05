@@ -474,6 +474,37 @@ def get_studio(request):
     template = Template(content)
     mail = EmailMessage('Заявка на Studio', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
-    # mail.send()
+    mail.send()
 
     return render_to_response('partial/success.html', {})
+
+
+@csrf_exempt
+def get_location(request):
+    return render_to_response('partial/success.html', {})
+
+
+@csrf_exempt
+def result_studio(request):
+    studio_list = Studio.objects.all()
+
+    paginator = Paginator(studio_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        studio = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        studio = paginator.page(1)
+
+    except EmptyPage:
+
+        studio = paginator.page(paginator.num_pages)
+
+    context = {"studio": studio, 'location': 'studio'}
+    template = 'studio.html'
+
+    return render(request, template, context)
+
