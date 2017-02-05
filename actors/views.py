@@ -426,3 +426,37 @@ def about_view(request):
     template = 'about_us.html'
 
     return render(request, template, context)
+
+
+@csrf_exempt
+def get_studio(request):
+    name = request.POST.get('studio')
+    town = request.POST.get('select-name')
+    from_area = request.POST.get('from_area')
+    to_area = request.POST.get('to_area')
+    contacts_name = request.POST.get('name')
+    surname = request.POST.get('surname')
+    fotoset = request.POST.get('fotoset')
+    ad_video = request.POST.get('ad_video')
+    original_music = request.POST.get('original_music')
+    music_clip = request.POST.get('music_clip')
+    record_song = request.POST.get('record_song')
+    interyer = request.POST.get('interyer')
+    film = request.POST.get('film')
+    social_clip = request.POST.get('social_clip')
+    aranjirovka = request.POST.get('aranjirovka')
+    audio_ad = request.POST.get('audio_ad')
+    ozvuchka = request.POST.get('ozvuchka')
+    info = request.POST.get('info')
+    info_apparatura = request.POST.get('info_apparatura')
+    project_name = request.POST.get('project_name')
+    video_link = request.POST.get('video_link')
+    address = request.POST.get('address')
+    number = request.POST.get('number')
+    site_link = request.POST.get('site_link')
+    email = request.POST.get('email')
+    contacts_phone = request.POST.get('contacts_phone')
+    contacts_email = request.POST.get('contacts_email')
+
+
+    pass

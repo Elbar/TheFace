@@ -15,7 +15,7 @@
             <h3>Зарегистрируй свою студию и клиент сам найдет тебя!</h3>
 
 
-            <form method="post" action="#" class="modal_form sm_form">
+            <form method="post" action="{% url 'get_studio' %}" class="modal_form sm_form">
 
 
                 <div class="field">
@@ -35,13 +35,13 @@
 
                         <select name="select-name" id="s_type">
 
-                            <option value="1">Бишкек</option>
+                            <option>Бишкек</option>
 
-                            <option value="2">Ош</option>
+                            <option>Ош</option>
 
-                            <option value="2">Каракол</option>
+                            <option>Каракол</option>
 
-                            <option value="2">Чолпон-Ата</option>
+                            <option>Чолпон-Ата</option>
 
                         </select>
 
@@ -56,14 +56,14 @@
 
                     <label for="area1">
 
-                        <input type="number" name="area" id="area1" placeholder="от">
+                        <input type="number" name="from_area" id="area1" placeholder="от">
 
                     </label>
 
 
                     <label for="area2">
 
-                        <input type="number" name="area" id="area2" placeholder="до">
+                        <input type="number" name="to_area" id="area2" placeholder="до">
 
                     </label>
 
@@ -92,57 +92,57 @@
 
                     <div class="switch-title">Предоставляемые услуги</div>
 
-                    <input id="check1" type="checkbox" name="check" value="check1">
+                    <input id="check1" type="checkbox" name="fotoset">
 
                     <label for="check1">Фотосессия</label>
 
 
-                    <input id="check2" type="checkbox" name="check" value="check2">
+                    <input id="check2" type="checkbox" name="ad_video">
 
                     <label for="check2">Рекламный ролик</label>
 
 
-                    <input id="check3" type="checkbox" name="check" value="check2">
+                    <input id="check3" type="checkbox" name="original_music">
 
                     <label for="check3">Оригинальная музыка</label>
 
 
-                    <input id="check4" type="checkbox" name="check" value="check2">
+                    <input id="check4" type="checkbox" name="music_clip">
 
                     <label for="check4">Музыкальный клип</label>
 
 
-                    <input id="check5" type="checkbox" name="check" value="check2">
+                    <input id="check5" type="checkbox" name="record_song">
 
                     <label for="check5">Запись песни</label>
 
 
-                    <input id="check6" type="checkbox" name="check" value="check2">
+                    <input id="check6" type="checkbox" name="interyer">
 
                     <label for="check6">Интерьерная студия</label>
 
 
-                    <input id="check7" type="checkbox" name="check" value="check2">
+                    <input id="check7" type="checkbox" name="film">
 
                     <label for="check7">Фильм</label>
 
 
-                    <input id="check8" type="checkbox" name="check" value="check2">
+                    <input id="check8" type="checkbox" name="social_clip">
 
                     <label for="check8">Социальный ролик</label>
 
 
-                    <input id="check9" type="checkbox" name="check" value="check2">
+                    <input id="check9" type="checkbox" name="aranjirovka">
 
                     <label for="check9">Аранжировка</label>
 
 
-                    <input id="check10" type="checkbox" name="check" value="check2">
+                    <input id="check10" type="checkbox" name="audio_ad">
 
                     <label for="check10">Аудио реклама</label>
 
 
-                    <input id="check11" type="checkbox" name="check" value="check2">
+                    <input id="check11" type="checkbox" name="ozvuchka">
 
                     <label for="check11">Озвучка</label>
 
@@ -153,7 +153,7 @@
 
                     <label for="comments1">Информация об агенстве<br>
 
-                        <textarea name="comments" id="comments1" cols="20" rows="10"></textarea>
+                        <textarea name="info" id="comments1" cols="20" rows="10"></textarea>
 
                     </label>
 
@@ -164,7 +164,7 @@
 
                     <label for="comments2">Информация об аппаратуре (если необходимо)<br>
 
-                        <textarea name="comments" id="comments2" cols="20" rows="10"></textarea>
+                            <textarea name="info_apparatura" id="comments2" cols="20" rows="10"></textarea>
 
                     </label>
 
@@ -180,7 +180,7 @@
 
                             <label for="project">Проекты<br>
 
-                                <input type="text" name="name" id="project" placeholder="Название проекта">
+                                <input type="text" name="project_name" id="project" placeholder="Название проекта">
 
                             </label>
 
@@ -195,7 +195,7 @@
 
                             <label for="link">Ссылка на видео<br>
 
-                                <input type="text" name="name" id="link" placeholder="Введите ссылку">
+                                <input type="text" name="video_link" id="link" placeholder="Введите ссылку">
 
                             </label>
 
@@ -242,7 +242,7 @@
 
                     <label for="s_address">Адрес студии<br>
 
-                        <input type="text" name="name" id="s_address">
+                        <input type="text" name="address" id="s_address">
 
                     </label>
 
@@ -253,7 +253,7 @@
 
                     <label for="s_numbers">Телефоны студии<br>
 
-                        <input type="number" name="name" id="s_numbers">
+                        <input type="number" name="number" id="s_numbers">
 
                     </label>
 
@@ -264,7 +264,7 @@
 
                     <label for="s_links">Ссылка на сайт<br>
 
-                        <input type="url" name="name" id="s_links">
+                        <input type="url" name="site_link" id="s_links">
 
                     </label>
 
@@ -275,7 +275,7 @@
 
                     <label for="s_email">E-mail студии<br>
 
-                        <input type="email" name="name" id="s_email">
+                        <input type="email" name="email" id="s_email">
 
                     </label>
 
@@ -288,14 +288,14 @@
 
                     <label for="phone">
 
-                        <input type="tel" name="phone" id="phone" placeholder="Телефон">
+                        <input type="tel" name="contacts_phone" id="phone" placeholder="Телефон">
 
                     </label>
 
 
                     <label for="email">
 
-                        <input type="email" name="email" id="email" placeholder="E-mail">
+                        <input type="email" name="contacts_email" id="email" placeholder="E-mail">
 
                     </label>
 
@@ -341,10 +341,10 @@
                 <div class="field">
                     <label for="e_select3">Тип студии<br>
                         <select name="select-name" id="e_select3">
-                            <option value="1" selected disabled>Выбрать</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                            <option selected disabled>Выбрать</option>
+                            <option>Ош</option>
+                            <option>Каракол</option>
+                            <option>Чолпон-Ата</option>
                         </select>
                     </label>
                 </div>
