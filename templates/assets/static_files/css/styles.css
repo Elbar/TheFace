@@ -4160,4 +4160,82 @@ h3.space {
     margin-right: 4%;
 }
 
+.lm_form > div:nth-child(8),
+.lm_form > div:nth-child(9),
+.lm_form > div:nth-child(10),
+.lm_form > div:nth-child(11) {
+    width: 21.671826625387%;
+    margin-top: 20px;
+}
+
+.lm_form .nadded {
+    padding-left: 15px;
+}
+
+.lm_form .button_file,
+.lm_form .nadded {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.file_container .field {
+    margin-right: 0;
+}
+
+.lm_form > div:nth-child(7) {
+    width: 100%;
+    /*padding-bottom: 30px;*/
+}
+
+.lm_form > div:nth-child(6) input {
+    font-family: "GothamProMedium", sans-serif;
+    font-size: 12px;
+}
+
+.lm_form > div:nth-child(6) {
+    display: block;
+    width: 26.83178534571723%;
+    margin-right: 0;
+}
+
+.lm_form > div:nth-child(5) textarea:hover,
+.lm_form > div:nth-child(5) textarea:focus {
+    border-color: #30ad54;
+}
+
+.lm_form > div:nth-child(5) textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    outline: 0;
+}
+
+.lm_form > div:nth-child(5) label {
+    width: 100%;
+}
+
+.lm_form > div:nth-child(5) {
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+.lm_form > div:nth-child(2),
+.lm_form > div:nth-child(3),
+.lm_form > div:nth-child(4) {
+    width: 14.44788441692466%;
+}
+
+.lm_form > div:nth-child(1) label:first-of-type {
+    width: 100%;
+    margin-right: 0;
+}
+
+.lm_form > div:nth-child(1) {
+    width: 21.671826625387%;
+}
+
+.l_modal h3 {
+    width: 40%;
+}
+
 
