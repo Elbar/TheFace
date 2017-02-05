@@ -26,8 +26,9 @@ LANGUAGE_CHOICES = (
 )
 
 TYPES = (
-    ('aziat', 'Азиат'),
-    ('evropeec', 'Европеец'),
+    ('aziat', 'Азиатский'),
+    ('evropeec', 'Европейский'),
+    ('eastern', 'Восточный'),
 )
 
 COLOR = (
@@ -37,9 +38,9 @@ COLOR = (
 )
 
 BODY = (
-    ('small', 'худой'),
-    ('normal', 'средний'),
-    ('big', 'толстый'),
+    ('small', 'худое'),
+    ('normal', 'обычное'),
+    ('big', 'плотное'),
 )
 
 READY_TO_GO = (
@@ -70,7 +71,7 @@ class ActorForm(forms.Form):
     height = forms.IntegerField(required=False)
     email = forms.EmailField(required=False)
     number = forms.CharField(required=False)
-
+    category = forms.ChoiceField(choices=CATEGORY_MOVIEMAKER, required=False)
     types = forms.ChoiceField(required=False, choices=TYPES)
     hair_color = forms.ChoiceField(required=False, choices=COLOR)
     sex = forms.ChoiceField(choices=SEX_CHOICES, required=False)

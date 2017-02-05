@@ -3,6 +3,7 @@
 from django.core.mail import EmailMessage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
+from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
 from django.template import Template
@@ -117,8 +118,119 @@ def ajax_moviemakers_view(request, id):
 def send_mail(request):
     form = ActorForm(request.POST)
 
+    russian = None
+    english = None
+    deutch = None
+    france = None
+    spanish = None
+    kazakh = None
+    korean = None
+    japan = None
+    chinese = None
+    dance = None
+    ballet = None
+    vokal = None
+    wrestling = None
+    swimming = None
+    box = None
+    judo = None
+    football = None
+    gymnastic = None
+    music = None
+    staj = None
+
+    english_check = request.POST.get('english')
+
+    if english_check != None:
+        english = "English"
+
+    russian_check = request.POST.get('russian')
+
+    if russian_check != None:
+        russian = "Russian"
+
+    deutch_check = request.POST.get('deutch')
+
+    if deutch_check != None:
+        deutch = "Deutch"
+
+    france_check = request.POST.get('france')
+
+    if france_check != None:
+        france = "France"
+
+    spanich_check = request.POST.get('spanish')
+
+    if spanich_check != None:
+        spanish = "Spanish"
+
+    kazakh_check = request.POST.get('kazakh')
+
+    if kazakh_check != None:
+        kazakh = "Kazakh"
+
+    korean_check = request.POST.get('korean')
+
+    if korean_check != None:
+        korean = "Korean"
+
+    japan_check = request.POST.get('japan')
+
+    if japan_check != None:
+        japan = "Japan"
+
+    chinese_check = request.POST.get('chinese')
+
+    if chinese_check != None:
+        chinese = "Chinese"
+
+    dance_check = request.POST.get('dance')
+
+    if dance_check != None:
+        dance = "Dance"
+
+    ballet_check = request.POST.get('ballet')
+
+    if ballet_check != None:
+        ballet = "Ballet"
+
+    vokal_check = request.POST.get('vokal')
+
+    if vokal_check != None:
+        vokal = "Vokal"
+
+    wrestling_check = request.POST.get('wrestling')
+
+    if wrestling_check != None:
+        wrestling = "Wrestling"
+
+    judo_check = request.POST.get('judo')
+
+    if judo_check != None:
+        judo = "Judo"
+
+    football_check = request.POST.get('football')
+
+    if football_check != None:
+        football = "Football"
+
+    gymnastic_check = request.POST.get('gymnastic')
+
+    if gymnastic_check != None:
+        gymnastic = "Gymnastic"
+
+    music_check = request.POST.get('music')
+
+    if music_check != None:
+        music = "Music"
+
+    staj_check = request.POST.get('staj')
+
+    if staj_check != None:
+        staj = "Staj"
+
     if request.method == 'POST':
-        print request.method
+
         if form.is_valid():
             name = form.cleaned_data['name']
             surname = form.cleaned_data['surname']
@@ -142,13 +254,18 @@ def send_mail(request):
             f.close()
             context = Context(
                 dict(name=name, surname=surname, birthday=birthday, body=body, height=height, email=email,
-                     number=number, types=types, sex=sex, town=town, language=language, other=other))
+                     number=number, types=types, sex=sex, town=town, language=language, other=other,
+                     english=english, russian=russian, deutch=deutch, france=france, spanish=spanish, kazakh=kazakh,
+                     korean=korean, japan=japan, chinese=chinese, dance=dance, ballet=ballet, vokal=vokal,
+                     wrestling=wrestling, swimming=swimming, box=box, judo=judo, football=football, gymnastic=gymnastic,
+                     music=music, staj=staj
+                     ))
             template = Template(content)
             mail = EmailMessage('Заявка на Кастинг', template.render(context), to=['thefacekg@gmail.com'])
             mail.content_subtype = 'html'
-            mail.send()
+            # mail.send()
 
-            return render_to_response('partial/success.html')
+            return render_to_response('partial/success.html', {})
 
 
 @csrf_exempt

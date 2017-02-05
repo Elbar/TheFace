@@ -92,11 +92,11 @@
 
                     <div class="field">
                         <label for="name">Имя<br>
-                            {% render_field form.name %}
+                            {% render_field form.name placeholder="Имя" %}
                         </label>
 
                         <label for="surname">Фамилия<br>
-                            {% render_field form.surname %}
+                            {% render_field form.surname placeholder="Фамилия" %}
                         </label>
                     </div>
 
@@ -108,7 +108,7 @@
 
                     <div class="field">
                         <label for="birthday">Дата рождения<br>
-                            {% render_field form.birthday %}
+                            {% render_field form.birthday placeholder="дд.мм.гггг"%}
                         </label>
                     </div>
 
@@ -120,12 +120,7 @@
 
                     <div class="field">
                         <label for="e_select1">Категории<br>
-                            <select name="select-name" id="e_select1">
-                                <option value="1">Профессионалы</option>
-                                <option value="2">13:00</option>
-                                <option value="2">14:00</option>
-                                <option value="2">15:00</option>
-                            </select>
+                            {% render_field form.category %}
                         </label>
                     </div>
 
@@ -139,7 +134,7 @@
                         </label>
 
                         <label for="height">Рост (см)<br>
-                            {% render_field form.height %}
+                            {% render_field form.height placeholder="Рост" %}
                         </label>
 
 
@@ -150,67 +145,76 @@
 
                     <div class="field checkbox">
                         <div class="switch-title">Знание Языков</div>
-                        <input id="check13" type="checkbox" name="check" value="check1">
+                        <input id="check13" type="checkbox" name="english">
 
                         <label for="check13">Английский</label>
 
-                        <input id="check14" type="checkbox" name="check" value="check2">
+                        <input id="check14" type="checkbox" name="russian">
                         <label for="check14">Русский</label>
 
-                        <input id="check15" type="checkbox" name="check" value="check2">
+                        <input id="check15" type="checkbox" name="deutch">
                         <label for="check15">Немецкий</label>
 
-                        <input id="check16" type="checkbox" name="check" value="check2">
+                        <input id="check16" type="checkbox" name="france">
                         <label for="check16">Французский</label>
 
-                        <input id="check17" type="checkbox" name="check" value="check2">
+                        <input id="check17" type="checkbox" name="spanish">
                         <label for="check17">Испанский</label>
 
-                        <input id="check18" type="checkbox" name="check" value="check2">
+                        <input id="check30" type="checkbox" name="kazakh">
+                        <label for="check30">Казахский</label>
+
+                        <input id="check31" type="checkbox" name="korean">
+                        <label for="check31">Корейский</label>
+
+                        <input id="check32" type="checkbox" name="japan">
+                        <label for="check32">Японский</label>
+
+                        <input id="check18" type="checkbox" name="chinese">
                         <label for="check18">Китайский</label>
                     </div>
 
                     <div class="field checkbox">
                         <div class="switch-title">Навыки</div>
-                        <label for="check13">Танец</label>
 
-                        <input id="check13" type="checkbox" name="check" value="check1">
+                        <input id="check19" type="checkbox" name="dance">
+                        <label for="check19">Танец</label>
 
-                        <input id="check14" type="checkbox" name="check" value="check2">
-                        <label for="check14">Балет</label>
+                        <input id="check20" type="checkbox" name="ballet">
+                        <label for="check20">Балет</label>
 
-                        <input id="check15" type="checkbox" name="check" value="check2">
-                        <label for="check15">Вокал</label>
+                        <input id="check21" type="checkbox" name="vokal">
+                        <label for="check21">Вокал</label>
 
-                        <input id="check16" type="checkbox" name="check" value="check2">
-                        <label for="check16">Борьба</label>
+                        <input id="check22" type="checkbox" name="wrestling">
+                        <label for="check22">Борьба</label>
                     </div>
 
                     <div class="field checkbox">
-                        <input id="check17" type="checkbox" name="check" value="check1">
-                        <label for="check17">Плавание</label>
+                        <input id="check23" type="checkbox" name="swimming">
+                        <label for="check23">Плавание</label>
 
-                        <input id="check18" type="checkbox" name="check" value="check2">
-                        <label for="check18">Бокс</label>
+                        <input id="check24" type="checkbox" name="box">
+                        <label for="check24">Бокс</label>
 
-                        <input id="check19" type="checkbox" name="check" value="check2">
-                        <label for="check19">Дзюдо</label>
+                        <input id="check25" type="checkbox" name="judo">
+                        <label for="check25">Дзюдо</label>
 
-                        <input id="check20" type="checkbox" name="check" value="check2">
-                        <label for="check20">Футбол</label>
+                        <input id="check26" type="checkbox" name="football">
+                        <label for="check26">Футбол</label>
                     </div>
 
                     <div class="field checkbox">
-                        <input id="check21" type="checkbox" name="check" value="check1">
-                        <label for="check21">Спортивная гимнастика</label>
+                        <input id="check27" type="checkbox" name="gymnastic">
+                        <label for="check27">Спортивная гимнастика</label>
 
-                        <input id="check22" type="checkbox" name="check" value="check2">
-                        <label for="check22">Владение музыкальными инструментами</label>
+                        <input id="check28" type="checkbox" name="music">
+                        <label for="check28">Владение музыкальными инструментами</label>
 
-                        <input id="check23" type="checkbox" name="check" value="check2">
-                        <label for="check23">Опыт съемок</label>
+                        <input id="check29" type="checkbox" name="staj">
+                        <label for="check29">Опыт съемок</label>
 
-                        <!--<input id="check24" type="checkbox" name="check" value="check2">-->
+                        <!--<input id="check24" type="checkbox" name="check">-->
                         <!--<label for="check24">Русский  </label>-->
                     </div>
 
@@ -227,7 +231,7 @@
 
                     <div class="field">
                         <label for="comments">Другие навыки/умения<br>
-                            {% render_field form.other %}
+                            {% render_field form.other placeholder="Введите Текст" %}
                         </label>
                     </div>
 
