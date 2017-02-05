@@ -172,7 +172,7 @@
 
                 <div class="field">
                     <label for="l_number">Телефон<br>
-                        <input type="tel" name="name" id="l_number">
+                        <input type="text" name="name" id="l_number">
                     </label>
                 </div>
 
@@ -204,7 +204,7 @@
 
     <div class="l_bg1">
         <div class="l_content1 grid">
-            <form method="post" action="#" class="l_form">
+            <form method="post" action="{% url 'result_location' %}" class="l_form">
                 <div class="s_field">
                     <label for="e_select4">Природа<br>
                         <select class="s_select" name="select-name" id="e_select4" multiple>
@@ -220,17 +220,12 @@
                 </div>
 
                 <div class="field">
-                    <label for="e_select3">Интерьер<br>
-                        <select name="select-name" id="e_select3">
-                            <option value="1" selected disabled>Выбрать</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
-                        </select>
+                    <label for="e_select3">Поиск Локации<br>
+                        <input type="text" name="search" placeholder="Введите название места">
                     </label>
                 </div>
 
-                <input type="submit" name="button" value="Найти специалиста" class="submit">
+                <input type="submit" name="button" value="Найти Локацию" class="submit">
                 <a href="#" class="link" id="SmyBtn">Добавить локацию</a>
             </form>
 

@@ -3,7 +3,6 @@
 from django.core.mail import EmailMessage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
-from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from django.template import Context
 from django.template import Template
@@ -508,3 +507,27 @@ def result_studio(request):
 
     return render(request, template, context)
 
+
+@csrf_exempt
+def result_location(request):
+    locations_list = Location.objects.all()
+
+    paginator = Paginator(locations_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        locations = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        locations = paginator.page(1)
+
+    except EmptyPage:
+
+        locations = paginator.page(paginator.num_pages)
+
+    context = {"locations": locations, "location": "location"}
+    template = 'locations.html'
+
+    return render(request, template, context)
