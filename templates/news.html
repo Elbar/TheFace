@@ -24,6 +24,7 @@
 
             {% for new in news %}
                 <div class="m_news">
+
                     <a class="n_block" href="{% url 'single_news' id=new.id %}">
                         <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
 
@@ -32,6 +33,7 @@
                             <div class="tag">Новости</div>
                         </div>
                     </a>
+
                     <div class="n_desc">
                         <h5><a href="{% url 'single_news' id=new.id %}">{{ new.title }}</a></h5>
 

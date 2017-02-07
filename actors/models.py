@@ -248,3 +248,17 @@ class LocationImage(models.Model):
     def __unicode__(self):
         return smart_unicode(self.news.name)
 
+
+class Project(models.Model):
+    class Meta:
+        verbose_name = 'Добавить Проект'
+        verbose_name_plural = 'Добавление Проекта'
+
+    title = models.CharField(max_length=255, verbose_name='Название проекта')
+    project = models.ForeignKey(MovieMaker, verbose_name='Выберите кинематографиста')
+    image = models.ImageField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Загрузить Картинку')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.title)

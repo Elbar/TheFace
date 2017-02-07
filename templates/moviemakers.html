@@ -288,47 +288,17 @@
                                 <li>{{ maker.ready_to_go }}</li>
                                 <li>Проекты:</li>
                                 <li>
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="{% static 'images/project1.jpg' %}" alt="project">
+                                    {% for item in maker.project_set.all %}
+                                        <div class="project">
+                                            <div class="p_desc">{{ item.title }}</div>
+                                            <div class="p_img">
+                                                <div class="project_hover"></div>
+                                                <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="project">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="{% static 'images/project1.jpg' %}" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="{% static 'images/project1.jpg' %}" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="{% static 'images/project1.jpg' %}" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="{% static 'images/project1.jpg' %}" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <a href="#" class="link">+ 4 проекта</a>
+                                    {% endfor %}
+{#                                    <a href="#" class="link">+ 4 проекта</a>#}
                                 </li>
                             </ul>
                         </div>
@@ -396,7 +366,7 @@
 //        $newBlock.text('Item ' + totalBlocks);
                 $blocks.append($newBlock);
                 $link_block.append($linkBlock);
-                e.preventDefault();
+                {#                e.preventDefault();#}
             });
 
             //    $blocks.on('click', '> .item', function(e) {
