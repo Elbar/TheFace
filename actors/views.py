@@ -108,7 +108,7 @@ def ajax_actor_view(request, id):
 @csrf_exempt
 def ajax_moviemakers_view(request, id):
     moviemaker = MovieMaker.objects.get(id=id)
-    response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker))
+    response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker ))
 
     return response
 
