@@ -270,7 +270,7 @@ def send_mail(request):
 def become_an_actor_view(request):
     actor_form = ActorForm
 
-    context = {"form": actor_form}
+    context = {"form": actor_form, "location": "become_an_actor"}
     template = 'become_an_actor.html'
 
     return render(request, template, context)

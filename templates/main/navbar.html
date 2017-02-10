@@ -9,6 +9,8 @@
                     href="{% url 'index' %}">Главная</a></li>
             <li {% if location == 'actor' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;" {% endif %}><a
                     href="{% url 'actor' %}">Актеры</a></li>
+           <li {% if location == 'become_an_actor' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;" {% endif %}><a
+                    href="{% url 'beactor' %}">Стать актером</a></li>
             <li {% if location == 'moviemaker' %}style=" color: #30ad54; border-bottom: 1px solid #30ad54;"{% endif %}>
                 <a href="{% url 'moviemaker' %}">Кинематографисты</a>
             </li>
