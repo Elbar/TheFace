@@ -477,9 +477,7 @@ def get_studio(request):
     return render_to_response('partial/success.html', {})
 
 
-@csrf_exempt
-def get_location(request):
-    return render_to_response('partial/success.html', {})
+
 
 
 @csrf_exempt
@@ -530,3 +528,19 @@ def result_location(request):
     template = 'locations.html'
 
     return render(request, template, context)
+
+
+@csrf_exempt
+def location_application(request):
+    import os
+    f = open(os.path.join(BASE_DIR, "templates/location_application.html"))
+
+    content = f.read()
+    f.close()
+    context = Context( )
+    template = Template(content)
+    mail = EmailMessage('Заявка на Location', template.render(context), to=['thefacekg@gmail.com'])
+    mail.content_subtype = 'html'
+    mail.send()
+
+    return render_to_response('partial/success.html', {})

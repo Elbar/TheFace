@@ -65,7 +65,7 @@
         <div class="modal-content l_modal">
             <h3>Зарегистрируй свою локацию и клиент сам найдет тебя!</h3>
 
-            <form method="post" action="{% url 'get_location' %}" class="modal_form lm_form">
+            <form method="post" action="{% url 'location_application' %}" class="modal_form lm_form">
 
                 <div class="field">
                     <label for="location">Название локации<br>
@@ -96,10 +96,13 @@
                 <div class="field">
                     <label for="l_location">Местонахождение<br>
                         <select name="town_location" id="l_location">
-                            <option>Бишкек</option>
-                            <option>Ош</option>
-                            <option>Каракол</option>
-                            <option>Чолпон-Ата</option>
+                            <option>Иссыккульская область</option>
+                            <option>Ошская область</option>
+                            <option>Чуйская область</option>
+                            <option>Таласская область</option>
+                            <option>Джалалабадская область</option>
+                            <option>Баткенская область</option>
+                            <option>Нарынская область</option>
                         </select>
                     </label>
                 </div>
@@ -113,7 +116,7 @@
 
                 <div class="field">
                     <label for="image">Фото<br>
-                        <input type="text" name="studio" id="image" placeholder="Название фото, комментарии">
+                        <input type="text" name="image_name" id="image" placeholder="Название фото, комментарии">
                     </label>
                 </div>
 
@@ -146,7 +149,7 @@
                                     <div class="field add-img">
                                         <button class="button_file" type="button">
                                             + Добавить файл
-                                            <input type="file" id="input-file" multiple>
+                                            <input type="file" id="input-file" name="file_name" multiple>
                                         </button>
                                         <p class="nadded">Формат: jpg, jpeg, png</p>
                                         <p class="added"></p>
@@ -159,25 +162,25 @@
 
                 <div class="field">
                     <label for="l_name">Имя контактного лица<br>
-                        <input type="text" name="name" id="l_name">
+                        <input type="text" name="contacts_name" id="l_name">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_surname">Фамилия контактного лица<br>
-                        <input type="text" name="name" id="l_surname">
+                        <input type="text" name="surname" id="l_surname">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_number">Телефон<br>
-                        <input type="text" name="name" id="l_number">
+                        <input type="text" name="number_phone" id="l_number">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="s_email">E-mail<br>
-                        <input type="email" name="name" id="s_email">
+                        <input type="email" name="email" id="s_email">
                     </label>
                 </div>
 
