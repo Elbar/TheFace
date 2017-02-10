@@ -75,42 +75,41 @@
 
                 <div class="field">
                     <label for="l_type">Тип локации<br>
-                        <select name="select-name" id="l_type">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                        <select name="type_location" id="l_type">
+                            <option>Интерьер</option>
+                            <option>Природа</option>
                         </select>
                     </label>
                 </div>
 
-                <div class="field">
-                    <label for="category">Подкатегория<br>
-                        <select name="select-name" id="category">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
-                        </select>
-                    </label>
-                </div>
+{#                <div class="field">#}
+{#                    <label for="category">Подкатегория<br>#}
+{#                        <select name="select-name" id="category">#}
+{#                            <option value="1">Бишкек</option>#}
+{#                            <option value="2">Ош</option>#}
+{#                            <option value="2">Каракол</option>#}
+{#                            <option value="2">Чолпон-Ата</option>#}
+{#                        </select>#}
+{#                    </label>#}
+{#                </div>#}
 
                 <div class="field">
                     <label for="l_location">Местонахождение<br>
-                        <select name="select-name" id="l_location">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                        <select name="town_location" id="l_location">
+                            <option>Бишкек</option>
+                            <option>Ош</option>
+                            <option>Каракол</option>
+                            <option>Чолпон-Ата</option>
                         </select>
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_information">Информация о локации<br>
-                        <textarea name="comments" id="l_information" cols="20" rows="10"></textarea>
+                        <textarea name="info_location" id="l_information" cols="20" rows="10"></textarea>
                     </label>
                 </div>
+
 
                 <div class="field">
                     <label for="image">Фото<br>
@@ -142,20 +141,20 @@
                 <!--</button>-->
                 <!--</div>-->
 
-                {#                <div class="file_container">#}
-                {##}
-                {#                    <div class="field add-img">#}
-                {#                        <button class="button_file" type="button">#}
-                {#                            + Добавить файл#}
-                {#                            <input type="file" id="input-file" multiple>#}
-                {#                        </button>#}
-                {#                        <p class="nadded">Формат: jpg, jpeg, png</p>#}
-                {#                        <p class="added"></p>#}
-                {##}
-                {##}
-                {#                    </div>#}
-                {##}
-                {#                </div>#}
+                                <div class="file_container">
+
+                                    <div class="field add-img">
+                                        <button class="button_file" type="button">
+                                            + Добавить файл
+                                            <input type="file" id="input-file" multiple>
+                                        </button>
+                                        <p class="nadded">Формат: jpg, jpeg, png</p>
+                                        <p class="added"></p>
+
+
+                                    </div>
+
+                                </div>
 
 
                 <div class="field">
