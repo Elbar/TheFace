@@ -164,7 +164,7 @@
 
                     <label for="comments2">Информация об аппаратуре (если необходимо)<br>
 
-                            <textarea name="info_apparatura" id="comments2" cols="20" rows="10"></textarea>
+                        <textarea name="info_apparatura" id="comments2" cols="20" rows="10"></textarea>
 
                     </label>
 
@@ -204,7 +204,8 @@
                     </ul>
 
 
-                    <button class="add-block"><img src="{% static 'images/plus_icon.png' %}" alt="image">Добавить еще один
+                    <button class="add-block"><img src="{% static 'images/plus_icon.png' %}" alt="image">Добавить еще
+                        один
                         проект и
 
                         ссылку на видео
@@ -214,28 +215,28 @@
                 </div>
 
 
-{#                <div class="file_container">#}
-{##}
-{##}
-{#                    <div class="field add-img">#}
-{##}
-{#                        <button class="button_file" type="button">#}
-{##}
-{#                            + Добавить файл#}
-{##}
-{#                            <input type="file" id="input-file" multiple>#}
-{##}
-{#                        </button>#}
-{##}
-{#                        <p class="nadded">Формат: jpg, jpeg, png</p>#}
-{##}
-{#                        <p class="added"></p>#}
-{##}
-{##}
-{#                    </div>#}
-{##}
-{##}
-{#                </div>#}
+                {#                <div class="file_container">#}
+                {##}
+                {##}
+                {#                    <div class="field add-img">#}
+                {##}
+                {#                        <button class="button_file" type="button">#}
+                {##}
+                {#                            + Добавить файл#}
+                {##}
+                {#                            <input type="file" id="input-file" multiple>#}
+                {##}
+                {#                        </button>#}
+                {##}
+                {#                        <p class="nadded">Формат: jpg, jpeg, png</p>#}
+                {##}
+                {#                        <p class="added"></p>#}
+                {##}
+                {##}
+                {#                    </div>#}
+                {##}
+                {##}
+                {#                </div>#}
 
 
                 <div class="field">
@@ -402,39 +403,16 @@
                                 <li><a href="#">{{ item.email }}</a></li>
                                 <li></li>
                                 <li>
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="assets/images/sp_1.jpg" alt="project">
+                                    {% for project in item.projectstudio_set.all %}
+                                        <div class="project">
+                                            <div class="p_desc">{{ project.title }}</div>
+                                            <div class="p_img">
+                                                <div class="project_hover"></div>
+                                                <img src="/media/{{ MEDIA_URL }}{{ project.image }}" alt="project">
+                                            </div>
                                         </div>
-                                    </div>
+                                    {% endfor %}
 
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="assets/images/sp_1.jpg" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <div class="project">
-                                        <div class="p_desc">Видеовизитка для компании “Аристократ”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="assets/images/sp_1.jpg" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <div class="project">
-                                        <div class="p_desc">Режиссер <br> “Беш кыял”</div>
-                                        <div class="p_img">
-                                            <div class="project_hover"></div>
-                                            <img src="assets/images/sp_1.jpg" alt="project">
-                                        </div>
-                                    </div>
-
-                                    <a href="#" class="link">+ 4 проекта</a>
                                 </li>
                             </ul>
                         </div>

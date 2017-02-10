@@ -7,7 +7,6 @@ from django.shortcuts import render, render_to_response
 from django.template import Context
 from django.template import Template
 from django.views.decorators.csrf import csrf_exempt
-
 from TheFace.settings import BASE_DIR
 from .models import *
 from actors.form import *

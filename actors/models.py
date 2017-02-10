@@ -175,6 +175,21 @@ class Studio(models.Model):
         return "/studio/%i" % self.id
 
 
+class ProjectStudio(models.Model):
+    class Meta:
+        verbose_name = 'Добавить Проект Studio'
+        verbose_name_plural = 'Добавление Проекта Studio'
+
+    title = models.CharField(max_length=255, verbose_name='Название проекта')
+    project = models.ForeignKey(Studio, verbose_name='Выберите studio')
+    image = models.ImageField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Загрузить Картинку')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __unicode__(self):
+        return smart_unicode(self.title)
+
+
 class StudioImage(models.Model):
     class Meta:
         verbose_name_plural = 'Фотосессии Студий'
