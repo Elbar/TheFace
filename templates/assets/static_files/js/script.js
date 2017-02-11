@@ -10,6 +10,16 @@
 //     $(this).addClass('link_active');
 // });
 
+$('a[href^="#"].anchor').on('click', function (event) {
+    var target = $(this.getAttribute('href'));
+    if (target.length) {
+        event.preventDefault();
+        $('html, body').stop().animate({
+            scrollTop: target.offset().top
+        }, 1000);
+    }
+});
+
 $('.slider').slick({
     cssEase: 'ease-in',
     autoplay: true,
@@ -59,18 +69,17 @@ $('.slct').click(function () {
     return false;
 });
 
-$(".menu-collapsed").click(function() {
+$(".menu-collapsed").click(function () {
     $(this).toggleClass("menu-expanded");
 });
 
 
-
-function OpenPopup(){
+function OpenPopup() {
     $(this).parent('.f_form').css('display', 'none');
     $(this).parent('.f_form').parent('.filter').children('.expanded_filter').show(300);
 }
 
-function ClosePopup(){
+function ClosePopup() {
     $(this).parent('.a_links').parent('.expanded_filter').hide(300);
     $(this).parent('.a_links').parent('.expanded_filter').parent('.filter').children('.filter_form').css('display', 'block');
 }
@@ -79,7 +88,6 @@ $(document).ready(function () {
     $('.filter').find('.filter_form').children('.close').click(OpenPopup);
     $('.filter').find('.expanded_filter').children('.a_links').children('.close').click(ClosePopup);
 });
-
 
 
 // �������� ����� ������� � ���������� ����������
@@ -105,21 +113,20 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("modal_close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+btn.onclick = function () {
     modal.style.display = "block";
 };
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-
 
 
 }

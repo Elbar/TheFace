@@ -361,7 +361,12 @@ body {
 /*----------------------BG1-------------------------*/
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
+.bg1, .bg2, .bg3, .bg4 {
+    position: relative;
+}
+
 .bg1 {
+
     background: url("../images/bg1.jpg") center no-repeat;
     /*background-size: cover;*/
     padding: 20px 0 30px 0;
@@ -855,7 +860,9 @@ h4 {
 }
 
 .sl_slide img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .content5 {
@@ -4238,4 +4245,59 @@ h3.space {
     width: 40%;
 }
 
+/*----------------ANCHOR------------------*/
+
+.anchor {
+    position: absolute;
+    top: 40%;
+    /*transform: translate(-50%);*/
+    right: 5px;
+    display: block;
+    width: 110px;
+    font-family: "GothamProBlack", sans-serif;
+    font-size: 14px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 1002;
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+
+.anchor > img {
+    margin-left: 10px;
+}
+
+.text_block {
+    width: 100%;
+    padding-top: 4px;
+    text-align: center;
+}
+
+.text1 {
+    background-color: #30ad52;
+    width: 96%;
+    padding: 2px 0;
+}
+
+.text2 {
+    background-color: #30ad52;
+    width: 100%;
+    padding: 2px 0;
+
+}
+
+.text3 {
+    background-color: #30ad52;
+    width: 94%;
+    padding: 2px 0;
+
+}
+
+.anchor:hover img {
+    transform: scale(0.9);
+}
 

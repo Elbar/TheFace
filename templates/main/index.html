@@ -6,6 +6,17 @@
 
 {% block content %}
     <div class="bg1">
+
+        <a href="#anchor" class="anchor">
+            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
+
+            <div class="text_block">
+                <div class="text1">Получить</div>
+                <div class="text2">варианты</div>
+                <div class="text3">актеров!</div>
+            </div>
+        </a>
+
         <div class="content1 grid">
 
             {% include 'main/navbar.html' %}
@@ -52,6 +63,15 @@
     </div>
 
     <div class="bg2" id="down">
+        <a href="#anchor" class="anchor">
+            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
+
+            <div class="text_block">
+                <div class="text1">Получить</div>
+                <div class="text2">варианты</div>
+                <div class="text3">актеров!</div>
+            </div>
+        </a>
         <div class="content2 grid">
 
             <h2>услуги от профессионалов в своем деле</h2>
@@ -72,7 +92,7 @@
                     <p>Организацию и проведение кастингов "под ключ" любого уровня сложности для кино, рекламы, фото, ТВ
                         и
                         других проектов </p>
-{#                    <a class="button" href="#">подробнее</a>#}
+                    {#                    <a class="button" href="#">подробнее</a>#}
                 </div>
 
                 <div class="service">
@@ -85,7 +105,7 @@
                         подходящего актера в кратчайшие сроки. Работать с базой – легко и приятно. Подберем актеров на
                         роли
                         главных героев, второго плана, каскадёров, массовки и других.</p>
-{#                    <a class="button" href="#">подробнее</a>#}
+                    {#                    <a class="button" href="#">подробнее</a>#}
                 </div>
 
                 <div class="service">
@@ -94,7 +114,7 @@
 
                     <p>Мы подберем профессионалов в своем деле (кастинг-директор, ассистент по актёрам,
                         менеджер по работе с массовкой)</p>
-{#                    <a class="button" href="#">подробнее</a>#}
+                    {#                    <a class="button" href="#">подробнее</a>#}
                 </div>
 
                 <div class="service">
@@ -103,13 +123,23 @@
 
                     <p>Обслуживание на постоянной осонове продакшн-компаний, рекламных агентств, студий, каналов.
                         Мы работаем для тех, кто снимает кино, телесериалы, рекламные и социальные ролики.</p>
-{#                    <a class="button" href="#">подробнее</a>#}
+                    {#                    <a class="button" href="#">подробнее</a>#}
                 </div>
             </div>
         </div>
     </div>
 
     <div class="bg3">
+
+        <a href="#anchor" class="anchor">
+            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
+
+            <div class="text_block">
+                <div class="text1">Получить</div>
+                <div class="text2">варианты</div>
+                <div class="text3">актеров!</div>
+            </div>
+        </a>
         <div class="content3 grid">
             <h2>Кастинговое агентство "The Face"</h2>
 
@@ -124,6 +154,16 @@
     </div>
 
     <div class="bg4">
+
+{#        <a href="#anchor" class="anchor">#}
+{#            <img src="{% static 'images/adv_5.png' %}" alt="anchor">#}
+{##}
+{#            <div class="text_block">#}
+{#                <div class="text1">Получить</div>#}
+{#                <div class="text2">варианты</div>#}
+{#                <div class="text3">актеров!</div>#}
+{#            </div>#}
+{#        </a>#}
         <div class="content4 grid">
             <h2>Наши преимущества</h2>
 
@@ -171,7 +211,7 @@
         </div>
     </div>
 
-    <div class="bg5">
+    <div class="bg5" id="anchor">
         <div class="slider">
             <div class="sl_slide">
                 <img src="{% static 'images/index_slider_1.jpg' %}" alt="image">
@@ -240,6 +280,8 @@
                 alert({{ message }});
             {% endif %}
         </script>
+
+
 
     {% endblock %}
 
