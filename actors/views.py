@@ -539,12 +539,26 @@ def result_location(request):
 
 @csrf_exempt
 def location_application(request):
+    name_location = request.POST.get('name_location')
+    location_type = request.POST.get('location_type')
+    location_state = request.POST.get('location_state')
+    information = request.POST.get('information')
+    photo_comments = request.POST.get('photo')
+    contacts_name = request.POST.get('contacts_name')
+    surname = request.POST.get('surname')
+    phone_number = request.POST.get('phone_number')
+    email = request.POST.get('email')
+
     import os
     f = open(os.path.join(BASE_DIR, "templates/location_application.html"))
 
     content = f.read()
     f.close()
-    context = Context()
+    context = Context(dict(
+        name_location=name_location, location_type=location_type, location_state=location_state,
+        information=information, photo_comments=photo_comments, contacts_name=contacts_name, surname=surname,
+        phone_number=phone_number, email=email
+    ))
     template = Template(content)
     mail = EmailMessage('Заявка на Location', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'

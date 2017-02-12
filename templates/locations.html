@@ -18,56 +18,53 @@
         <div class="modal-content l_modal">
             <h3>Зарегистрируй свою локацию и клиент сам найдет тебя!</h3>
 
-            <form method="post" action="#" class="modal_form lm_form">
+            <form method="post" action="{% url 'location_application' %}" class="modal_form lm_form">
 
                 <div class="field">
                     <label for="location">Название локации<br>
-                        <input type="text" name="studio" id="location">
+                        <input type="text" name="name_location" id="location">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_type">Тип локации<br>
-                        <select name="select-name" id="l_type">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                        <select name="location_type" id="l_type">
+                            <option>Природа</option>
+                            <option>Интерьер</option>
+
                         </select>
                     </label>
                 </div>
 
-                <div class="field">
-                    <label for="category">Подкатегория<br>
-                        <select name="select-name" id="category">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="field">
+                 <div class="field">
                     <label for="l_location">Местонахождение<br>
-                        <select name="select-name" id="l_location">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                        <select name="location_state" id="l_location">
+                            <option>Бишкек</option>
+                            <option>Ош</option>
+                            <option>Каракол</option>
+                            <option>Чолпон-Ата</option>
                         </select>
                     </label>
                 </div>
+
+{#                <div class="field">#}
+{#                    <label for="category">Описание<br>#}
+{#                        <input type="text" name="studio" id="location">#}
+{#                    </label>#}
+{#                </div>#}
+                <p></p>
+
+
 
                 <div class="field">
                     <label for="l_information">Информация о локации<br>
-                        <textarea name="comments" id="l_information" cols="20" rows="10"></textarea>
+                        <textarea name="information" id="l_information" cols="20" rows="10"></textarea>
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="image">Фото<br>
-                        <input type="text" name="studio" id="image" placeholder="Название фото, комментарии">
+                        <input type="text" name="photo" id="image" placeholder="Название фото, комментарии">
                     </label>
                 </div>
 
@@ -113,25 +110,25 @@
 
                 <div class="field">
                     <label for="l_name">Имя контактного лица<br>
-                        <input type="text" name="name" id="l_name">
+                        <input type="text" name="contacts_name" id="l_name">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_surname">Фамилия контактного лица<br>
-                        <input type="text" name="name" id="l_surname">
+                        <input type="text" name="surname" id="l_surname">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_number">Телефон<br>
-                        <input type="tel" name="name" id="l_number">
+                        <input type="tel" name="phone_number" id="l_number">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="s_email">E-mail<br>
-                        <input type="email" name="name" id="s_email">
+                        <input type="email" name="email" id="s_email">
                     </label>
                 </div>
 
