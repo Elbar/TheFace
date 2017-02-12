@@ -59,6 +59,12 @@ CATEGORY_MOVIEMAKER = (
     ('newer', 'Новичок'),
 )
 
+LOCATION_CATEGORY = (
+    ('Priroda', 'Priroda'),
+    ('Interyer', 'Interyer'),
+)
+
+
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
@@ -239,6 +245,7 @@ class Location(models.Model):
 
     name = models.CharField(max_length=255, verbose_name='Название')
     region = models.CharField(max_length=255, verbose_name='Регион')
+    category = models.CharField(max_length=255, choices=LOCATION_CATEGORY)
     image = models.ImageField(upload_to=transform(PATH_LOCATION), verbose_name='Картинка')
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

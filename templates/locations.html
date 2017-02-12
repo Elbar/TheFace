@@ -8,52 +8,54 @@
 {% block content %}
 
     <div class="popup" data-popup="popup-1">
-        <div class="l_popup grid">
+        <div class="l_popup">
             <div class="popup-inner">
-                <div class="sl_content">
-                    <div class="l_slider">
-                        <div class="p_slide">
-                            <img src="{% static 'images/l_slide1.jpg' %}" alt="image">
-                        </div>
+                <div class="popup_scroll">
+                    <div class="sl_content">
+                        <div class="l_slider">
+                            <div class="p_slide">
+                                <img src="assets/images/l_slide1.jpg" alt="image">
+                            </div>
 
-                        <div class="p_slide">
-                            <img src="assets/images/l_slide1.jpg" alt="image">
-                        </div>
+                            <div class="p_slide">
+                                <img src="assets/images/l_slide1.jpg" alt="image">
+                            </div>
 
-                        <div class="p_slide">
-                            <img src="assets/images/l_slide1.jpg" alt="image">
+                            <div class="p_slide">
+                                <img src="assets/images/l_slide1.jpg" alt="image">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="p_container">
-                    <ul class="p_block2">
-                        <li><h3>Озеро иссык-куль</h3></li>
-                        <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
-                        </li>
-                        <li>Область:</li>
-                        <li>Иссык-куль, Кыргызстан</li>
-                        <li>Глубина:</li>
-                        <li>702 м</li>
-                        <li>Размеры:</li>
-                        <li>182×58 км</li>
-                        <li>Площадь:</li>
-                        <li>6236 км²</li>
-                        <li>Объем:</li>
-                        <li>1738 км³</li>
-                        <li>Длина береговой линии:</li>
-                        <li>688 км</li>
-                        <li>Температура зимой:</li>
-                        <li> −3°</li>
-                        <li>Температура летом:</li>
-                        <li>+17°</li>
-                        <li>Ближайщий административный центр:</li>
-                        <li>Районный областной центр в г. Чолпон-Ата</li>
-                        <li>Условия сьемок:</li>
-                        <li>Лето, солнечная</li>
-                    </ul>
+                    <div class="p_container">
+                        <ul class="p_block2">
+                            <li><h3>Озеро иссык-куль</h3></li>
+                            <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
+                            </li>
+                            <li>Область:</li>
+                            <li>Иссык-куль, Кыргызстан</li>
+                            <li>Глубина:</li>
+                            <li>702 м</li>
+                            <li>Размеры:</li>
+                            <li>182×58 км</li>
+                            <li>Площадь:</li>
+                            <li>6236 км²</li>
+                            <li>Объем:</li>
+                            <li>1738 км³</li>
+                            <li>Длина береговой линии:</li>
+                            <li>688 км</li>
+                            <li>Температура зимой:</li>
+                            <li> −3°</li>
+                            <li>Температура летом:</li>
+                            <li>+17°</li>
+                            <li>Ближайщий административный центр:</li>
+                            <li>Районный областной центр в г. Чолпон-Ата</li>
+                            <li>Условия сьемок:</li>
+                            <li>Лето, солнечная</li>
+                        </ul>
 
-                    <a class="popup-close" data-popup-close="popup-1"></a>
+                        <a class="popup-close" data-popup-close="popup-1"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +67,7 @@
         <div class="modal-content l_modal">
             <h3>Зарегистрируй свою локацию и клиент сам найдет тебя!</h3>
 
-            <form method="post" action="{% url 'location_application' %}" class="modal_form lm_form">
+            <form method="post" action="#" class="modal_form lm_form">
 
                 <div class="field">
                     <label for="location">Название локации<br>
@@ -75,48 +77,46 @@
 
                 <div class="field">
                     <label for="l_type">Тип локации<br>
-                        <select name="type_location" id="l_type">
-                            <option>Интерьер</option>
-                            <option>Природа</option>
+                        <select name="select-name" id="l_type">
+                            <option value="1">Бишкек</option>
+                            <option value="2">Ош</option>
+                            <option value="2">Каракол</option>
+                            <option value="2">Чолпон-Ата</option>
                         </select>
                     </label>
                 </div>
 
-{#                <div class="field">#}
-{#                    <label for="category">Подкатегория<br>#}
-{#                        <select name="select-name" id="category">#}
-{#                            <option value="1">Бишкек</option>#}
-{#                            <option value="2">Ош</option>#}
-{#                            <option value="2">Каракол</option>#}
-{#                            <option value="2">Чолпон-Ата</option>#}
-{#                        </select>#}
-{#                    </label>#}
-{#                </div>#}
+                <div class="field">
+                    <label for="category">Подкатегория<br>
+                        <select name="select-name" id="category">
+                            <option value="1">Бишкек</option>
+                            <option value="2">Ош</option>
+                            <option value="2">Каракол</option>
+                            <option value="2">Чолпон-Ата</option>
+                        </select>
+                    </label>
+                </div>
 
                 <div class="field">
                     <label for="l_location">Местонахождение<br>
-                        <select name="town_location" id="l_location">
-                            <option>Иссыккульская область</option>
-                            <option>Ошская область</option>
-                            <option>Чуйская область</option>
-                            <option>Таласская область</option>
-                            <option>Джалалабадская область</option>
-                            <option>Баткенская область</option>
-                            <option>Нарынская область</option>
+                        <select name="select-name" id="l_location">
+                            <option value="1">Бишкек</option>
+                            <option value="2">Ош</option>
+                            <option value="2">Каракол</option>
+                            <option value="2">Чолпон-Ата</option>
                         </select>
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_information">Информация о локации<br>
-                        <textarea name="info_location" id="l_information" cols="20" rows="10"></textarea>
+                        <textarea name="comments" id="l_information" cols="20" rows="10"></textarea>
                     </label>
                 </div>
 
-
                 <div class="field">
                     <label for="image">Фото<br>
-                        <input type="text" name="image_name" id="image" placeholder="Название фото, комментарии">
+                        <input type="text" name="studio" id="image" placeholder="Название фото, комментарии">
                     </label>
                 </div>
 
@@ -144,48 +144,48 @@
                 <!--</button>-->
                 <!--</div>-->
 
-                                <div class="file_container">
+                <div class="file_container">
 
-                                    <div class="field add-img">
-                                        <button class="button_file" type="button">
-                                            + Добавить файл
-                                            <input type="file" id="input-file" name="file_name" multiple>
-                                        </button>
-                                        <p class="nadded">Формат: jpg, jpeg, png</p>
-                                        <p class="added"></p>
+                    <div class="field add-img">
+                        <button class="button_file" type="button">
+                            + Добавить файл
+                            <input type="file" id="input-file" multiple>
+                        </button>
+                        <p class="nadded">Формат: jpg, jpeg, png</p>
+                        <p class="added"></p>
 
 
-                                    </div>
+                    </div>
 
-                                </div>
+                </div>
 
 
                 <div class="field">
                     <label for="l_name">Имя контактного лица<br>
-                        <input type="text" name="contacts_name" id="l_name">
+                        <input type="text" name="name" id="l_name">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_surname">Фамилия контактного лица<br>
-                        <input type="text" name="surname" id="l_surname">
+                        <input type="text" name="name" id="l_surname">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="l_number">Телефон<br>
-                        <input type="text" name="number_phone" id="l_number">
+                        <input type="tel" name="name" id="l_number">
                     </label>
                 </div>
 
                 <div class="field">
                     <label for="s_email">E-mail<br>
-                        <input type="email" name="email" id="s_email">
+                        <input type="email" name="name" id="s_email">
                     </label>
                 </div>
 
                 <div class="button_block">
-                    {#                    <button type="reset" name="reset">Очистить фильтры</button>#}
+                    <button type="reset" name="reset">Очистить фильтры</button>
                     <input type="submit" name="button" value="Отправить" class="submit">
                 </div>
 
@@ -206,65 +206,143 @@
 
     <div class="l_bg1">
         <div class="l_content1 grid">
-            <form method="post" action="{% url 'result_location' %}" class="l_form">
-                <div class="s_field">
-                    <label for="e_select4">Природа<br>
-                        <select class="s_select" name="select-name" id="e_select4" multiple>
-                            <option value="1" selected disabled>Выбрать</option>
-                            <option value="2">Лес</option>
-                            <option value="2">Горы</option>
-                            <option value="2">Озера</option>
-                            <option value="2">Реки</option>
-                            <option value="2">Пустыни</option>
-                            <option value="2">Джайлоо</option>
-                        </select>
-                    </label>
-                </div>
+            <form method="post" action="#" class="l_form">
+                <!--<div class="s_field">-->
+                <!--<label for="e_select4">Природа<br>-->
+                <!--<select class="s_select" name="select-name" id="e_select4" multiple>-->
+                <!--<option value="1" selected disabled>Выбрать</option>-->
+                <!--<option value="2">Лес</option>-->
+                <!--<option value="2">Горы</option>-->
+                <!--<option value="2">Озера</option>-->
+                <!--<option value="2">Реки</option>-->
+                <!--<option value="2">Пустыни</option>-->
+                <!--<option value="2">Джайлоо</option>-->
+                <!--</select>-->
+                <!--</label>-->
+                <!--</div>-->
+
+                <!--<div class="field">-->
+                <!--<label for="e_select3">Интерьер<br>-->
+                <!--<select name="select-name" id="e_select3">-->
+                <!--<option value="1" selected disabled>Выбрать</option>-->
+                <!--<option value="2">Ош</option>-->
+                <!--<option value="2">Каракол</option>-->
+                <!--<option value="2">Чолпон-Ата</option>-->
+                <!--</select>-->
+                <!--</label>-->
+                <!--</div>-->
 
                 <div class="field">
-                    <label for="e_select3">Поиск Локации<br>
-                        <input type="text" name="search" placeholder="Введите название места">
+                    <label for="l_search">
+                        <input type="search" name="search" id="l_search"
+                               placeholder="Введите слово для поиска, например: особняк">
                     </label>
                 </div>
 
-                <input type="submit" name="button" value="Найти Локацию" class="submit">
+                <input type="submit" name="button" value="Найти локации" class="submit">
                 <a href="#" class="link" id="SmyBtn">Добавить локацию</a>
             </form>
 
-            <div class="locations">
-                {% for location in locations %}
-                    <div class="location column1">
-                        <div class="l_hover">
-                            <div class="d_block">
-                                <div class="l_desc">
-                                    <h5>{{ location.name }}</h5>
+            <ul class="tabs-nav">
+                <li><a href="#tab-1">Все локации</a></li>
+                <li><a href="#tab-2">Природа</a></li>
+                <li><a href="#tab-3">Интерьер</a></li>
+            </ul>
 
-                                    <p>{{ location.region }}</p>
-                                    <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+            <div class="tabs-stage">
+
+                <div class="locations" id="tab-1">
+
+                    {% for item in locations %}
+                        <div class="location column1" data-popup-open="popup-1">
+                            <div class="l_hover">
+                                <div class="d_block">
+                                    <div class="l_desc">
+                                        <h5>{{ item.name }}</h5>
+
+                                        <p>{{ item.region }}</p>
+                                        <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                    </div>
                                 </div>
                             </div>
+                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
                         </div>
-                        <img src="/media/{{ MEDIA_URL }}{{ location.image }}" alt="location">
-                    </div>
-                {% endfor %}
+
+                    {% endfor %}
+                    <ul class="pagination">
+                        <li><a href="#">пред</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">55</a></li>
+                        <li><a href="#">след</a></li>
+                    </ul>
+                </div>
+
+                <div class="locations" id="tab-2">
+
+                    {% for item in locations %}
+                        {% if item.category == 'Priroda' %}
+                        <div class="location column1" data-popup-open="popup-1">
+                            <div class="l_hover">
+                                <div class="d_block">
+                                    <div class="l_desc">
+                                        <h5>{{ item.name }}</h5>
+
+                                        <p>{{ item.region }}</p>
+                                        <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
+                        </div>
+                        {% endif %}
+
+                    {% endfor %}
+                    <ul class="pagination">
+                        <li><a href="#">пред</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">55</a></li>
+                        <li><a href="#">след</a></li>
+                    </ul>
+                </div>
 
 
-                <ul class="pagination" style="text-align: center;">
-                    {% if locations.has_previous %}
+                <div class="locations" id="tab-3">
 
-                        <li><a href="?page={{ locations.previous_page_number }}">пред</a></li>
+                    {% for item in locations %}
+                        {% if item.category == 'Interyer' %}
+                        <div class="location column1" data-popup-open="popup-1">
+                            <div class="l_hover">
+                                <div class="d_block">
+                                    <div class="l_desc">
+                                        <h5>{{ item.name }}</h5>
 
-                    {% endif %}
+                                        <p>{{ item.region }}</p>
+                                        <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
+                        </div>
+                        {% endif %}
 
-                    <li><a href="#" class="active">{{ locations.number }} из {{ locations.paginator.num_pages }}</a>
-                    </li>
+                    {% endfor %}
+                    <ul class="pagination">
+                        <li><a href="#">пред</a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">55</a></li>
+                        <li><a href="#">след</a></li>
+                    </ul>
+                </div>
 
-                    {% if locations.has_next %}
-
-                        <li><a href="?page={{ locations.next_page_number }}">след</a></li>
-
-                    {% endif %}
-                </ul>
             </div>
         </div>
     </div>
@@ -327,32 +405,7 @@
                 $('.add-img button').on('click', clickFund);
 
             });
-        </script>on').on('click'
-t.getElementByI
-at opens the mo
-getElementById(
-ement that clos
-.getElementsByC
-cks the button,
-ion () {
-play = "block";
-cks on <span> (
-tion () {
-play = "none";
-cks anywhere ou
-ction (event) {
- == Smodal) {
-.display = "non
-').hide();
-:nth-child(1)')
-rst-child a').a
-ладки и отобраз
-a').on('click',
-ault();
-i a').removeCla
-('tab-active');
- div').hide(500
-href')).show(50
+        </script>
 
         <script>
             // Get the modal
