@@ -233,11 +233,12 @@
                     </ul>
                 </div>
 
-                <a class="locations" id="tab-2">
+                <div class="locations" id="tab-2">
 
                     {% for item in locations %}
                         {% if item.category == 'Priroda' %}
-                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}" data-popup-open="popup-1">
+                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}"
+                               data-popup-open="popup-1">
                                 <div class="l_hover">
                                     <div class="d_block">
                                         <div class="l_desc">
@@ -265,11 +266,12 @@
                 </div>
 
 
-                <a class="locations" id="tab-3">
+                <div class="locations" id="tab-3">
 
                     {% for item in locations %}
                         {% if item.category == 'Interyer' %}
-                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}" data-popup-open="popup-1">
+                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}"
+                               data-popup-open="popup-1">
                                 <div class="l_hover">
                                     <div class="d_block">
                                         <div class="l_desc">

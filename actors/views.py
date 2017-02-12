@@ -116,7 +116,8 @@ def ajax_moviemakers_view(request, id):
 def ajax_location_view(request, id):
     location = Location.objects.get(id=id)
     location_images = LocationImage.objects.filter(location=location)
-    response = render_to_response('partial/_location_popup.html', dict(location=location, location_images=location_images))
+    response = render_to_response('partial/_location_popup.html',
+                                  dict(location=location, location_images=location_images))
 
     return response
 
@@ -554,16 +555,107 @@ def location_application(request):
 
 @csrf_exempt
 def moviemakers_application(request):
+    kyrgyz = None
+    france = None
+    korean = None
+    russian = None
+    deutche = None
+    japan = None
+    spanish = None
+    english = None
+    director = None
+    operator = None
+    scenarist = None
+    hudojnik_costume = None
+    compositor = None
+    postanovshik = None
+    assistent = None
+    music_director = None
+    line_producer = None
+    main_producer = None
+    second_director = None
+    kaskader = None
+    rekvizitor = None
+    stilist = None
+    osvetitel = None
+    grimer = None
+    montajer = None
+    casting_director = None
 
+    kyrgyz_check = request.POST.get('kyrgyz')
 
+    if kyrgyz_check != None:
+        kyrgyz = "Kyrgyz"
 
+    france_check = request.POST.get('france')
+
+    if france_check != None:
+        france = "France"
+
+    korean_check = request.POST.get('korean')
+
+    if korean_check != None:
+        korean = "Korean"
+
+    russian_check = request.POST.get('russian')
+
+    if russian_check != None:
+        russian = "Russian"
+
+    deutche_check = request.POST.get('deutche')
+
+    if deutche_check != None:
+        deutche = "Deutche"
+
+    japan_check = request.POST.get('japan')
+
+    if japan_check != None:
+        japan = "Japan"
+
+    spanish_check = request.POST.get('spanish')
+
+    if spanish_check != None:
+        spanish = "Spanish"
+
+    english_check = request.POST.get('english')
+
+    if english_check != None:
+        english = "English"
+
+    director_check = request.POST.get('director')
+
+    if director_check != None:
+        director = "Kyrgyz"
+
+    second_director_check = request.POST.get('second_director')
+
+    if second_director_check != None:
+        second_director = "Second Director"
+
+    lighter_check = request.POST.get('lighter')
+
+    if lighter_check != None:
+        osvetitel = "Osvetitel"
+
+    name = request.POST.get('name')
+    surname = request.POST.get('surname')
+    staj = request.POST.get('select-staj')
+    education = request.POST.get('education')
+    phone_number = request.POST.get('phone')
+    email = request.POST.get('email')
+    video_link = request.POST.get('video_link')
 
     import os
     f = open(os.path.join(BASE_DIR, "templates/moviemakers_application.html"))
 
     content = f.read()
     f.close()
-    context = Context()
+    context = Context(
+        dict(kyrgyz=kyrgyz, france=france, korean=korean, japan=japan, russian=russian, deutche=deutche,
+             spanish=spanish, english=english, director=director, second_director=second_director, osvetitel=osvetitel,
+             name=name, surname=surname, staj=staj, education=education, phone_number=phone_number, email=email,
+             video_link=video_link)
+    )
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
