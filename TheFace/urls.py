@@ -41,7 +41,7 @@ urlpatterns = patterns('',
                            name='ajax_moviemaker_get'),
                        url(r'^application/', 'actors.views.send_application', name='application'),
                        url(r'^result_studio/', 'actors.views.result_studio', name='result_studio'),
-                       url(r'^result_location/', 'actors.views.result_location', name='result_location'),
+                       url(r'^search/', 'actors.views.search_location', name='result_location'),
                        url(r'^location_application/', 'actors.views.location_application', name='location_application'),
                        url(r'^moviemakers_application/', 'actors.views.moviemakers_application', name='moviemakers_application'),
                        )

@@ -154,40 +154,17 @@
 
     <div class="l_bg1">
         <div class="l_content1 grid">
-            <form method="post" action="#" class="l_form">
-                <!--<div class="s_field">-->
-                <!--<label for="e_select4">Природа<br>-->
-                <!--<select class="s_select" name="select-name" id="e_select4" multiple>-->
-                <!--<option value="1" selected disabled>Выбрать</option>-->
-                <!--<option value="2">Лес</option>-->
-                <!--<option value="2">Горы</option>-->
-                <!--<option value="2">Озера</option>-->
-                <!--<option value="2">Реки</option>-->
-                <!--<option value="2">Пустыни</option>-->
-                <!--<option value="2">Джайлоо</option>-->
-                <!--</select>-->
-                <!--</label>-->
-                <!--</div>-->
+            <form method="post" action="{% url 'result_location' %}" class="l_form">
 
-                <!--<div class="field">-->
-                <!--<label for="e_select3">Интерьер<br>-->
-                <!--<select name="select-name" id="e_select3">-->
-                <!--<option value="1" selected disabled>Выбрать</option>-->
-                <!--<option value="2">Ош</option>-->
-                <!--<option value="2">Каракол</option>-->
-                <!--<option value="2">Чолпон-Ата</option>-->
-                <!--</select>-->
-                <!--</label>-->
-                <!--</div>-->
 
                 <div class="field">
                     <label for="l_search">
-                        <input type="search" name="search" id="l_search"
+                        <input type="text" name="search" id="l_search"
                                placeholder="Введите слово для поиска, например: особняк">
                     </label>
                 </div>
 
-                <input type="submit" name="button" value="Найти локации" class="submit">
+                <input type="submit" class="submit" value="Найти локации">
                 <a href="#" class="link" id="SmyBtn">Добавить локацию</a>
             </form>
 

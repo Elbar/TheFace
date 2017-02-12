@@ -513,31 +513,6 @@ def result_studio(request):
 
 
 @csrf_exempt
-def result_location(request):
-    locations_list = Location.objects.all()
-
-    paginator = Paginator(locations_list, 10)
-
-    page = request.GET.get('page')
-
-    try:
-        locations = paginator.page(page)
-
-    except PageNotAnInteger:
-
-        locations = paginator.page(1)
-
-    except EmptyPage:
-
-        locations = paginator.page(paginator.num_pages)
-
-    context = {"locations": locations, "location": "location"}
-    template = 'locations.html'
-
-    return render(request, template, context)
-
-
-@csrf_exempt
 def location_application(request):
     name_location = request.POST.get('name_location')
     location_type = request.POST.get('location_type')
@@ -676,3 +651,17 @@ def moviemakers_application(request):
     mail.send()
 
     return render_to_response('partial/success.html', {})
+
+
+@csrf_exempt
+def search_location(request):
+    search = request.POST.get('search')
+
+    print search
+
+    locations = Location.objects.filter(name__contains=search)
+    context = {'query': search, 'locations': locations, "location": "location"}
+    template = 'locations.html'
+
+
+    return render(request, template, context)
