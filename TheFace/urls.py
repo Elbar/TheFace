@@ -36,12 +36,14 @@ urlpatterns = patterns('',
                        url(r'^about/', 'actors.views.about_view', name='about'),
                        url(r'^new/(?P<id>\d+)/$', 'actors.views.singleNews', name='single_news'),
                        url(r'^ajax/actors/get/(?P<id>\d+)', 'actors.views.ajax_actor_view', name='ajax_actor_get'),
+                       url(r'^ajax/locations/get/(?P<id>\d+)', 'actors.views.ajax_location_view', name='ajax_locations_get'),
                        url(r'^ajax/moviemakers/get/(?P<id>\d+)', 'actors.views.ajax_moviemakers_view',
                            name='ajax_moviemaker_get'),
                        url(r'^application/', 'actors.views.send_application', name='application'),
                        url(r'^result_studio/', 'actors.views.result_studio', name='result_studio'),
                        url(r'^result_location/', 'actors.views.result_location', name='result_location'),
                        url(r'^location_application/', 'actors.views.location_application', name='location_application'),
+                       url(r'^moviemakers_application/', 'actors.views.moviemakers_application', name='moviemakers_application'),
                        )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

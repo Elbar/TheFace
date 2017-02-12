@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<div class="l_popup">
+    <div class="popup-inner">
+
+        <div class="popup_scroll">
+            <div class="sl_content">
+                <div class="l_slider">
+                    {% for image in location_images %}
+                        <div class="p_slide">
+                            <img src="/media/{{ MEDIA_URL }}{{ image.image }}" alt="image">
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div class="p_container">
+                <ul class="p_block2">
+                    <li><h3>{{ location.name }}</h3></li>
+                    <li><h3>{{ location.region }}</h3></li>
+
+                </ul>
+
+                <a class="popup-close" data-popup-close="popup-1"></a>
+            </div>
+        </div>
+    </div>
+</div>

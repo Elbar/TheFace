@@ -9,18 +9,18 @@ from django.utils.encoding import smart_unicode
 
 from actors.helper import transform
 
-SEX = (('Male', 'Male'),
-       ('Female', 'Female'),
+SEX = (('Мужской', 'Male'),
+       ('Женский', 'Female'),
        )
 
 READY_TO_GO = (
-    ('Yes', 'Yes'),
-    ('No', 'No'),
+    ('Да', 'Yes'),
+    ('Нет', 'No'),
 )
 
 READY_TO_MASS = (
-    ('Yes', 'Yes'),
-    ('No', 'No'),
+    ('Да', 'Yes'),
+    ('Нет', 'No'),
 )
 
 LANGUAGE_CHOICES = (
@@ -54,9 +54,9 @@ BODY = (
 )
 
 CATEGORY_MOVIEMAKER = (
-    ('professional', 'Профессионал'),
-    ('normal', 'Любитель'),
-    ('newer', 'Новичок'),
+    ('Профессионал', 'Профессионал'),
+    ('Любитель', 'Любитель'),
+    ('Новичок', 'Новичок'),
 )
 
 LOCATION_CATEGORY = (
@@ -262,13 +262,13 @@ class LocationImage(models.Model):
         verbose_name_plural = 'Картинки локаций'
         verbose_name = 'Картинки локаций'
 
-    news = models.ForeignKey(Location, verbose_name='выберите Название Локации')
+    location = models.ForeignKey(Location, verbose_name='выберите Название Локации')
     image = models.ImageField(upload_to=transform(PATH_LOCATION), verbose_name='картинка')
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
-        return smart_unicode(self.news.name)
+        return smart_unicode(self.location.name)
 
 
 class Project(models.Model):

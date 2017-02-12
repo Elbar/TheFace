@@ -23,7 +23,7 @@
             </ul>
 
             {% for new in news %}
-                <div class="m_news">
+                <div class="m_news" id="tab-2">
 
                     <a class="n_block" href="{% url 'single_news' id=new.id %}">
                         <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
@@ -75,7 +75,7 @@
 
             // Изменить класс вкладки и отобразить содержимое
             $('.tabs-nav > li > a').on('click', function (event) {
-                {#                event.preventDefault();#}
+                                event.preventDefault();
                 $('.tabs-nav > li a').removeClass('tab-active');
                 $(this).addClass('tab-active');
                 $('.tabs-stage > div').hide(500);

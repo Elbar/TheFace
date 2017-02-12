@@ -17,7 +17,7 @@
         <div class="modal-content">
             <h3>Зарегистрируйся и работодатель или интересный проект сам найдет тебя!</h3>
 
-            <form method="post" action="#" class="modal_form">
+            <form method="post" action="{% url 'moviemakers_application' %}" class="modal_form">
 
                 <div class="field">
                     <label for="name">Имя<br>
@@ -31,11 +31,22 @@
 
                 <div class="field">
                     <label for="e_select2">Опыт работы<br>
-                        <select name="select-name" id="e_select2">
-                            <option value="1">Бишкек</option>
-                            <option value="2">Ош</option>
-                            <option value="2">Каракол</option>
-                            <option value="2">Чолпон-Ата</option>
+                        <select name="select-staj" id="e_select2">
+                            <option>1 лет</option>
+                            <option>2 года</option>
+                            <option>3 года</option>
+                            <option>4 года</option>
+                            <option>5 лет</option>
+                            <option>6 лет</option>
+                            <option>7 лет</option>
+                            <option>8 лет</option>
+                            <option>9 лет</option>
+                            <option>10 лет</option>
+                            <option>11 лет</option>
+                            <option>12 лет</option>
+                            <option>13 лет</option>
+                            <option>14 лет</option>
+                            <option>15 лет</option>
                         </select>
                     </label>
                 </div>
@@ -48,98 +59,84 @@
 
                 <div class="field checkbox">
                     <div class="switch-title">Знание языков</div>
-                    <input id="check1" type="checkbox" name="check" value="check1">
+                    <input id="check1" type="checkbox" name="kyrgyz">
                     <label for="check1">Кыргызский </label>
 
-                    <input id="check2" type="checkbox" name="check" value="check2">
+                    <input id="check2" type="checkbox" name="france">
                     <label for="check2">Французский </label>
 
-                    <input id="check3" type="checkbox" name="check" value="check2">
+                    <input id="check3" type="checkbox" name="korean">
                     <label for="check3">Корейский </label>
 
-                    <input id="check4" type="checkbox" name="check" value="check2">
+                    <input id="check4" type="checkbox" name="russian">
                     <label for="check4">Русский </label>
 
-                    <input id="check5" type="checkbox" name="check" value="check2">
+                    <input id="check5" type="checkbox" name="deutche">
                     <label for="check5">Немецкий </label>
 
-                    <input id="check6" type="checkbox" name="check" value="check2">
+                    <input id="check6" type="checkbox" name="japan">
                     <label for="check6">Японский </label>
 
-                    <input id="check7" type="checkbox" name="check" value="check2">
-                    <label for="check7">Японский </label>
 
-                    <input id="check8" type="checkbox" name="check" value="check2">
-                    <label for="check8">Японский </label>
-
-                    <input id="check9" type="checkbox" name="check" value="check2">
-                    <label for="check9">Японский </label>
-
-                    <input id="check10" type="checkbox" name="check" value="check2">
-                    <label for="check10">Японский </label>
-
-                    <input id="check11" type="checkbox" name="check" value="check2">
-                    <label for="check11">Японский </label>
-
-                    <input id="check12" type="checkbox" name="check" value="check2">
-                    <label for="check12">Японский </label>
+                    <input id="check12" type="checkbox" name="spanish">
+                    <label for="check12">Испанский </label>
                 </div>
 
                 <div class="field checkbox">
                     <div class="switch-title">Специальность</div>
-                    <input id="check13" type="checkbox" name="check" value="check1">
+                    <input id="check13" type="checkbox" name="director">
                     <label for="check13">Режиссер</label>
 
-                    <input id="check14" type="checkbox" name="check" value="check2">
+                    <input id="check14" type="checkbox" name="art-director">
                     <label for="check14">Художник потановщик</label>
 
-                    <input id="check15" type="checkbox" name="check" value="check2">
+                    <input id="check15" type="checkbox" name="second-director">
                     <label for="check15">Второй режиссер</label>
 
-                    <input id="check16" type="checkbox" name="check" value="check2">
+                    <input id="check16" type="checkbox" name="lighter">
                     <label for="check16">Осветитель</label>
 
-                    <input id="check17" type="checkbox" name="check" value="check2">
+                    <input id="check17" type="checkbox" name="operator">
                     <label for="check17">Оператор</label>
 
-                    <input id="check18" type="checkbox" name="check" value="check2">
+                    <input id="check18" type="checkbox" name="assistent">
                     <label for="check18">Ассистент по актерами</label>
 
-                    <input id="check19" type="checkbox" name="check" value="check2">
+                    <input id="check19" type="checkbox" name="kaskader">
                     <label for="check19">Каскадер</label>
 
-                    <input id="check20" type="checkbox" name="check" value="check2">
+                    <input id="check20" type="checkbox" name="grimer">
                     <label for="check20">Гример</label>
 
-                    <input id="check21" type="checkbox" name="check" value="check2">
+                    <input id="check21" type="checkbox" name="scenarist">
                     <label for="check21">Сценарист</label>
 
-                    <input id="check22" type="checkbox" name="check" value="check2">
+                    <input id="check22" type="checkbox" name="recorder">
                     <label for="check22">Звукорежиссер</label>
 
-                    <input id="check23" type="checkbox" name="check" value="check2">
+                    <input id="check23" type="checkbox" name="rekvizitor">
                     <label for="check23">Реквизитор</label>
 
-                    <input id="check24" type="checkbox" name="check" value="check2">
+                    <input id="check24" type="checkbox" name="montajer">
                     <label for="check24">Монтажер</label>
 
-                    <input id="check25" type="checkbox" name="check" value="check2">
+                    <input id="check25" type="checkbox" name="hudojnik-costume">
                     <label for="check25">Художник по костюмам</label>
 
-                    <input id="check26" type="checkbox" name="check" value="check2">
+                    <input id="check26" type="checkbox" name="producer-lineinyi">
                     <label for="check26">Линейный продюсер
                     </label>
 
-                    <input id="check27" type="checkbox" name="check" value="check2">
+                    <input id="check27" type="checkbox" name="stilist">
                     <label for="check27">Стилист по прическам</label>
 
-                    <input id="check28" type="checkbox" name="check" value="check2">
+                    <input id="check28" type="checkbox" name="casting">
                     <label for="check28">Директор по кастингу</label>
 
-                    <input id="check29" type="checkbox" name="check" value="check2">
+                    <input id="check29" type="checkbox" name="musician">
                     <label for="check29">Композитор</label>
 
-                    <input id="check30" type="checkbox" name="check" value="check2">
+                    <input id="check30" type="checkbox" name="producer-main">
                     <label for="check30">Исполнительный продюсер</label>
 
                 </div>
@@ -160,7 +157,7 @@
                     <ul class="blocks">
                         <li class="item">
                             <label for="project">Проекты<br>
-                                <input type="text" name="name" id="project" placeholder="Название проекта">
+                                <input type="text" name="procets" id="project" placeholder="Название проекта">
                             </label>
                         </li>
                     </ul>
@@ -168,12 +165,13 @@
                     <ul class="link_block">
                         <li class="link_item">
                             <label for="link">Ссылка на видео<br>
-                                <input type="text" name="name" id="link" placeholder="Введите ссылку">
+                                <input type="text" name="video_link" id="link" placeholder="Введите ссылку">
                             </label>
                         </li>
                     </ul>
 
-                    <button class="add-block"><img src="assets/images/plus_icon.png" alt="image">Добавить еще один
+                    <button class="add-block"><img src="{% static 'images/plus_icon.png' %}" alt="image">Добавить еще
+                        один
                         проект и
                         ссылку на видео
                     </button>
@@ -298,7 +296,7 @@
                                         </div>
 
                                     {% endfor %}
-{#                                    <a href="#" class="link">+ 4 проекта</a>#}
+                                    {#                                    <a href="#" class="link">+ 4 проекта</a>#}
                                 </li>
                             </ul>
                         </div>
@@ -402,14 +400,7 @@
                 });
 
                 //----- CLOSE
-                $('[data-popup-close]').on('click', function (e) {
 
-                    e.preventDefault();
-                    var targeted_popup_class = jQuery(this).attr('data-popup-close');
-                    $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
-
-
-                });
             });
 
             $('.moviemakers-trigger').each(function (i, obj) {

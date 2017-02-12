@@ -3220,6 +3220,7 @@ ul.pagination li a:hover:not(.active) {
     position: relative;
     display: inline-block;
     vertical-align: top;
+    width: 31.62393162393162%;
     height: 450px;
     margin: 0 2.564102564102564% 30px 0;
 }
@@ -3229,20 +3230,14 @@ ul.pagination li a:hover:not(.active) {
     opacity: 1;
 }
 
-.locations > div:nth-child(3),
-.locations > div:nth-child(5),
-.locations > div:nth-child(8),
-.locations > div:last-of-type {
+.locations > .location:nth-child(3n){
     margin-right: 0;
 }
 
 .location > img {
     width: 100%;
     height: 100%;
-}
-
-.column1 {
-    width: 31.62393162393162%;
+    object-fit: cover;
 }
 
 .l_hover {
@@ -3296,44 +3291,44 @@ ul.pagination li a:hover:not(.active) {
     right: 20px;
 }
 
-.column2 {
-    width: 48.71794871794872%;
-}
+/*.column2 {*/
+    /*width: 48.71794871794872%;*/
+/*}*/
 
-.column3 {
-    display: inline-block;
-    vertical-align: top;
-    width: 31.62393162393162%;
-    margin: 0 2.564102564102564% 30px 0;
-}
+/*.column3 {*/
+    /*display: inline-block;*/
+    /*vertical-align: top;*/
+    /*width: 31.62393162393162%;*/
+    /*margin: 0 2.564102564102564% 30px 0;*/
+/*}*/
 
-.column3 > div:first-of-type {
-    margin-bottom: 30px;
-}
+/*.column3 > div:first-of-type {*/
+    /*margin-bottom: 30px;*/
+/*}*/
 
-.s_location {
-    position: relative;
-    width: 100%;
-    height: 210px;
-}
+/*.s_location {*/
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height: 210px;*/
+/*}*/
 
-.s_location:hover .l_hover {
-    border-radius: 0;
-    opacity: 1;
-}
+/*.s_location:hover .l_hover {*/
+    /*border-radius: 0;*/
+    /*opacity: 1;*/
+/*}*/
 
-.s_location .l_hover {
-    background-position: center 30%;
-}
+/*.s_location .l_hover {*/
+    /*background-position: center 30%;*/
+/*}*/
 
-.s_location > img {
-    width: 100%;
-    height: 100%;
-}
+/*.s_location > img {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
 
-.s_location .d_block {
-    height: 170px;
-}
+/*.s_location .d_block {*/
+    /*height: 170px;*/
+/*}*/
 
 /*----------------------L-POPUP-------------------------*/
 

@@ -7,58 +7,9 @@
 
 {% block content %}
 
-    <div class="popup" data-popup="popup-1">
-        <div class="l_popup">
-            <div class="popup-inner">
-                <div class="popup_scroll">
-                    <div class="sl_content">
-                        <div class="l_slider">
-                            <div class="p_slide">
-                                <img src="assets/images/l_slide1.jpg" alt="image">
-                            </div>
+    <div class="popup" data-popup="popup-1" id="popup-location">
 
-                            <div class="p_slide">
-                                <img src="assets/images/l_slide1.jpg" alt="image">
-                            </div>
 
-                            <div class="p_slide">
-                                <img src="assets/images/l_slide1.jpg" alt="image">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p_container">
-                        <ul class="p_block2">
-                            <li><h3>Озеро иссык-куль</h3></li>
-                            <li><a href="#"><img src="assets/images/color_fav_icon.png" alt="image">Добавить в избранное</a>
-                            </li>
-                            <li>Область:</li>
-                            <li>Иссык-куль, Кыргызстан</li>
-                            <li>Глубина:</li>
-                            <li>702 м</li>
-                            <li>Размеры:</li>
-                            <li>182×58 км</li>
-                            <li>Площадь:</li>
-                            <li>6236 км²</li>
-                            <li>Объем:</li>
-                            <li>1738 км³</li>
-                            <li>Длина береговой линии:</li>
-                            <li>688 км</li>
-                            <li>Температура зимой:</li>
-                            <li> −3°</li>
-                            <li>Температура летом:</li>
-                            <li>+17°</li>
-                            <li>Ближайщий административный центр:</li>
-                            <li>Районный областной центр в г. Чолпон-Ата</li>
-                            <li>Условия сьемок:</li>
-                            <li>Лето, солнечная</li>
-                        </ul>
-
-                        <a class="popup-close" data-popup-close="popup-1"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="SmyModal" class="modal">
@@ -254,7 +205,8 @@
                 <div class="locations" id="tab-1">
 
                     {% for item in locations %}
-                        <div class="location column1" data-popup-open="popup-1">
+
+                        <a class="location" href="{% url 'ajax_locations_get' id=item.id %}" data-popup-open="popup-1">
                             <div class="l_hover">
                                 <div class="d_block">
                                     <div class="l_desc">
@@ -266,7 +218,8 @@
                                 </div>
                             </div>
                             <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
-                        </div>
+                        </a>
+
 
                     {% endfor %}
                     <ul class="pagination">
@@ -280,23 +233,23 @@
                     </ul>
                 </div>
 
-                <div class="locations" id="tab-2">
+                <a class="locations" id="tab-2">
 
                     {% for item in locations %}
                         {% if item.category == 'Priroda' %}
-                        <div class="location column1" data-popup-open="popup-1">
-                            <div class="l_hover">
-                                <div class="d_block">
-                                    <div class="l_desc">
-                                        <h5>{{ item.name }}</h5>
+                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}" data-popup-open="popup-1">
+                                <div class="l_hover">
+                                    <div class="d_block">
+                                        <div class="l_desc">
+                                            <h5>{{ item.name }}</h5>
 
-                                        <p>{{ item.region }}</p>
-                                        <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                            <p>{{ item.region }}</p>
+                                            <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
-                        </div>
+                                <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
+                            </a>
                         {% endif %}
 
                     {% endfor %}
@@ -312,23 +265,23 @@
                 </div>
 
 
-                <div class="locations" id="tab-3">
+                <a class="locations" id="tab-3">
 
                     {% for item in locations %}
                         {% if item.category == 'Interyer' %}
-                        <div class="location column1" data-popup-open="popup-1">
-                            <div class="l_hover">
-                                <div class="d_block">
-                                    <div class="l_desc">
-                                        <h5>{{ item.name }}</h5>
+                            <a class="location" href="{% url 'ajax_locations_get' id=item.id %}" data-popup-open="popup-1">
+                                <div class="l_hover">
+                                    <div class="d_block">
+                                        <div class="l_desc">
+                                            <h5>{{ item.name }}</h5>
 
-                                        <p>{{ item.region }}</p>
-                                        <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                            <p>{{ item.region }}</p>
+                                            <img src="{% static 'images/fav_icon.png' %}" alt="icon">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
-                        </div>
+                                <img src="/media/{{ MEDIA_URL }}{{ item.image }}" alt="location">
+                            </a>
                         {% endif %}
 
                     {% endfor %}
@@ -351,14 +304,7 @@
 
     {% block scripts %}
         <script>
-            $('.s_select').SumoSelect();
 
-            $('.l_slider').slick({
-                cssEase: 'ease-in',
-                autoplay: true,
-                autoplaySpeed: 2000,
-                arrows: true
-            });
         </script>
 
         <script>
@@ -381,6 +327,46 @@
 
                 });
             });
+
+            $('.location').each(function (i, obj) {
+                $(obj).on('click', function (event) {
+                    event.preventDefault();
+                    var that = this;
+                    $.ajax({
+                        method: 'POST',
+                        dataType: 'HTML',
+                        url: $(that).attr('href'),
+                        success: function (response) {
+                            $('#popup-location').html(response);
+
+
+                            $('[data-popup-close]').on('click', function (e) {
+
+                                e.preventDefault();
+                                var targeted_popup_class = jQuery(this).attr('data-popup-close');
+                                $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+
+
+                            });
+
+                            $('.s_select').SumoSelect();
+
+                            $('.l_slider').slick({
+                                cssEase: 'ease-in',
+                                autoplay: true,
+                                autoplaySpeed: 2000,
+                                arrows: true
+                            });
+
+                        },
+                        error: function () {
+                            console.error('Error to send requet!');
+                        }
+                    });
+                })
+            });
+
+
         </script>
 
         <script>

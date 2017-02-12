@@ -107,7 +107,16 @@ def ajax_actor_view(request, id):
 @csrf_exempt
 def ajax_moviemakers_view(request, id):
     moviemaker = MovieMaker.objects.get(id=id)
-    response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker ))
+    response = render_to_response('partial/_moviemakers_popup.html', dict(moviemaker=moviemaker))
+
+    return response
+
+
+@csrf_exempt
+def ajax_location_view(request, id):
+    location = Location.objects.get(id=id)
+    location_images = LocationImage.objects.filter(location=location)
+    response = render_to_response('partial/_location_popup.html', dict(location=location, location_images=location_images))
 
     return response
 
@@ -477,9 +486,6 @@ def get_studio(request):
     return render_to_response('partial/success.html', {})
 
 
-
-
-
 @csrf_exempt
 def result_studio(request):
     studio_list = Studio.objects.all()
@@ -537,9 +543,29 @@ def location_application(request):
 
     content = f.read()
     f.close()
-    context = Context( )
+    context = Context()
     template = Template(content)
     mail = EmailMessage('Заявка на Location', template.render(context), to=['thefacekg@gmail.com'])
+    mail.content_subtype = 'html'
+    mail.send()
+
+    return render_to_response('partial/success.html', {})
+
+
+@csrf_exempt
+def moviemakers_application(request):
+
+
+
+
+    import os
+    f = open(os.path.join(BASE_DIR, "templates/moviemakers_application.html"))
+
+    content = f.read()
+    f.close()
+    context = Context()
+    template = Template(content)
+    mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
     mail.send()
 
