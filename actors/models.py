@@ -59,6 +59,12 @@ CATEGORY_MOVIEMAKER = (
     ('Новичок', 'Новичок'),
 )
 
+NEWS_CATEGORY = (
+    ('Советы', 'Советы'),
+    ('Новости', 'Новости'),
+    ('Кастинги', 'Кастинги'),
+)
+
 LOCATION_CATEGORY = (
     ('Priroda', 'Priroda'),
     ('Interyer', 'Interyer'),
@@ -226,6 +232,7 @@ class News(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок поста')
     description = models.CharField(max_length=1000, verbose_name='Описание поста')
     text = models.TextField(verbose_name='Текст поста')
+    category = models.CharField(choices=NEWS_CATEGORY, max_length=255)
     image = models.ImageField(upload_to=transform(PATH_NEWS), verbose_name='картинка')
 
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)

@@ -68,7 +68,7 @@
                 </div>
 
                 <input type="submit" name="button" value="Найти актера" class="submit">
-                <a href="#" class="close link">Расширенный поиск</a>
+                {#                <a href="#" class="close link">Расширенный поиск</a>#}
             </form>
 
 
@@ -350,6 +350,11 @@
                                 focusOnSelect: true,
                                 asNavFor: '.p_slider',
                                 draggable: false
+                            });
+
+                            $(document).ready(function () {
+                                $('.popup_scroll').perfectScrollbar();
+                                $('.ps-scrollbar-y-rail').css('opacity', 1)
                             });
 
                             $('[data-popup-close]').on('click', function (e) {

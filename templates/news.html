@@ -22,47 +22,194 @@
                 <li><a href="#tab-4">Советы</a></li>
             </ul>
 
-            {% for new in news %}
-                <div class="m_news" id="tab-2">
+            <div class="tabs-stage">
+                <div class="all_news" id="tab-1">
+                    {% for new in news %}
+                        <div class="m_news">
 
-                    <a class="n_block" href="{% url 'single_news' id=new.id %}">
-                        <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
+                            <a class="n_block" href="{% url 'single_news' id=new.id %}">
+                                <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
 
-                        <div class="type">
-                            <div class="tag">Советы</div>
-                            <div class="tag">Новости</div>
+                                <div class="type">
+                                    <div class="tag">{{ new.category }}</div>
+
+                                </div>
+                            </a>
+
+                            <div class="n_desc">
+                                <h5><a href="{% url 'single_news' id=new.id %}">{{ new.title | truncatewords:3 }}</a>
+                                </h5>
+
+                                <p>{{ new.description | truncatewords:5 }}</p>
+                                <span>{{ new.timestamp }}</span>
+
+                                <p><a href="{% url 'single_news' id=new.id %}">Читать подробнее</a></p>
+                            </div>
                         </div>
-                    </a>
 
-                    <div class="n_desc">
-                        <h5><a href="{% url 'single_news' id=new.id %}">{{ new.title }}</a></h5>
 
-                        <p>{{ new.description | truncatewords:15 }}</p>
-                        <span>{{ new.timestamp }}</span>
 
-                        <p><a href="{% url 'single_news' id=new.id %}">Читать подробнее</a></p>
-                    </div>
+                    {% endfor %}
+                    <ul class="pagination" style="text-align: center;">
+                        {% if news.has_previous %}
+
+                            <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+
+                        {% endif %}
+
+                        <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
+                        </li>
+
+                        {% if news.has_next %}
+
+                            <li><a href="?page={{ news.next_page_number }}">след</a></li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <div class="all_news" id="tab-2">
+                    {% for new in news %}
+                        {% if new.category == 'Кастинги' %}
+                            <div class="m_news">
+
+                                <a class="n_block" href="{% url 'single_news' id=new.id %}">
+                                    <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
+
+                                    <div class="type">
+                                        <div class="tag">Кастинги</div>
+                                    </div>
+                                </a>
+
+                                <div class="n_desc">
+                                    <h5>
+                                        <a href="{% url 'single_news' id=new.id %}">{{ new.title | truncatewords:3 }}</a>
+                                    </h5>
+
+                                    <p>{{ new.description | truncatewords:5 }}</p>
+                                    <span>{{ new.timestamp }}</span>
+
+                                    <p><a href="{% url 'single_news' id=new.id %}">Читать подробнее</a></p>
+                                </div>
+                            </div>
+
+                        {% endif %}
+
+                    {% endfor %}
+                    <ul class="pagination" style="text-align: center;">
+                        {% if news.has_previous %}
+
+                            <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+
+                        {% endif %}
+
+                        <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
+                        </li>
+
+                        {% if news.has_next %}
+
+                            <li><a href="?page={{ news.next_page_number }}">след</a></li>
+
+                        {% endif %}
+                    </ul>
                 </div>
 
 
+                <div class="all_news" id="tab-3">
+                    {% for new in news %}
+                        {% if new.category == 'Новости' %}
+                            <div class="m_news">
 
-            {% endfor %}
-            <ul class="pagination" style="text-align: center;">
-                {% if news.has_previous %}
+                                <a class="n_block" href="{% url 'single_news' id=new.id %}">
+                                    <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
 
-                    <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+                                    <div class="type">
+                                        <div class="tag">Новости</div>
+                                    </div>
+                                </a>
 
-                {% endif %}
+                                <div class="n_desc">
+                                    <h5>
+                                        <a href="{% url 'single_news' id=new.id %}">{{ new.title | truncatewords:3 }}</a>
+                                    </h5>
 
-                <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
-                </li>
+                                    <p>{{ new.description | truncatewords:5 }}</p>
+                                    <span>{{ new.timestamp }}</span>
 
-                {% if news.has_next %}
+                                    <p><a href="{% url 'single_news' id=new.id %}">Читать подробнее</a></p>
+                                </div>
+                            </div>
+                        {% endif %}
 
-                    <li><a href="?page={{ news.next_page_number }}">след</a></li>
 
-                {% endif %}
-            </ul>
+                    {% endfor %}
+                    <ul class="pagination" style="text-align: center;">
+                        {% if news.has_previous %}
+
+                            <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+
+                        {% endif %}
+
+                        <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
+                        </li>
+
+                        {% if news.has_next %}
+
+                            <li><a href="?page={{ news.next_page_number }}">след</a></li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+
+
+                <div class="all_news" id="tab-4">
+                    {% for new in news %}
+                        {% if new.category == 'Советы' %}
+                            <div class="m_news">
+
+                                <a class="n_block" href="{% url 'single_news' id=new.id %}">
+                                    <img src="/media/{{ MEDIA_URL }}{{ new.image }}" alt="image">
+
+                                    <div class="type">
+                                        <div class="tag">Советы</div>
+                                    </div>
+                                </a>
+
+                                <div class="n_desc">
+                                    <h5>
+                                        <a href="{% url 'single_news' id=new.id %}">{{ new.title | truncatewords:3 }}</a>
+                                    </h5>
+
+                                    <p>{{ new.description | truncatewords:5 }}</p>
+                                    <span>{{ new.timestamp }}</span>
+
+                                    <p><a href="{% url 'single_news' id=new.id %}">Читать подробнее</a></p>
+                                </div>
+                            </div>
+
+
+                        {% endif %}
+                    {% endfor %}
+                    <ul class="pagination" style="text-align: center;">
+                        {% if news.has_previous %}
+
+                            <li><a href="?page={{ news.previous_page_number }}">пред</a></li>
+
+                        {% endif %}
+
+                        <li><a href="#" class="active">{{ news.number }} из {{ news.paginator.num_pages }}</a>
+                        </li>
+
+                        {% if news.has_next %}
+
+                            <li><a href="?page={{ news.next_page_number }}">след</a></li>
+
+                        {% endif %}
+                    </ul>
+                </div>
+
+
+            </div>
         </div>
     </div>
 
@@ -75,7 +222,7 @@
 
             // Изменить класс вкладки и отобразить содержимое
             $('.tabs-nav > li > a').on('click', function (event) {
-                                event.preventDefault();
+                event.preventDefault();
                 $('.tabs-nav > li a').removeClass('tab-active');
                 $(this).addClass('tab-active');
                 $('.tabs-stage > div').hide(500);

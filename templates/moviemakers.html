@@ -167,7 +167,7 @@
 
                     <ul class="link_block">
                         <li class="link_item">
-                            <label for="link">Ссылка на видео<br>
+                            <label for="link">Ссылка на проект<br>
                                 <input type="text" name="video_link" id="link" placeholder="Введите ссылку">
                             </label>
                         </li>
@@ -184,7 +184,7 @@
 
                     <div class="field add-img">
                         <button class="button_file" type="button">
-                            + Добавить файл
+                            + Добавьте постер проекта и личное фото
                             <input type="file" id="input-file" multiple>
                         </button>
                         <p class="added"></p>
@@ -425,6 +425,11 @@
                                 $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
 
 
+                            });
+
+                            $(document).ready(function () {
+                                $('.popup_scroll').perfectScrollbar();
+                                $('.ps-scrollbar-y-rail').css('opacity', 1)
                             });
                         },
                         error: function () {
