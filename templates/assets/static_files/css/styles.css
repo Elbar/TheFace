@@ -169,6 +169,7 @@ body {
 
 .p_slider {
     height: 440px;
+    overflow: hidden;
 }
 
 .p_slide,
