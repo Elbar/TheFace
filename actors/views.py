@@ -571,6 +571,51 @@ def moviemakers_application(request):
     montajer = None
     casting_director = None
 
+    scenarist_check = request.POST.get('scenarist')
+
+    if scenarist_check != None:
+        scenarist = "scenarist"
+
+    hudojnik_costume_check = request.POST.get('hudojnik-costume')
+
+    if hudojnik_costume_check != None:
+        hudojnik_costume = "hudojnik_costume"
+
+    compositor_check = request.POST.get('musician')
+
+    if compositor_check != None:
+        compositor = "Compositor"
+
+    postanovshik_check = request.POST.get('art-director')
+
+    if postanovshik_check != None:
+        postanovshik = 'Hudojnik postanovshik'
+
+    assistent_check = request.POST.get('assistent')
+
+    if assistent_check != None:
+        assistent = "Assistent"
+
+    operator_check = request.POST.get('operator')
+
+    if operator_check != None:
+        operator = "Operator"
+
+    line_producer_check = request.POST.get('line_producer')
+
+    if line_producer_check != None:
+        line_producer = 'line_producer'
+
+    kaskader_check = request.POST.get('kaskader')
+
+    if kaskader_check != None:
+        kaskader = 'kaskader'
+
+    main_producer_check = request.POST.get('main_producer')
+
+    if main_producer != None:
+        main_producer = 'main_producer'
+
     kyrgyz_check = request.POST.get('kyrgyz')
 
     if kyrgyz_check != None:
@@ -643,7 +688,9 @@ def moviemakers_application(request):
         dict(kyrgyz=kyrgyz, france=france, korean=korean, japan=japan, russian=russian, deutche=deutche,
              spanish=spanish, english=english, director=director, second_director=second_director, osvetitel=osvetitel,
              name=name, surname=surname, staj=staj, education=education, phone_number=phone_number, email=email,
-             video_link=video_link)
+             video_link=video_link, scenarist=scenarist, hudojnik_costume=hudojnik_costume, compositor=compositor,
+             postanovshik=postanovshik, assistent=assistent, operator=operator, line_producer=line_producer,
+             kaskader=kaskader, main_producer=main_producer)
     )
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
@@ -662,6 +709,5 @@ def search_location(request):
     locations = Location.objects.filter(name__contains=search)
     context = {'query': search, 'locations': locations, "location": "location"}
     template = 'locations.html'
-
 
     return render(request, template, context)

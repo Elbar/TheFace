@@ -35,6 +35,7 @@ COLOR = (
     ('brunet', 'Брюнет'),
     ('blondın', 'Блондин'),
     ('ryjıy', 'Рыжий'),
+    ('waten', 'Шатен'),
 )
 
 BODY = (
@@ -48,11 +49,12 @@ READY_TO_GO = (
     ('No', 'Нет'),
 )
 
+
 CATEGORY_MOVIEMAKER = (
     ('professional', 'Профессионал'),
-    ('normal', 'Любитель'),
-    ('newer', 'Новичок'),
+    ('newer', 'Начинающий'),
 )
+
 
 PROFESSIONAL = (
     ('director', 'Режиссер'),
@@ -68,7 +70,8 @@ PROFESSIONAL = (
     ('hair_styler', 'Стилист по прическам'),
     ('rekvizitor', 'Реквизитор'),
     ('light', 'Освещение'),
-    ('grimer_dublera', 'Гример Дублера'),
+    ('grimer_dublera', 'Гример'),
+    ('dubler', 'Dubler'),
     ('kaskadery', 'Каскадеры'),
 )
 
