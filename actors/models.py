@@ -70,7 +70,6 @@ LOCATION_CATEGORY = (
     ('Interyer', 'Interyer'),
 )
 
-
 PATH_ACTORS = 'actors/images'
 PATH_MOVIEMAKER = 'moviemaker/images'
 PATH_STUDIO = 'studio/images'
@@ -92,7 +91,6 @@ class Actor(models.Model):
 
     identify = models.CharField(max_length=255, verbose_name='Идентификатор')
     phone_number = models.CharField(max_length=255, verbose_name='Номер Телефона')
-    body = models.CharField(choices=BODY, max_length=255, verbose_name='Телосложение')
     type_of_actor = models.CharField(max_length=255)
     staj = models.CharField(max_length=255, choices=READY_TO_GO, verbose_name='Опыт съемок')
     category = models.CharField(max_length=255, verbose_name='Категория')
@@ -291,3 +289,15 @@ class Project(models.Model):
 
     def __unicode__(self):
         return smart_unicode(self.title)
+
+
+class FormFile(models.Model):
+    class Meta:
+        verbose_name = 'Картинки с формы'
+        verbose_name_plural = 'Картинки с формы'
+
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Images')
+
+    def __unicode__(self):
+        return smart_unicode(self.name)

@@ -249,6 +249,7 @@
                         {% render_field form.info placeholder="Информация о типаже" %}
                     </label>
 
+
                     <input type="submit" value="Получить варианты">
 
                 </form>
@@ -276,8 +277,15 @@
         </script>
 
         <script>
-            {% if location1 == 'application' %}
-                alert({{ message }});
+            {% if message == 'error' %}
+                alert('Введите ваш номер телефона');
+            {% endif %}
+        </script>
+
+
+        <script>
+            {% if message == 'success' %}
+                alert('Ваша заявка успешно отправлена!');
             {% endif %}
         </script>
 

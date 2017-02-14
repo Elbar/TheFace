@@ -108,7 +108,7 @@
 
                     <div class="field">
                         <label for="birthday">Дата рождения<br>
-                            {% render_field form.birthday placeholder="дд.мм.гггг"%}
+                            {% render_field form.birthday placeholder="дд.мм.гггг" %}
                         </label>
                     </div>
 
@@ -267,5 +267,22 @@
             </div>
         </div>
     </main>
+
+    {% block scripts %}
+        <script>
+            {% if message == 'error' %}
+                alert('Введите ваш номер телефона');
+            {% endif %}
+        </script>
+
+
+        <script>
+            {% if message == 'success' %}
+                alert('Ваша заявка успешно отправлена!');
+            {% endif %}
+        </script>
+
+
+    {% endblock %}
 
 {% endblock %}

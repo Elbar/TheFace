@@ -1,8 +1,9 @@
 # coding=utf-8
-
+from django.core.files.storage import FileSystemStorage
 from django.core.mail import EmailMessage
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, render_to_response
 from django.template import Context
 from django.template import Template
@@ -45,7 +46,27 @@ def send_application(request):
             mail.content_subtype = 'html'
             mail.send()
 
-            return render_to_response('partial/success.html')
+            actors = Actor.objects.all()[0:5]
+            actors1 = Actor.objects.all()[5:11]
+            actors2 = Actor.objects.all()[11:16]
+
+            context = {"actors": actors, "actors1": actors1, "actors2": actors2, 'location': 'index', "form": form,
+                       "message": "success"}
+            template = 'main/index.html'
+
+            return render(request, template, context)
+
+        else:
+
+            actors = Actor.objects.all()[0:5]
+            actors1 = Actor.objects.all()[5:11]
+            actors2 = Actor.objects.all()[11:16]
+
+            context = {"actors": actors, "actors1": actors1, "actors2": actors2, 'location': 'index', "form": form,
+                       "message": "error"}
+            template = 'main/index.html'
+
+            return render(request, template, context)
 
 
 @csrf_exempt
@@ -273,7 +294,20 @@ def send_mail(request):
             mail.content_subtype = 'html'
             mail.send()
 
-            return render_to_response('partial/success.html', {})
+            actor_form = ActorForm
+
+            context1 = {"form": actor_form, "location": "become_an_actor", "message": "success"}
+            template1 = 'become_an_actor.html'
+
+            return render(request, template1, context1)
+
+        else:
+            actor_form = ActorForm
+
+            context1 = {"form": actor_form, "location": "become_an_actor", "message": "error"}
+            template1 = 'become_an_actor.html'
+
+            return render(request, template1, context1)
 
 
 @csrf_exempt
@@ -287,6 +321,7 @@ def become_an_actor_view(request):
 
 
 def moviemaker_view(request):
+    form_file = FormFile
     form = MovieMakerForm
     moviemaker_list = MovieMaker.objects.all()
 
@@ -305,7 +340,7 @@ def moviemaker_view(request):
 
         moviemaker = paginator.page(paginator.num_pages)
 
-    context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": form}
+    context = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": form, "form_file": form_file}
     template = 'moviemakers.html'
 
     return render(request, template, context)
@@ -672,12 +707,20 @@ def moviemakers_application(request):
         osvetitel = "Osvetitel"
 
     name = request.POST.get('name')
+    project = request.POST.get('project')
     surname = request.POST.get('surname')
     staj = request.POST.get('select-staj')
     education = request.POST.get('education')
     phone_number = request.POST.get('phone')
     email = request.POST.get('email')
     video_link = request.POST.get('video_link')
+
+    if request.POST:
+        form1 = UploadFileForm(request.POST, request.FILES)
+
+        if form1.is_valid():
+            file_link = form1.cleaned_data['file_link']
+            FormFile.objects.create(name=name, image=file_link)
 
     import os
     f = open(os.path.join(BASE_DIR, "templates/moviemakers_application.html"))
@@ -690,14 +733,14 @@ def moviemakers_application(request):
              name=name, surname=surname, staj=staj, education=education, phone_number=phone_number, email=email,
              video_link=video_link, scenarist=scenarist, hudojnik_costume=hudojnik_costume, compositor=compositor,
              postanovshik=postanovshik, assistent=assistent, operator=operator, line_producer=line_producer,
-             kaskader=kaskader, main_producer=main_producer)
+             kaskader=kaskader, main_producer=main_producer, project=project)
     )
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
     mail.send()
 
-    return render_to_response('partial/success.html', {})
+    return HttpResponseRedirect('/moviemakers')
 
 
 @csrf_exempt

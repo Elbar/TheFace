@@ -49,12 +49,10 @@ READY_TO_GO = (
     ('No', 'Нет'),
 )
 
-
 CATEGORY_MOVIEMAKER = (
     ('professional', 'Профессионал'),
     ('newer', 'Начинающий'),
 )
-
 
 PROFESSIONAL = (
     ('director', 'Режиссер'),
@@ -91,7 +89,7 @@ class ActorForm(forms.Form):
     body = forms.ChoiceField(required=False, choices=BODY)
     height = forms.IntegerField(required=False)
     email = forms.EmailField(required=False)
-    number = forms.CharField(required=False)
+    number = forms.CharField(required=True)
     category = forms.ChoiceField(choices=CATEGORY_MOVIEMAKER, required=False)
     types = forms.ChoiceField(required=False, choices=TYPES)
     hair_color = forms.ChoiceField(required=False, choices=COLOR)
@@ -112,5 +110,9 @@ class MovieMakerForm(forms.Form):
 
 class ApplicationForm(forms.Form):
     name = forms.CharField(max_length=255, required=False)
-    number = forms.CharField(max_length=255, required=False)
+    number = forms.IntegerField(required=True)
     info = forms.CharField(max_length=255, required=False, widget=forms.Textarea)
+
+
+class UploadFileForm(forms.Form):
+    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))

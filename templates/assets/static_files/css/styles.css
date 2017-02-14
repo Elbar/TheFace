@@ -685,6 +685,7 @@ h2 {
 }
 
 .content2 > p {
+    font-family: "GothamProRegular", sans-serif;
     font-size: 16px;
     color: #0c1723;
     line-height: 22px;
@@ -723,7 +724,7 @@ h5 a:hover {
 
 .service p {
     font-family: "GothamProRegular", sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     color: #0c1723;
     line-height: 17px;
 

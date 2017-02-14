@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Actor, ActorsImage, MovieMaker, Studio, Location, News, StudioImage, StudioLink, Project, \
-    ProjectStudio, LocationImage
+    ProjectStudio, LocationImage, FormFile
 
 
 class ActorAdmin(admin.ModelAdmin):
@@ -63,6 +63,13 @@ class LocationImageAdmin(admin.ModelAdmin):
     class Meta:
         model = LocationImage
 
+
+class FormFileAdmin(admin.ModelAdmin):
+    class Meta:
+        model = FormFile
+
+
+admin.site.register(FormFile, FormFileAdmin)
 
 admin.site.register(LocationImage, LocationImageAdmin)
 

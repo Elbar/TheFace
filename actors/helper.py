@@ -51,4 +51,4 @@ def transform(path):
                 filename = filename.replace(key, RUSSIAN_ENGLISH_SYMBOLS[key])
         return os.path.join(path, filename)
 
-    return wrapped
+    return ''
