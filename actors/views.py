@@ -732,7 +732,7 @@ def moviemakers_application(request):
     if operator_check != None:
         operator = "Operator"
 
-    line_producer_check = request.POST.get('line_producer')
+    line_producer_check = request.POST.get('producer-lineinyi')
 
     if line_producer_check != None:
         line_producer = 'line_producer'
@@ -742,7 +742,7 @@ def moviemakers_application(request):
     if kaskader_check != None:
         kaskader = 'kaskader'
 
-    main_producer_check = request.POST.get('main_producer')
+    main_producer_check = request.POST.get('producer-main')
 
     if main_producer_check != None:
         main_producer = 'main_producer'
