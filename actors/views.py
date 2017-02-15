@@ -792,7 +792,7 @@ def moviemakers_application(request):
     if director_check != None:
         director = "Director"
 
-    second_director_check = request.POST.get('second_director')
+    second_director_check = request.POST.get('second-director')
 
     if second_director_check != None:
         second_director = "Second Director"
