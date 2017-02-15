@@ -258,6 +258,11 @@ def send_mail(request):
     if staj_check != None:
         staj = "Staj"
 
+    vokal_check = request.POST.get('vokal')
+
+    if vokal_check != None:
+        vokal = "Vokal"
+
     if request.method == 'POST':
 
         if form.is_valid():
