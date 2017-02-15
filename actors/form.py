@@ -69,7 +69,7 @@ PROFESSIONAL = (
     ('rekvizitor', 'Реквизитор'),
     ('light', 'Освещение'),
     ('grimer_dublera', 'Гример'),
-    ('dubler', 'Dubler'),
+    ('dubler', 'Дублер'),
     ('kaskadery', 'Каскадеры'),
 )
 
