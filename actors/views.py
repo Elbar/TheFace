@@ -168,7 +168,6 @@ def send_mail(request):
     music = None
     staj = None
 
-
     english_check = request.POST.get('english')
 
     if english_check != None:
@@ -660,6 +659,8 @@ def moviemakers_application(request):
     casting_director = None
     photographer = None
     uzbek = None
+    turkish = None
+    kazakh = None
 
     uzbek_check = request.POST.get('uzbek')
 
@@ -759,7 +760,7 @@ def moviemakers_application(request):
     director_check = request.POST.get('director')
 
     if director_check != None:
-        director = "Kyrgyz"
+        director = "Director"
 
     second_director_check = request.POST.get('second_director')
 
@@ -770,6 +771,16 @@ def moviemakers_application(request):
 
     if lighter_check != None:
         osvetitel = "Osvetitel"
+
+    turkish_check = request.POST.get('turkish')
+
+    if turkish_check != None:
+        turkish = "Turkish"
+
+    kazakh_check = request.POST.get('kazakh')
+
+    if kazakh_check != None:
+        kazakh = "Kazakh"
 
     name = request.POST.get('name')
     project = request.POST.get('project')
@@ -795,7 +806,9 @@ def moviemakers_application(request):
              name=name, surname=surname, staj=staj, education=education, phone_number=phone_number, email=email,
              video_link=video_link, scenarist=scenarist, hudojnik_costume=hudojnik_costume, compositor=compositor,
              postanovshik=postanovshik, assistent=assistent, operator=operator, line_producer=line_producer,
-             kaskader=kaskader, main_producer=main_producer, project=project, photographer=photographer, uzbek=uzbek)
+             kaskader=kaskader, main_producer=main_producer, project=project, photographer=photographer, uzbek=uzbek,
+             kazakh=kazakh, turkish=turkish
+             )
     )
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
