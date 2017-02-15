@@ -31,7 +31,7 @@ def send_application(request):
     if request.method == 'POST':
         if form.is_valid():
             name = form.cleaned_data['name']
-            number = form.cleaned_data['number']
+            number = request.POST.get('number')
             info = form.cleaned_data['info']
 
             import os
@@ -267,7 +267,7 @@ def send_mail(request):
             body = form.cleaned_data['body']
             height = form.cleaned_data['height']
             email = form.cleaned_data['email']
-            number = form.cleaned_data['number']
+            number = request.POST.get('number')
 
             types = form.cleaned_data['types']
             sex = form.cleaned_data['sex']
@@ -507,9 +507,11 @@ def get_studio(request):
     content = f.read()
     f.close()
     context = Context(
-        dict(name=name, town=town, from_area=from_area, to_area=to_area, contacts_name=contacts_name, surname=surname,
+        dict(name=name, town=town, from_area=from_area, to_area=to_area, contacts_name=contacts_name,
+             surname=surname,
              fotoset=fotoset, ad_video=ad_video, original_music=original_music, music_clip=music_clip,
-             record_song=record_song, interyer=interyer, film=film, social_clip=social_clip, aranjirovka=aranjirovka,
+             record_song=record_song, interyer=interyer, film=film, social_clip=social_clip,
+             aranjirovka=aranjirovka,
              audio_ad=audio_ad, ozvuchka=ozvuchka, info=info, info_apparatura=info_apparatura,
              project_name=project_name, video_link=video_link, address=address, number=number, site_link=site_link,
              email=email, contacts_phone=contacts_phone, contacts_email=contacts_email
@@ -519,7 +521,27 @@ def get_studio(request):
     mail.content_subtype = 'html'
     mail.send()
 
-    return render_to_response('partial/success.html', {})
+    studio_list = Studio.objects.all()
+
+    paginator = Paginator(studio_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        studio = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        studio = paginator.page(1)
+
+    except EmptyPage:
+
+        studio = paginator.page(paginator.num_pages)
+
+    context1 = {"studio": studio, 'location': 'studio', "message": "success"}
+    template1 = 'studio.html'
+
+    return render(request, template1, context1)
 
 
 @csrf_exempt
@@ -574,7 +596,27 @@ def location_application(request):
     mail.content_subtype = 'html'
     mail.send()
 
-    return render_to_response('partial/success.html', {})
+    locations_list = Location.objects.all()
+
+    paginator = Paginator(locations_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        locations = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        locations = paginator.page(1)
+
+    except EmptyPage:
+
+        locations = paginator.page(paginator.num_pages)
+
+    context1 = {"locations": locations, "location": "location", "message": "success"}
+    template1 = 'locations.html'
+
+    return render(request, template1, context1)
 
 
 @csrf_exempt

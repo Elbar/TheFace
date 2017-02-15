@@ -290,7 +290,7 @@
                     <label for="phone">
                         <br>
                         * Номер телефона обязателен к заполнению
-                        <input type="tel" name="contacts_phone" id="phone" placeholder="Телефон">
+                        <input type="tel" name="contacts_phone" id="phone" placeholder="Телефон" required>
 
                     </label>
 
@@ -493,6 +493,19 @@
                 $('.add-img button').on('click', clickFund);
 
             });
+        </script>
+
+        <script>
+            {% if message == 'error' %}
+                alert('Введите ваш номер телефона');
+            {% endif %}
+        </script>
+
+
+        <script>
+            {% if message == 'success' %}
+                alert('Ваша заявка успешно отправлена!');
+            {% endif %}
         </script>
 
         <script>

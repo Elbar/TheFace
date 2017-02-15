@@ -125,7 +125,7 @@
 
                 <div class="field">
                     <label for="l_number">Телефон<br>
-                        <input type="tel" name="phone_number" id="l_number">
+                        <input type="tel" name="phone_number" id="l_number" required>
                     </label>
                 </div>
 
@@ -283,7 +283,9 @@
 
     {% block scripts %}
         <script>
-
+            {% if message == "success" %}
+            alert("Ваша заявка успешно отправлена!")
+            {% endif %}
         </script>
 
         <script>
