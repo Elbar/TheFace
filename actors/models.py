@@ -297,7 +297,9 @@ class FormFile(models.Model):
         verbose_name_plural = 'Картинки с формы'
 
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Images')
+    image = models.FileField(upload_to=transform(PATH_MOVIEMAKER), verbose_name='Images')
+    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __unicode__(self):
         return smart_unicode(self.name)

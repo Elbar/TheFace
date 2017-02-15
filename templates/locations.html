@@ -18,7 +18,7 @@
         <div class="modal-content l_modal">
             <h3>Зарегистрируй свою локацию и клиент сам найдет тебя!</h3>
 
-            <form method="post" action="{% url 'location_application' %}" class="modal_form lm_form">
+            <form method="post" action="{% url 'location_application' %}" class="modal_form lm_form" enctype="multipart/form-data">
 
                 <div class="field">
                     <label for="location">Название локации<br>
@@ -100,7 +100,7 @@
                     <div class="field add-img">
                         <button class="button_file" type="button">
                             + Добавить файл
-                            <input type="file" id="input-file" multiple>
+                            <input type="file" id="input-file" name="file_link">
                         </button>
                         <p class="nadded">Формат: jpg, jpeg, png</p>
                         <p class="added"></p>

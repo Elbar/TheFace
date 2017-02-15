@@ -200,7 +200,7 @@
                     <div class="field add-img">
                         <button class="button_file" type="button">
                             + Добавьте постер проекта и личное фото
-                            <input name="file_link" type="file" id="input-file">
+                            <input name="file_link" type="file" id="input-file" required>
                         </button>
                         <p class="added"></p>
 
@@ -342,6 +342,12 @@
     </div>
 
     {% block scripts %}
+
+        <script>
+            {% if message == "success" %}
+                alert("Ваша заявка успешно отправлена!")
+            {% endif %}
+        </script>
 
         <script>
             $(document).ready(function () {

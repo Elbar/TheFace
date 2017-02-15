@@ -581,6 +581,11 @@ def location_application(request):
     phone_number = request.POST.get('phone_number')
     email = request.POST.get('email')
 
+    if request.POST:
+        file_link = request.FILES['file_link']
+
+        FormFile.objects.create(name=contacts_name, image=file_link)
+
     import os
     f = open(os.path.join(BASE_DIR, "templates/location_application.html"))
 
@@ -594,7 +599,7 @@ def location_application(request):
     template = Template(content)
     mail = EmailMessage('Заявка на Location', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
-    mail.send()
+    # mail.send()
 
     locations_list = Location.objects.all()
 
@@ -758,11 +763,8 @@ def moviemakers_application(request):
     video_link = request.POST.get('video_link')
 
     if request.POST:
-        form1 = UploadFileForm(request.POST, request.FILES)
-
-        if form1.is_valid():
-            file_link = form1.cleaned_data['file_link']
-            FormFile.objects.create(name=name, image=file_link)
+        file_link = request.FILES['file_link']
+        FormFile.objects.create(name=name, image=file_link)
 
     import os
     f = open(os.path.join(BASE_DIR, "templates/moviemakers_application.html"))
@@ -780,9 +782,32 @@ def moviemakers_application(request):
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
-    mail.send()
+    # mail.send()
 
-    return HttpResponseRedirect('/moviemakers')
+    form_file = FormFile
+    form = MovieMakerForm
+    moviemaker_list = MovieMaker.objects.all()
+
+    paginator = Paginator(moviemaker_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        moviemaker = paginator.page(page)
+
+    except PageNotAnInteger:
+
+        moviemaker = paginator.page(1)
+
+    except EmptyPage:
+
+        moviemaker = paginator.page(paginator.num_pages)
+
+    context1 = {"moviemaker": moviemaker, 'location': 'moviemaker', "form": form, "form_file": form_file,
+                "message": "success"}
+    template1 = 'moviemakers.html'
+
+    return render(request, template1, context1)
 
 
 @csrf_exempt
