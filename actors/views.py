@@ -652,6 +652,12 @@ def moviemakers_application(request):
     grimer = None
     montajer = None
     casting_director = None
+    photographer = None
+
+    photographer_check = request.POST.get('photographer')
+
+    if photographer_check != None:
+        photographer = "Photographer"
 
     scenarist_check = request.POST.get('scenarist')
 
@@ -777,7 +783,7 @@ def moviemakers_application(request):
              name=name, surname=surname, staj=staj, education=education, phone_number=phone_number, email=email,
              video_link=video_link, scenarist=scenarist, hudojnik_costume=hudojnik_costume, compositor=compositor,
              postanovshik=postanovshik, assistent=assistent, operator=operator, line_producer=line_producer,
-             kaskader=kaskader, main_producer=main_producer, project=project)
+             kaskader=kaskader, main_producer=main_producer, project=project, photographer=photographer)
     )
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
