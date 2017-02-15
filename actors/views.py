@@ -599,7 +599,7 @@ def location_application(request):
     template = Template(content)
     mail = EmailMessage('Заявка на Location', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
-    # mail.send()
+    mail.send()
 
     locations_list = Location.objects.all()
 
@@ -782,7 +782,7 @@ def moviemakers_application(request):
     template = Template(content)
     mail = EmailMessage('Заявка на Moviemaker', template.render(context), to=['thefacekg@gmail.com'])
     mail.content_subtype = 'html'
-    # mail.send()
+    mail.send()
 
     form_file = FormFile
     form = MovieMakerForm
