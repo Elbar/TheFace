@@ -662,6 +662,36 @@ def moviemakers_application(request):
     turkish = None
     kazakh = None
 
+    casting_director_check = request.POST.get('casting')
+
+    if casting_director_check != None:
+        casting_director = "Cating Director"
+
+    montajer_check = request.POST.get('montajer')
+
+    if montajer_check != None:
+        montajer = "Montajer"
+
+    grimer_check = request.POST.get('grimer')
+
+    if grimer_check != None:
+        grimer = "Grimer"
+
+    stilist_check = request.POST.get('stilist')
+
+    if stilist_check != None:
+        stilist = "Stilist"
+
+    rekvizitor_check = request.POST.get('rekvizitor')
+
+    if rekvizitor_check != None:
+        rekvizitor = "Rekvizitor"
+
+    music_director_check = request.POST.get('recorder')
+
+    if music_director_check != None:
+        music_director = "Music Director"
+
     uzbek_check = request.POST.get('uzbek')
 
     if uzbek_check != None:
@@ -714,7 +744,7 @@ def moviemakers_application(request):
 
     main_producer_check = request.POST.get('main_producer')
 
-    if main_producer != None:
+    if main_producer_check != None:
         main_producer = 'main_producer'
 
     kyrgyz_check = request.POST.get('kyrgyz')
@@ -807,7 +837,8 @@ def moviemakers_application(request):
              video_link=video_link, scenarist=scenarist, hudojnik_costume=hudojnik_costume, compositor=compositor,
              postanovshik=postanovshik, assistent=assistent, operator=operator, line_producer=line_producer,
              kaskader=kaskader, main_producer=main_producer, project=project, photographer=photographer, uzbek=uzbek,
-             kazakh=kazakh, turkish=turkish
+             kazakh=kazakh, turkish=turkish, music_director=music_director, rekvizitor=rekvizitor, stilist=stilist,
+             grimer=grimer, montajer=montajer, casting_director=casting_director
              )
     )
     template = Template(content)
