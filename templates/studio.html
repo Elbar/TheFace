@@ -44,7 +44,6 @@
                             <option>Интерьерная</option>
 
 
-
                         </select>
 
                     </label>
@@ -384,8 +383,8 @@
                         </div>
 
                         <div class="moviemaker">
-                            <h5>Кастингове
-                                агенство {{ item.name }}</h5>
+                            <h5><a href="{% url 'single_studio' id=item.id %}">Кастингове
+                                агенство {{ item.name }}</a></h5>
 
                             {#                            <div class="fav_button link"><img src="{% static 'images/favourite_icon.png' %}" alt="icon">Добавить#}
                             {#                                в#}
