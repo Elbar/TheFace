@@ -74,7 +74,7 @@ def actor_view(request):
     filter_form = FilterForm
     template = 'actors.html'
     actors_list = Actor.objects.all()
-    paginator = Paginator(actors_list, 10)
+    paginator = Paginator(actors_list, 100)
 
     page = request.GET.get('page')
 
@@ -106,11 +106,35 @@ def filter_actor(request):
             town = form.cleaned_data['town']
             language = form.cleaned_data['language']
 
-            actors = Actor.objects.filter(sex=sex, town=town)
+            actors_list = Actor.objects.filter(sex=sex, town=town)
+            paginator = Paginator(actors_list, 100)
+
+            page = request.GET.get('page')
+
+            try:
+                actors = paginator.page(page)
+
+            except PageNotAnInteger:
+                actors = paginator.page(1)
+
+            except EmptyPage:
+                actors = paginator.page(paginator.num_pages)
         else:
             print form.errors
     else:
-        actors = Actor.objects.all()
+        actors_list = Actor.objects.all()
+        paginator = Paginator(actors_list, 100)
+
+        page = request.GET.get('page')
+
+        try:
+            actors = paginator.page(page)
+
+        except PageNotAnInteger:
+            actors = paginator.page(1)
+
+        except EmptyPage:
+            actors = paginator.page(paginator.num_pages)
 
     context = {"actors": actors, "form": filter_form, 'location': 'actor'}
     return render(request, template, context)
