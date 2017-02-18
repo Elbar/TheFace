@@ -106,7 +106,28 @@ def filter_actor(request):
             town = form.cleaned_data['town']
             language = form.cleaned_data['language']
 
-            actors_list = Actor.objects.filter(sex=sex, town=town)
+            if minAge == None:
+                minAge = 0
+
+            if maxAge == None:
+                maxAge = 100
+
+            if sex == "None" and town == "None" and language == "None":
+                actors_list = Actor.objects.filter(age__range=[minAge, maxAge])
+
+            elif sex == "None" and town == "None":
+                actors_list = Actor.objects.filter(age__range=[minAge, maxAge], language__contains=language)
+
+            elif town == "None" and language == "None":
+                actors_list = Actor.objects.filter(age__range=[minAge, maxAge], sex=sex)
+
+            elif sex == "None" and language == "None":
+                actors_list = Actor.objects.filter(age__range=[minAge, maxAge], town=town)
+
+            else:
+                actors_list = Actor.objects.filter(age__range=[minAge, maxAge], language__contains=language, town=town,
+                                                   language=language)
+
             paginator = Paginator(actors_list, 100)
 
             page = request.GET.get('page')
