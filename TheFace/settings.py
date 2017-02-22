@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'actors',
     'widget_tweaks',
+    'django_cleanup',
 
 ]
 
