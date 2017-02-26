@@ -126,7 +126,7 @@ def filter_actor(request):
 
             else:
                 actors_list = Actor.objects.filter(age__range=[minAge, maxAge], language__contains=language, town=town,
-                                                   language=language)
+                                                   language=language, sex=sex)
 
             paginator = Paginator(actors_list, 100)
 
