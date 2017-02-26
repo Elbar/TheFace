@@ -5,17 +5,18 @@
 {% load staticfiles %}
 
 {% block content %}
+
+    <a href="#anchor" class="anchor">
+        <img src="{% static 'images/adv_5.png' %}" alt="anchor">
+
+        <div class="text_block">
+            <div class="text1">Получить</div>
+            <div class="text2">варианты</div>
+            <div class="text3">актеров!</div>
+        </div>
+    </a>
     <div class="bg1">
 
-        <a href="#anchor" class="anchor">
-            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
-
-            <div class="text_block">
-                <div class="text1">Получить</div>
-                <div class="text2">варианты</div>
-                <div class="text3">актеров!</div>
-            </div>
-        </a>
 
         <div class="content1 grid">
 
@@ -63,15 +64,28 @@
     </div>
 
     <div class="bg2" id="down">
-        <a href="#anchor" class="anchor">
-            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
+        <ul id="scene" class="scene">
+            <li class="layer"></li>
+            <!--<li class="layer-zero">-->
+            <!--<img src="assets/images/layer01.jpg" alt="proportion">-->
+            <!--</li>-->
+            <li class="layer" data-depth="0.5">
+                <div class="element1 wide"></div>
+            </li>
 
-            <div class="text_block">
-                <div class="text1">Получить</div>
-                <div class="text2">варианты</div>
-                <div class="text3">актеров!</div>
-            </div>
-        </a>
+            <li class="layer" data-depth="0.6">
+                <div class="element2 wide"></div>
+            </li>
+
+            <li class="layer" data-depth="0.7">
+                <div class="element3 wide"></div>
+            </li>
+
+            <li class="layer" data-depth="0.8">
+                <div class="element4 wide"></div>
+            </li>
+        </ul>
+
         <div class="content2 grid">
 
             <h2>услуги от профессионалов в своем деле</h2>
@@ -131,15 +145,7 @@
 
     <div class="bg3">
 
-        <a href="#anchor" class="anchor">
-            <img src="{% static 'images/adv_5.png' %}" alt="anchor">
 
-            <div class="text_block">
-                <div class="text1">Получить</div>
-                <div class="text2">варианты</div>
-                <div class="text3">актеров!</div>
-            </div>
-        </a>
         <div class="content3 grid">
             <h2>Кастинговое агентство "The Face"</h2>
 
@@ -288,6 +294,26 @@
             {% if message == 'success' %}
                 alert('Ваша заявка успешно отправлена!');
             {% endif %}
+        </script>
+
+        <script>
+            var $backToTop = $(".anchor");
+            //    $backToTop.hide();
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() > 2200) {
+                    $backToTop.hide(200);
+                } else {
+                    $backToTop.show(200);
+                }
+            });
+        </script>
+
+        <script>
+            var scene = document.getElementById('scene');
+            var parallax = new Parallax(scene, {
+                scalarY: 25,
+                scalarX: 25
+            });
         </script>
 
 

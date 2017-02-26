@@ -662,9 +662,119 @@ p {
 /*----------------------BG2-------------------------*/
 /*\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
-.bg2 {
-    background: url("../images/bg_2.jpg") center fixed no-repeat;
-    padding: 55px 0 60px 0;
+.bg2{
+    position: relative;
+    height: 870px;
+    background: url("../images/bg__2.jpg") center no-repeat;
+    background-size: cover;
+    /*padding: 55px 0 60px 0;*/
+}
+
+.scene{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    overflow: hidden;
+    /*border: 2px solid red;*/
+}
+
+.scene li:first-child {
+    border: 0;
+}
+
+.layer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*border: 1px solid blue;*/
+}
+
+/*.layer-zero img{*/
+    /*display: block;*/
+    /*/!*width: 100%;*!/*/
+    /*/!*height: 870px;*!/*/
+    /*border: 1px solid green;*/
+/*}*/
+
+.wide{
+    position: absolute;
+    /*width: 120%;*/
+    /*left: -10%;*/
+    /*border: 1px solid purple;*/
+}
+
+.element1 {
+    background: url("../images/parallax1.png") 0 0 no-repeat;
+    width: 181px;
+    height: 185px;
+    right: 0;
+    top: 70%;
+}
+
+.element2 {
+    background: url("../images/parallax2.png") 0 0 no-repeat;
+    width: 184px;
+    height: 213px;
+    top: 70%;
+    left: -50px;
+}
+
+.element3 {
+    background: url("../images/parallax3.png") 0 0 no-repeat;
+    width: 260px;
+    height: 303px;
+    top: -20px;
+    right: -200px;
+}
+
+.element4 {
+    background: url("../images/parallax4.png") 0 0 no-repeat;
+    width: 546px;
+    height: 312px;
+    top: 20%;
+    left: -400px;
+}
+
+
+@media screen and (min-width: 1600px) {
+    .element1 {
+        background: url("../images/parallax1.png") 0 0 no-repeat;
+        width: 181px;
+        height: 185px;
+        right: 0;
+        top: 70%;
+    }
+
+    .element2 {
+        background: url("../images/parallax2.png") 0 0 no-repeat;
+        width: 184px;
+        height: 213px;
+        top: 70%;
+        left: 0;
+    }
+
+    .element3 {
+        background: url("../images/parallax3.png") 0 0 no-repeat;
+        width: 260px;
+        height: 303px;
+        top: -20px;
+        right: 0;
+    }
+
+    .element4 {
+        background: url("../images/parallax4.png") 0 0 no-repeat;
+        width: 546px;
+        height: 312px;
+        top: 20%;
+        left: -80px;
+    }
+}
+
+
+.content2 {
+    padding-top: 60px;
 }
 
 h2 {
@@ -4262,8 +4372,8 @@ h3.space {
 
 /*----------------ANCHOR------------------*/
 
-.anchor {
-    position: absolute;
+.anchor{
+    position: fixed;
     top: 40%;
     /*transform: translate(-50%);*/
     right: 5px;
