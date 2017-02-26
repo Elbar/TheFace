@@ -3,8 +3,8 @@ from django import forms
 
 SEX_CHOICES = (
     ('None', 'Не выбрано'),
-    ('Male', 'Мужчина'),
-    ('Female', 'Женщина')
+    ('Male', 'Мужской'),
+    ('Female', 'Женский'),
 )
 
 TOWN_CHOICES = (
