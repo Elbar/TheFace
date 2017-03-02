@@ -87,7 +87,6 @@ class Actor(models.Model):
     age = models.IntegerField(verbose_name='Возраст')
 
     height = models.CharField(max_length=255, verbose_name='Рост')
-    weight = models.CharField(max_length=255, verbose_name='Вес')
 
     identify = models.CharField(max_length=255, verbose_name='Идентификатор')
     phone_number = models.CharField(max_length=255, verbose_name='Номер Телефона')
