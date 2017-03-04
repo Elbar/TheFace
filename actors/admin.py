@@ -6,7 +6,7 @@ from .models import *
 class ActorAdmin(admin.ModelAdmin):
     search_fields = ['identify']
     list_display = ['identify']
-    list_filter = ['sex', 'timestamp', 'age', 'weight', 'height']
+    list_filter = ['sex', 'timestamp', 'age', 'height']
     readonly_fields = ['updated', 'timestamp']
 
     class Meta:

@@ -9,8 +9,8 @@ from django.utils.encoding import smart_unicode
 
 from actors.helper import transform
 
-SEX = (('Мужской', 'Male'),
-       ('Женский', 'Female'),
+SEX = (('Мужской', 'Мужской'),
+       ('Женский', 'Женский'),
        )
 
 READY_TO_GO = (

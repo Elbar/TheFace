@@ -73,7 +73,8 @@ def send_application(request):
 def actor_view(request):
     filter_form = FilterForm
     template = 'actors.html'
-    actors_list = Actor.objects.all()
+    count = Actor.objects.all().count()
+    actors_list = Actor.objects.all().order_by('?')[:count]
     paginator = Paginator(actors_list, 100)
 
     page = request.GET.get('page')
